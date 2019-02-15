@@ -3,7 +3,7 @@
 //修正系統時間
 date_default_timezone_set('Asia/Taipei');
 //連結SQL
-$dblink=new PDO("mysql:host=localhost;dbname=php_q1;charset=utf8","root","");
+$dblink=new PDO("mysql:host=localhost;dbname=php_q2;charset=utf8","root","");
 
 //PHP 轉址
 function plo($link){
@@ -91,87 +91,52 @@ function addfile($file){
 }
 ?>
 <?php
-/*********************後為Q1使用*************************/
+/*********************後為Q2使用*************************/
 //使用session
 session_start();
 
-//是否登入來做按鈕的顯示方式
-if(empty($_SESSION['admin'])){
-    $btn="管理登入";
-    $btnlink="login.php";
+//for t3
+$today= date("m 月 d 號 l"); //for include t3.first
+$check=select("visit_t3","date='".$today."'");
+if($check==null) {  //找不到今天紀錄
+    $ary["date"]=$today;
+    $ary["num"]=0;
+    insert($ary,"visit_t3");    //新增今天且初始0
 }
 else{
-    $btn="回後台管理";
-    $btnlink="admin.php";
-}
-//for t3
-$result=select("title_t3","dpy=1");
-foreach($result as $row){
-    $title_img="img/".$row["file"];
-    $title_text=$row["text"];
-}
-//for t4
-$maqe_text="";
-$result=select("maqe_t4","dpy=1");
-foreach($result as $row){
-    $maqe_text.=$row["text"]."　　";
-}
-//for t5
-$result=select("mvim_t5","dpy=1");
-foreach($result as $row){
-    $mvim_ary[]="img/".$row["file"];
-}
-//for t6
-$result=select("img_t6","dpy=1");
-foreach($result as $row){
-    $img_ary[]="img/".$row["file"];
-}
-//for t7
-$result=select("total_t7",1);
-foreach($result as $row){
-    $total_num=$row["once"];
-}
-if(empty($_SESSION['who'])) {
-    $_SESSION['who']=87;
-    $newtotal['once']=$total_num+1;
-    update($newtotal,"total_t7");
-    
-    $result=select("total_t7",1);
-    foreach($result as $row){
-        $total_num=$row["once"];
+    foreach ($check as $row){
+        if(empty($_SESSION['visit'])){          //新訪客則給值並table visit.num+1
+            $_SESSION['visit']="new user";  
+            $ary['num'][$row['id']]="num+1";    //array['name']['id']=value;
+            update($ary,"visit_t3");            //update function只能依id做處理
+            $today_visit=$row['num']+1;
+        }
+        else $today_visit=$row['num'];  //for include t3.second
     }
 }
-//for t8
-$result=select("footer_t8",1);
-foreach($result as $row){
-    $bottom_text=$row["once"];
-}
-//for t9 to index.php
-$news_total=count(select("news_t9","dpy=1"));
-$result=select("news_t9","dpy=1 limit 5");
-foreach($result as $row){
-    $news_text[]=$row["text"];
-}
-//for t12
-$result=select("menu_t12","dpy=1 and parent=0");
-$menu_text="";
-foreach($result as $row){
-    $menu_text.='
-                        <div class="mainmu">
-                            <a style="color:#000; font-size:13px; text-decoration:none;" href="'.$row['link'].'">'.$row['text'].'</a>
-    ';
-    $sub=select("menu_t12","dpy=1 and parent=".$row['id']);
-    if(!empty($sub))
-        foreach($sub as $row) 
-            $menu_text.='<div class="mainmu2 mw" style="display:none"><a style="color:#000; font-size:13px; text-decoration:none;" href="'.$row['link'].'">'.$row['text'].'</a></div>';
-    $menu_text.='
-                        </div>
-    ';
-}
-// <div class="mainmu">
-//     <a href="admin.php">網站標題管理</a>
-//         <div class="mainmu2 mw" style="display:none"><a href="admin.php">網站標題管理</a></div>
-//         <div class="mainmu2 mw" style="display:none"><a href="admin.php">網站標題管理</a></div>
-//     </a>
-// </div>
+$get_check=select("visit_t3","");
+$all_visit=0;
+foreach($get_check as $row) $all_visit+=$row['num'];  //for include t3.third 拜訪統計
+//for t4
+$admin_active = (!empty($_SESSION['acc'])&&$_SESSION['acc']=="admin") ? "admin_main" : "main";
+$content_zone = (empty($_GET['do'])) ? $admin_active : $_GET['do']; //content=main or $_GET[do]
+//for t6
+$login = (empty($_SESSION['acc'])) ?"<a href='?do=login'>會員登入</a>":"歡迎，".$_SESSION['acc']."<a href='?do=logout'>登出</a>"; 
+
+//for t14
+$adminmenu='
+<a class="blo" href="?do=admin_user">帳號管理</a>
+<a class="blo" href="?do=null">分類網誌</a>
+<a class="blo" href="?do=admin_news">最新文章管理</a>
+<a class="blo" href="?do=null">講座管理</a>
+<a class="blo" href="?do=admin_que">問卷管理</a>
+';
+$usermenu='
+<a class="blo" href="?do=po">分類網誌</a>
+<a class="blo" href="?do=news">最新文章</a>
+<a class="blo" href="?do=pop">人氣文章</a>
+<a class="blo" href="?do=null">講座訊息</a>
+<a class="blo" href="?do=que">問卷調查</a>
+';
+$menu = (!empty($_SESSION['acc'])&&$_SESSION['acc']=="admin") ?$adminmenu:$usermenu; //是否(存在登入且為admin)做對應menu值為何
 ?>
