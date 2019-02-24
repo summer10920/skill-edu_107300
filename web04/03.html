@@ -847,7 +847,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="5.html">
+        <li class="chapter " data-level="1.5.4" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    10. 管理登入 (35%)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="5.html">
             
                 <a href="5.html">
             
@@ -860,7 +873,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="6.html">
+        <li class="chapter " data-level="1.5.6" data-path="6.html">
             
                 <a href="6.html">
             
@@ -873,7 +886,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="7.html">
+        <li class="chapter " data-level="1.5.7" data-path="7.html">
             
                 <a href="7.html">
             
@@ -886,7 +899,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="8.html">
+        <li class="chapter " data-level="1.5.8" data-path="8.html">
             
                 <a href="8.html">
             
@@ -899,25 +912,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.8" data-path="9.html">
+        <li class="chapter " data-level="1.5.9" data-path="9.html">
             
                 <a href="9.html">
             
                     
                     9. 會員管理 (15%)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.9" data-path="10.html">
-            
-                <a href="10.html">
-            
-                    
-                    10. 管理登入 (35%)
             
                 </a>
             
@@ -1444,7 +1444,7 @@
 <tbody>
 <tr>
 <td style="text-align:left">1</td>
-<td style="text-align:left">id<img src="http://127.0.0.1/phpmyadmin/themes/dot.gif" alt="" title="&#x4E3B;&#x9375;"></td>
+<td style="text-align:left"><img src="http://127.0.0.1/phpmyadmin/themes/dot.gif" alt="" title="&#x4E3B;&#x9375;">id</td>
 <td style="text-align:left">int(10)</td>
 <td style="text-align:left"></td>
 <td style="text-align:left">UNSIGNED</td>
@@ -1455,9 +1455,9 @@
 </tr>
 <tr>
 <td style="text-align:left">2</td>
-<td style="text-align:left">user</td>
-<td style="text-align:left">int(11)</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">acc</td>
+<td style="text-align:left">text</td>
+<td style="text-align:left">utf8mb4_unicode_ci</td>
 <td style="text-align:left"></td>
 <td style="text-align:left">&#x5426;</td>
 <td style="text-align:left"><em>&#x7121;</em></td>
@@ -1466,6 +1466,50 @@
 </tr>
 <tr>
 <td style="text-align:left">3</td>
+<td style="text-align:left">name</td>
+<td style="text-align:left">text</td>
+<td style="text-align:left">utf8mb4_unicode_ci</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5426;</td>
+<td style="text-align:left"><em>&#x7121;</em></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">mail</td>
+<td style="text-align:left">text</td>
+<td style="text-align:left">utf8mb4_unicode_ci</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5426;</td>
+<td style="text-align:left"><em>&#x7121;</em></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">addr</td>
+<td style="text-align:left">text</td>
+<td style="text-align:left">utf8mb4_unicode_ci</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5426;</td>
+<td style="text-align:left"><em>&#x7121;</em></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">tel</td>
+<td style="text-align:left">text</td>
+<td style="text-align:left">utf8mb4_unicode_ci</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5426;</td>
+<td style="text-align:left"><em>&#x7121;</em></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
 <td style="text-align:left">date</td>
 <td style="text-align:left">date</td>
 <td style="text-align:left"></td>
@@ -1476,14 +1520,25 @@
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:left">4</td>
+<td style="text-align:left">8</td>
 <td style="text-align:left">buy</td>
 <td style="text-align:left">text</td>
 <td style="text-align:left">utf8mb4_unicode_ci</td>
 <td style="text-align:left"></td>
 <td style="text-align:left">&#x5426;</td>
 <td style="text-align:left"><em>&#x7121;</em></td>
-<td style="text-align:left">ary(product+num+price)</td>
+<td style="text-align:left">ary(product+num)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left">total</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5426;</td>
+<td style="text-align:left"><em>&#x7121;</em></td>
+<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
@@ -1522,7 +1577,7 @@
 </tr>
 <tr>
 <td style="text-align:left">2</td>
-<td style="text-align:left">user</td>
+<td style="text-align:left">acc</td>
 <td style="text-align:left">text</td>
 <td style="text-align:left">utf8mb4_unicode_ci</td>
 <td style="text-align:left"></td>
@@ -1805,7 +1860,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"C. 資料庫整理","level":"1.5.1.3","depth":3,"next":{"title":"3. 前台首頁標題 (35%)","level":"1.5.2","depth":2,"path":"web04/3.md","ref":"web04/3.md","articles":[]},"previous":{"title":"B. 函式庫規劃","level":"1.5.1.2","depth":3,"path":"web04/02.md","ref":"web04/02.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web04/03.md","mtime":"2019-02-21T14:25:00.360Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-21T16:21:21.427Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"C. 資料庫整理","level":"1.5.1.3","depth":3,"next":{"title":"3. 前台首頁標題 (35%)","level":"1.5.2","depth":2,"path":"web04/3.md","ref":"web04/3.md","articles":[]},"previous":{"title":"B. 函式庫規劃","level":"1.5.1.2","depth":3,"path":"web04/02.md","ref":"web04/02.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web04/03.md","mtime":"2019-02-24T05:27:49.143Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

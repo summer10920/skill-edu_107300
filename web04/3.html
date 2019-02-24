@@ -847,7 +847,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="5.html">
+        <li class="chapter " data-level="1.5.4" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    10. 管理登入 (35%)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="5.html">
             
                 <a href="5.html">
             
@@ -860,7 +873,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="6.html">
+        <li class="chapter " data-level="1.5.6" data-path="6.html">
             
                 <a href="6.html">
             
@@ -873,7 +886,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="7.html">
+        <li class="chapter " data-level="1.5.7" data-path="7.html">
             
                 <a href="7.html">
             
@@ -886,7 +899,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.7" data-path="8.html">
+        <li class="chapter " data-level="1.5.8" data-path="8.html">
             
                 <a href="8.html">
             
@@ -899,25 +912,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.8" data-path="9.html">
+        <li class="chapter " data-level="1.5.9" data-path="9.html">
             
                 <a href="9.html">
             
                     
                     9. 會員管理 (15%)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.9" data-path="10.html">
-            
-                <a href="10.html">
-            
-                    
-                    10. 管理登入 (35%)
             
                 </a>
             
@@ -989,32 +989,36 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x7B2C;3&#x984C;-&#x7DB2;&#x7AD9;&#x6A19;&#x984C;">&#x7B2C;3&#x984C;. &#x7DB2;&#x7AD9;&#x6A19;&#x984C;</h1>
-<p>&#x8ABF;&#x6574;index.php&#x9078;&#x55AE;&#x7684;&#x6709;&#x6548;&#x9023;&#x63A5;&#xFF0C;&#x4EE5;&#x53CA;&#x898F;&#x5283;&#x597D;&#x5E33;&#x865F;&#x767B;&#x5165;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x4FEE;&#x6B63;&#x6307;&#x5B9A;&#x4E4B;&#x7DB2;&#x9801;&#x6709;&#x6548;&#x9023;&#x7D50;</p>
 <hr>
-<h1 id="&#x4FEE;&#x6539;indexphp&#x3001;bookingphp&#x3001;adminphp">&#x4FEE;&#x6539;index.php&#x3001;booking.php&#x3001;admin.php</h1>
+<h1 id="&#x4FEE;&#x6539;indexphp">&#x4FEE;&#x6539;index.php</h1>
 <h3 id="1-&#x9078;&#x55AE;&#x7684;&#x6709;&#x6548;&#x9023;&#x7D50;">1. &#x9078;&#x55AE;&#x7684;&#x6709;&#x6548;&#x9023;&#x7D50;</h3>
-<p>&#x5728;&#x5F8C;&#x53F0;&#x8A2D;&#x8A08;&#x4E0A;&#x5927;&#x90E8;&#x5206;&#x90FD;&#x662F;do=admin&amp;redo=XX&#x3002;&#x56E0;&#x6B64;&#x8ABF;&#x6574;&#x597D;&#x88AB;&#x547D;&#x540D;&#x904E;&#x7684;&#x9078;&#x55AE;&#x9023;&#x63A5;&#x3002;&#x5176;&#x4E2D;login&#x767B;&#x5165;&#x8DDF;&#x8457;&#x505A;&#x5728;admin.php&#x4E26;&#x5229;&#x7528;redo=login&#x4F86;&#x505A;&#x63D0;&#x4EA4;&#x756B;&#x9762;</p>
-<p>&#x5728;&#x4E09;&#x500B;&#x7D20;&#x6750;&#x7248;&#x578B;&#x5167;&#x627E;&#x5230;</p>
-<pre><code class="lang-php">&lt;div id=<span class="hljs-string">&quot;top2&quot;</span>&gt;
-    &lt;a href=<span class="hljs-string">&quot;03P01.htm&quot;</span>&gt;&#x9996;&#x9801;&lt;/a&gt; &lt;a href=<span class="hljs-string">&quot;03P02.htm&quot;</span>&gt;&#x7DDA;&#x4E0A;&#x8A02;&#x7968;&lt;/a&gt; &lt;a href=<span class="hljs-string">&quot;#&quot;</span>&gt;&#x6703;&#x54E1;&#x7CFB;&#x7D71;&lt;/a&gt; &lt;a href=<span class="hljs-string">&quot;03P03.htm&quot;</span>&gt;&#x7BA1;&#x7406;&#x7CFB;&#x7D71;&lt;/a&gt;
-&lt;/div&gt;
+<p>&#x5927;&#x90E8;&#x5206;&#x7684;&#x9078;&#x55AE;&#x90FD;&#x5DF2;&#x6709;&#x9810;&#x8A2D;&#x503C;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x7279;&#x5225;&#x4FEE;&#x6539;&#x3002;&#x53EA;&#x9700;&#x8ABF;&#x6574;&#x9996;&#x9801;&#x9023;&#x7D50;&#xFF0C;&#x4EE5;&#x53CA;URL&#x8F49;&#x63DB;&#x80FD;&#x6709;&#x6548;&#x57F7;&#x884C;&#x4FBF;&#x53EF;</p>
+<p>&#x627E;&#x5230;</p>
+<pre><code class="lang-php">&lt;a href=<span class="hljs-string">&quot;?&quot;</span>&gt;&#x56DE;&#x9996;&#x9801;&lt;/a&gt; |
 </code></pre>
 <p>&#x4FEE;&#x6539;&#x70BA;</p>
-<pre><code class="lang-php">&lt;div id=<span class="hljs-string">&quot;top2&quot;</span>&gt;
-&lt;a href=<span class="hljs-string">&quot;index.php&quot;</span>&gt;&#x9996;&#x9801;&lt;/a&gt; &lt;a href=<span class="hljs-string">&quot;booking.php&quot;</span>&gt;&#x7DDA;&#x4E0A;&#x8A02;&#x7968;&lt;/a&gt; &lt;a href=<span class="hljs-string">&quot;#&quot;</span>&gt;&#x6703;&#x54E1;&#x7CFB;&#x7D71;&lt;/a&gt; &lt;a href=<span class="hljs-string">&quot;admin.php?do=admin&amp;redo=login&quot;</span>&gt;&#x7BA1;&#x7406;&#x7CFB;&#x7D71;&lt;/a&gt;
+<pre><code class="lang-php">&lt;a href=<span class="hljs-string">&quot;index.php&quot;</span>&gt;&#x56DE;&#x9996;&#x9801;&lt;/a&gt; |
+</code></pre>
+<p>&#x8ABF;&#x6574;&#x4E3B;&#x5340;&#x57DF;&#xFF0C;&#x627E;&#x5230;</p>
+<pre><code class="lang-php">&lt;div id=<span class="hljs-string">&quot;right&quot;</span>&gt;
 &lt;/div&gt;
 </code></pre>
-<p>&#x53E6;&#x5916;&#x5148;&#x63D2;&#x5165;&#x5404;&#x9801;&#x9996;&#x9023;&#x63A5;sql.php&#xFF0C;&#x65B9;&#x4FBF;&#x4E4B;&#x5F8C;&#x4EFB;&#x4F55;PHP&#x8207;SQL&#x8655;&#x7406;&#x3002;</p>
+<p>&#x6539;&#x70BA;</p>
+<pre><code class="lang-php">&lt;div id=<span class="hljs-string">&quot;right&quot;</span>&gt;
+<span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">include</span> $main_content.<span class="hljs-string">&quot;.php&quot;</span>; <span class="hljs-meta">?&gt;</span>
+&lt;/div&gt;
+</code></pre>
+<p>&#x5728;&#x9801;&#x9996;&#x52A0;&#x5165;</p>
 <pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
 <span class="hljs-keyword">include</span> <span class="hljs-string">&quot;sql.php&quot;</span>;
 <span class="hljs-meta">?&gt;</span>
 </code></pre>
-<h1 id="&#x4FEE;&#x6539;adminphp">&#x4FEE;&#x6539;admin.php</h1>
-<p>&#x62BD;&#x53D6;&#x51FA;admin.php&#x7684;&#x5167;&#x5BB9;&#x5340;&#x57DF;&#xFF0C;&#x62FF;&#x4F86;&#x505A;&#x5C0D;&#x61C9;&#x7684;&#x9069;&#x5408;&#x5167;&#x5BB9;&#x3002;<strong>&#x53E6;&#x5B58;&#x70BA;admin_main.php</strong>&#x7F6E;&#x653E;&#x5165;&#x4F5C;&#x70BA;admin&#x9996;&#x9801;</p>
-<pre><code class="lang-php">&lt;h2 class=&quot;ct&quot;&gt;&#x8ACB;&#x9078;&#x64C7;&#x6240;&#x9700;&#x529F;&#x80FD;&lt;/h2&gt;
+<p>&#x53E6;&#x5916;do=admin&#x6703;&#x76F4;&#x63A5;&#x8DD1;&#x5230;&#x5F8C;&#x53F0;&#x7DB2;&#x9801;&#x53BB;&#x3002;&#x6240;&#x4EE5;&#x4E5F;&#x8981;&#x6539;</p>
+<pre><code class="lang-php">&lt;a href=<span class="hljs-string">&quot;?do=admin&quot;</span>&gt;&#x7BA1;&#x7406;&#x767B;&#x5165;&lt;/a&gt;
 </code></pre>
 <p>&#x6539;&#x70BA;</p>
-<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">include</span> $admin_zone.<span class="hljs-string">&quot;.php&quot;</span> <span class="hljs-meta">?&gt;</span>
+<pre><code class="lang-php">&lt;a href=<span class="hljs-string">&quot;?do=adminlogin&quot;</span>&gt;&#x7BA1;&#x7406;&#x767B;&#x5165;&lt;/a&gt;
 </code></pre>
 <p>&#x9084;&#x6709;admin&#x7684;&#x9078;&#x55AE;&#x4E5F;&#x62BD;&#x53D6;&#x51FA;&#x4F86;&#x653E;&#x5230;sql.php&#x5167;&#x505A;&#x986F;&#x793A;&#x5224;&#x5225;&#x8655;&#x7406;</p>
 <pre><code class="lang-php">&lt;div class=&quot;ct a rb&quot; style=&quot;position:relative; width:101.5%; left:-1%; padding:3px; top:-9px;&quot;&gt;&lt;a href=&quot;?do=admin&amp;redo=tit&quot;&gt;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x7BA1;&#x7406;&lt;/a&gt;| &lt;a href=&quot;?do=admin&amp;redo=go&quot;&gt;&#x52D5;&#x614B;&#x6587;&#x5B57;&#x7BA1;&#x7406;&lt;/a&gt;| &lt;a href=&quot;?do=admin&amp;redo=rr&quot;&gt;&#x9810;&#x544A;&#x7247;&#x6D77;&#x5831;&#x7BA1;&#x7406;&lt;/a&gt;| &lt;a href=&quot;?do=admin&amp;redo=vv&quot;&gt;&#x9662;&#x7DDA;&#x7247;&#x7BA1;&#x7406;&lt;/a&gt;| &lt;a href=&quot;?do=admin&amp;redo=order&quot;&gt;&#x96FB;&#x5F71;&#x8A02;&#x7968;&#x7BA1;&#x7406;&lt;/a&gt;&lt;/div&gt;
@@ -1022,61 +1026,7 @@
 <p>&#x6539;&#x70BA;</p>
 <pre><code class="lang-php"><span class="hljs-meta">&lt;?</span>=$admin_menu<span class="hljs-meta">?&gt;</span>
 </code></pre>
-<h1 id="&#x589E;&#x6DFB;sqlphp">&#x589E;&#x6DFB;sql.php</h1>
-<h3 id="2-&#x8A2D;&#x8A08;url&#x6620;&#x5C04;&#x8207;admin&#x9078;&#x55AE;">2. &#x8A2D;&#x8A08;URL&#x6620;&#x5C04;&#x8207;admin&#x9078;&#x55AE;</h3>
-<ol>
-<li>&#x6C92;&#x6709;do&#x5C31;&#x5448;&#x73FE;admin_zone.php&#xFF0C;&#x5426;&#x5247;&#x4F9D;&#x64DA;do&#x751A;&#x9EBC;&#x958B;&#x751A;&#x9EBC;php&#x7DB2;&#x9801;</li>
-<li>admin&#x7684;&#x9078;&#x55AE;&#x53EA;&#x7D66;SESSION[&apos;admin&apos;]&#x5B58;&#x5728;&#x6642;&#x4F7F;&#x7528; (&#x9806;&#x4FBF;&#x628A;&#x984C;&#x76EE;&#x6C92;&#x6709;&#x8981;&#x8A2D;&#x8A08;&#x7684;&#x9078;&#x55AE;&#x505A;&#x6210;#&#x9023;&#x7D50;)</li>
-</ol>
-<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
-<span class="hljs-comment">/*********************&#x5F8C;&#x70BA;Q3&#x4F7F;&#x7528;*************************/</span>
-<span class="hljs-comment">//&#x4F7F;&#x7528;session</span>
-session_start();
 
-<span class="hljs-comment">//for t3</span>
-$admin_zone = (!<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;do&apos;</span>])&amp;&amp;!<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;redo&apos;</span>])) ? $_GET[<span class="hljs-string">&apos;do&apos;</span>].<span class="hljs-string">&quot;_&quot;</span>.$_GET[<span class="hljs-string">&apos;redo&apos;</span>] : <span class="hljs-string">&quot;admin_main&quot;</span>;
-$admin_menu = (<span class="hljs-keyword">empty</span>($_SESSION[<span class="hljs-string">&apos;admin&apos;</span>])) ? <span class="hljs-string">&quot;&quot;</span> : <span class="hljs-string">&apos;&lt;div class=&quot;ct a rb&quot; style=&quot;position:relative; width:101.5%; left:-1%; padding:3px; top:-9px;&quot;&gt;&lt;a href=&quot;#&quot;&gt;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x7BA1;&#x7406;&lt;/a&gt;| &lt;a href=&quot;#&quot;&gt;&#x52D5;&#x614B;&#x6587;&#x5B57;&#x7BA1;&#x7406;&lt;/a&gt;| &lt;a href=&quot;?do=admin&amp;redo=rr&quot;&gt;&#x9810;&#x544A;&#x7247;&#x6D77;&#x5831;&#x7BA1;&#x7406;&lt;/a&gt;| &lt;a href=&quot;?do=admin&amp;redo=vv&quot;&gt;&#x9662;&#x7DDA;&#x7247;&#x7BA1;&#x7406;&lt;/a&gt;| &lt;a href=&quot;?do=admin&amp;redo=order&quot;&gt;&#x96FB;&#x5F71;&#x8A02;&#x7968;&#x7BA1;&#x7406;&lt;/a&gt;&lt;/div&gt;&apos;</span>;
-</code></pre>
-<h1 id="&#x65B0;&#x589E;adminloginphp">&#x65B0;&#x589E;admin_login.php</h1>
-<p>&#x8A2D;&#x8A08;login&#x8868;&#x55AE;&#x4E26;&#x63D0;&#x4EA4;&#x5230;api.php</p>
-<pre><code>&lt;form action=&quot;api.php?do=login&quot; method=&quot;post&quot;&gt;
-    &lt;div class=&quot;ct&quot; style=&quot;margin:100px 0&quot;&gt;
-        &#x5E33;&#x865F;&#xFF1A;&lt;input type=&quot;text&quot; name=&quot;acc&quot;&gt;&lt;br&gt;&lt;br&gt;
-        &#x5BC6;&#x78BC;&#xFF1A;&lt;input type=&quot;password&quot; name=&quot;pwd&quot;&gt;&lt;br&gt;&lt;br&gt;
-        &lt;input type=&quot;submit&quot; value=&quot;&#x767B;&#x5165;&quot;&gt;
-    &lt;/div&gt;
-&lt;/form&gt;
-</code></pre><h1 id="&#x65B0;&#x589E;apiphp">&#x65B0;&#x589E;api.php</h1>
-<p>&#x898F;&#x5283;switch&#xFF0C;&#x4E26;&#x958B;&#x59CB;&#x505A;login&#x7684;&#x63D0;&#x4EA4;&#x4F5C;&#x696D;</p>
-<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
-<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;sql.php&quot;</span>;
-
-<span class="hljs-keyword">switch</span> ($_GET[<span class="hljs-string">&apos;do&apos;</span>]) {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;login&apos;</span>:
-        $result=select(<span class="hljs-string">&quot;admin_t3&quot;</span>,<span class="hljs-string">&quot;acc=&apos;&quot;</span>.$_POST[<span class="hljs-string">&apos;acc&apos;</span>].<span class="hljs-string">&quot;&apos; and pwd=&apos;&quot;</span>.$_POST[<span class="hljs-string">&apos;pwd&apos;</span>].<span class="hljs-string">&quot;&apos;&quot;</span>);
-        <span class="hljs-keyword">if</span>($result==<span class="hljs-keyword">null</span>) <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;script&gt;alert(&apos;&#x5E33;&#x865F;&#x6216;&#x5BC6;&#x78BC;&#x8F38;&#x5165;&#x932F;&#x8AA4;&apos;);window.history.back();&lt;/script&gt;&quot;</span>;
-        <span class="hljs-keyword">else</span> {
-            $_SESSION[<span class="hljs-string">&apos;admin&apos;</span>]=$_POST[<span class="hljs-string">&apos;acc&apos;</span>];
-            plo(<span class="hljs-string">&quot;admin.php&quot;</span>);
-        }
-    <span class="hljs-keyword">break</span>;
-}
-<span class="hljs-meta">?&gt;</span>
-</code></pre>
-<h1 id="&#x4FEE;&#x6539;loginphp">&#x4FEE;&#x6539;login.php</h1>
-<p>&#x6B64;&#x6642;&#xFF0C;&#x767B;&#x5165;&#x529F;&#x80FD;&#x5DF2;&#x5B8C;&#x6210;&#x3002;&#x4F46;&#x9700;&#x8981;&#x4FEE;&#x6B63;&#x4E00;&#x4E0B;admin_login.php&#x958B;&#x982D;&#xFF0C;&#x5DF2;&#x767B;&#x5165;&#x8005;&#x5C31;&#x4E0D;&#x9700;&#x8981;login.php&#x8868;&#x55AE;&#xFF0C;&#x76F4;&#x63A5;&#x8F49;&#x5740;&#x3002;</p>
-<pre><code class="lang-php">if(empty($_SESSION[&apos;admin&apos;])&amp;&amp;$_GET[&apos;redo&apos;]!=&quot;login&quot;) plo(&quot;admin.php?do=admin&amp;redo=login&quot;);
-&lt;form action=&quot;api.php?do=login&quot; method=&quot;post&quot;&gt;
-    &lt;div class=&quot;ct&quot; style=&quot;margin:100px 0&quot;&gt;
-        &#x5E33;&#x865F;&#xFF1A;&lt;input type=&quot;text&quot; name=&quot;acc&quot;&gt;&lt;br&gt;&lt;br&gt;
-        &#x5BC6;&#x78BC;&#xFF1A;&lt;input type=&quot;password&quot; name=&quot;pwd&quot;&gt;&lt;br&gt;&lt;br&gt;
-        &lt;input type=&quot;submit&quot; value=&quot;&#x767B;&#x5165;&quot;&gt;
-    &lt;/div&gt;
-&lt;/form&gt;
-</code></pre>
-<p>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;admin&#x7684;&#x767B;&#x5165;&#x9A57;&#x8B49;&#x597D;&#x4E00;&#x9EDE;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;admin.php&#x4E00;&#x958B;&#x59CB;&#x7684;&lt;?php?&gt;&#x5167;&#x90E8;&#x52A0;&#x5165;</p>
-<pre><code>if(empty($_SESSION[&apos;admin&apos;])&amp;&amp;$_GET[&apos;do&apos;]!=&quot;login&quot;) plo(&quot;admin.php?do=login&quot;);
-</code></pre>
                                 
                                 </section>
                             
@@ -1119,7 +1069,7 @@ $admin_menu = (<span class="hljs-keyword">empty</span>($_SESSION[<span class="hl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3. 前台首頁標題 (35%)","level":"1.5.2","depth":2,"next":{"title":"4. 前台商品分類 (25%)","level":"1.5.3","depth":2,"path":"web04/4.md","ref":"web04/4.md","articles":[]},"previous":{"title":"C. 資料庫整理","level":"1.5.1.3","depth":3,"path":"web04/03.md","ref":"web04/03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web04/3.md","mtime":"2019-02-18T00:48:41.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-21T16:21:21.427Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. 前台首頁標題 (35%)","level":"1.5.2","depth":2,"next":{"title":"4. 前台商品分類 (25%)","level":"1.5.3","depth":2,"path":"web04/4.md","ref":"web04/4.md","articles":[]},"previous":{"title":"C. 資料庫整理","level":"1.5.1.3","depth":3,"path":"web04/03.md","ref":"web04/03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web04/3.md","mtime":"2019-02-22T01:21:36.398Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
