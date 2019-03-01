@@ -992,249 +992,187 @@
 <p>&#x4F60;&#x5DF2;&#x7D93;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5207;&#x63DB;&#x524D;&#x5F8C;&#x53F0;&#x5C31;&#x80FD;&#x958B;&#x59CB;&#x8655;&#x7406;&#x5404;&#x984C;&#x76EE;&#xFF0C;&#x540C;&#x6642;&#x6CE8;&#x610F;&#x5F8C;&#x53F0;admin.php&#x7684;&#x521D;&#x59CB;&#x9801;&#x70BA;&#x8A72;T3&#x3002;&#x56E0;&#x9019;&#x88E1;&#x7B97;&#x7B2C;&#x4E00;&#x6B21;&#x8655;&#x7406;&#x5F8C;&#x53F0;&#xFF0C;&#x6240;&#x4EE5;main_zone&#x8981;&#x8655;&#x7406;&#x6389;</p>
 <hr>
 <h1 id="&#x4FEE;&#x6539;adminphp">&#x4FEE;&#x6539;admin.php</h1>
-<h3 id="1-&#x5F8C;&#x53F0;&#x9078;&#x55AE;&#x7684;&#x4FEE;&#x6B63;">1. &#x5F8C;&#x53F0;&#x9078;&#x55AE;&#x7684;&#x4FEE;&#x6B63;</h3>
+<h3 id="1-&#x64CD;&#x4F5C;&#x5340;&#x57DF;&#x8ABF;&#x6574;">1. &#x64CD;&#x4F5C;&#x5340;&#x57DF;&#x8ABF;&#x6574;</h3>
+<p>&#x4E00;&#x958B;&#x59CB;&#x5148;&#x8ABF;&#x6574;&#x7684;&#x5F8C;&#x53F0;&#x4EE3;&#x78BC;&#x7D20;&#x6750;&#xFF0C;&#x8ABF;&#x5230;&#x9069;&#x5408;&#x7684;&#x63A5;&#x7E8C;&#x7DE8;&#x8F2F;&#x7A0B;&#x5EA6;&#x3002;</p>
 <p>&#x5148;&#x8ABF;&#x6574;&#x7BA1;&#x7406;&#x9078;&#x55AE;&#x6B63;&#x5E38;&#x7684;href&#x9023;&#x63A5;&#x3002;&#x6307;&#x5411;&#x5230;admin.php&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</p>
 <pre><code class="lang-php">&lt;a style=<span class="hljs-string">&quot;color:#000; font-size:13px; text-decoration:none;&quot;</span> href=<span class="hljs-string">&quot;./Management page_files/Management page.htm&quot;</span>&gt;
 </code></pre>
 <p>&#x4FEE;&#x6539;&#x70BA;</p>
-<pre><code class="lang-php">&lt;a style=<span class="hljs-string">&quot;color:#000; font-size:13px; text-decoration:none;&quot;</span> href=<span class="hljs-string">&quot;admin.php&quot;</span>&gt;
+<pre><code class="lang-php">&lt;a style=<span class="hljs-string">&quot;color:#000; font-size:13px; text-decoration:none;&quot;</span> href=<span class="hljs-string">&quot;?do=admin&amp;redo=title&quot;</span>&gt;
 </code></pre>
-<p>&#x5F8C;&#x53F0;&#x9078;&#x55AE;&#x9023;&#x7D50;&#x90FD;&#x662F;<strong>?do=admin&amp;redo=XX</strong>&#x3002;&#x6240;&#x4EE5;&#x505A;&#x5207;&#x63DB;content zone&#x7684;&#x529F;&#x80FD;&#x3002;&#x5728;&#x9801;&#x9996;&#x52A0;&#x5165;php&#x5224;&#x5225;&#x53C3;&#x6578;include&#x3002;&#x900F;&#x904E;&#x4EE5;&#x4E0B;&#x505A;&#x6CD5;&#x53EF;&#x4EE5;&#x516C;&#x7528;&#x8655;&#x7406;&#x3002;<br>(&#x53E6;&#x5916;&#x8A18;&#x5F97;include sql.php&#x8DDF;set.php&#xFF0C;&#x65B9;&#x4FBF;&#x4E4B;&#x5F8C;&#x6240;&#x6709;sql&#x9023;&#x63A5;&#x4F7F;&#x7528;)</p>
-<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
-<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;sql.php&quot;</span>;
-$content_zone=<span class="hljs-string">&quot;admin_title&quot;</span>;
-<span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;redo&apos;</span>])) $content_zone=$_GET[<span class="hljs-string">&apos;do&apos;</span>].<span class="hljs-string">&quot;_&quot;</span>.$_GET[<span class="hljs-string">&apos;redo&apos;</span>];
-<span class="hljs-meta">?&gt;</span>
+<p>&#x5F8C;&#x53F0;&#x9078;&#x55AE;&#x9023;&#x7D50;&#x90FD;&#x662F;<strong>?do=admin&amp;redo=XX</strong>&#x3002;&#x6240;&#x4EE5;&#x505A;&#x5207;&#x63DB;admin zone&#x7684;&#x529F;&#x80FD;&#x3002;&#x5728;&#x9801;&#x9996;&#x52A0;&#x5165;php</p>
+<pre><code class="lang-php">$admin_zone=(<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;redo&apos;</span>]))?<span class="hljs-string">&quot;admin_title&quot;</span>:$_GET[<span class="hljs-string">&apos;do&apos;</span>].<span class="hljs-string">&quot;_&quot;</span>.$_GET[<span class="hljs-string">&apos;redo&apos;</span>];
 </code></pre>
-<h3 id="2-&#x8ABF;&#x6574;&#x5F8C;&#x53F0;&#x7248;&#x578B;&#x7684;&#x7368;&#x7ACB;content-zone">2. &#x8ABF;&#x6574;&#x5F8C;&#x53F0;&#x7248;&#x578B;&#x7684;&#x7368;&#x7ACB;content zone</h3>
-<p>&#x62BD;&#x53D6;&#x5167;&#x5BB9;&#x5340;&#x505A;&#x6210;include&#xFF0C;&#x9810;&#x8A2D;&#x662F;T3&#x9801;&#x9762;&#xFF0C;&#x6240;&#x4EE5;&#x62BD;&#x53D6;&#x8A72;&#x6BB5;<strong>&#x53E6;&#x5B58;&#x70BA;admin_title.php</strong></p>
-<pre><code class="lang-php">&lt;div style=&quot;width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;&quot;&gt;
-                                    &lt;p class=&quot;t cent botli&quot;&gt;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x7BA1;&#x7406;&lt;/p&gt;
-        &lt;form method=&quot;post&quot; target=&quot;back&quot; action=&quot;?do=tii&quot;&gt;
-    &lt;table width=&quot;100%&quot;&gt;
-        &lt;tbody&gt;&lt;tr class=&quot;yel&quot;&gt;
-            &lt;td width=&quot;45%&quot;&gt;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&lt;/td&gt;&lt;td width=&quot;23%&quot;&gt;&#x66FF;&#x4EE3;&#x6587;&#x5B57;&lt;/td&gt;&lt;td width=&quot;7%&quot;&gt;&#x986F;&#x793A;&lt;/td&gt;&lt;td width=&quot;7%&quot;&gt;&#x522A;&#x9664;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
-                    &lt;/tr&gt;
-    &lt;/tbody&gt;&lt;/table&gt;
-           &lt;table style=&quot;margin-top:40px; width:70%;&quot;&gt;
-     &lt;tbody&gt;&lt;tr&gt;
-      &lt;td width=&quot;200px&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=title&amp;#39;)&quot; value=&quot;&#x65B0;&#x589E;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x5716;&#x7247;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
-     &lt;/tr&gt;
-    &lt;/tbody&gt;&lt;/table&gt;    
-
-        &lt;/form&gt;
-                                    &lt;/div&gt;
+<p>&#x62BD;&#x53D6;&#x5167;&#x5BB9;&#x5340;&#x505A;&#x6210;include&#xFF0C;&#x9810;&#x8A2D;&#x662F;&#x7B2C;&#x4E09;&#x984C;&#x9801;&#x9762;&#xFF0C;&#x6240;&#x4EE5;&#x62BD;&#x53D6;&#x8A72;&#x6BB5;<strong>&#x53E6;&#x5B58;&#x70BA;admin_title.php</strong></p>
+<pre><code class="lang-php">&lt;p class=&quot;t cent botli&quot;&gt;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x7BA1;&#x7406;&lt;/p&gt;
+&lt;form method=&quot;post&quot; target=&quot;back&quot; action=&quot;?do=tii&quot;&gt;
+  &lt;table width=&quot;100%&quot;&gt;
+    &lt;tbody&gt;
+      &lt;tr class=&quot;yel&quot;&gt;
+        &lt;td width=&quot;45%&quot;&gt;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&lt;/td&gt;
+        &lt;td width=&quot;23%&quot;&gt;&#x66FF;&#x4EE3;&#x6587;&#x5B57;&lt;/td&gt;
+        &lt;td width=&quot;7%&quot;&gt;&#x986F;&#x793A;&lt;/td&gt;
+        &lt;td width=&quot;7%&quot;&gt;&#x522A;&#x9664;&lt;/td&gt;
+        &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;table style=&quot;margin-top:40px; width:70%;&quot;&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td width=&quot;200px&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=title&amp;#39;)&quot;
+            value=&quot;&#x65B0;&#x589E;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x5716;&#x7247;&quot;&gt;&lt;/td&gt;
+        &lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
 </code></pre>
 <p>&#x66F4;&#x6539;&#x70BA;</p>
-<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">include</span> $content_zone.<span class="hljs-string">&quot;php&quot;</span> <span class="hljs-meta">?&gt;</span>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">include</span> $admin_zone.<span class="hljs-string">&quot;.php&quot;</span><span class="hljs-meta">?&gt;</span>
 </code></pre>
+<p>&#x63A5;&#x4E0B;&#x4F86;&#x6240;&#x6709;&#x7684;&#x89E3;&#x984C;&#x6B65;&#x9A5F;&#x6703;&#x662F;&#x5F8C;&#x53F0;<strong>select, insert, update, delete&#xFF0C;&#x524D;&#x53F0;select</strong></p>
 <hr>
 <h1 id="&#x4FEE;&#x6539;admintitlephp">&#x4FEE;&#x6539;admin_title.php</h1>
-<h3 id="3-&#x4FEE;&#x6539;t3&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">3. &#x4FEE;&#x6539;T3&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
-<p>&#x958B;&#x59CB;&#x505A;selet data&#xFF0C;&#x5C07;&lt;/tody&gt;&#x5F8C;&#x9762;&#x505A;&#x5C0D;&#x61C9;&#x7684;foreach&#x3002;&#x63D2;&#x5165;select sql + foreach + html(input)&#x5230;&lt;/tbody&gt;&#x4E4B;&#x5F8C;&#x3002;</p>
-<pre><code class="lang-php">    &lt;/tbody&gt;
-    &lt;/table&gt;
-</code></pre>
-<p>&#x70BA;&#x5217;&#x8868;&#x986F;&#x793A;</p>
-<pre><code class="lang-php">    &lt;/tbody&gt;
-<span class="hljs-meta">&lt;?php</span>
-$result=select(<span class="hljs-string">&quot;title_t3&quot;</span>,<span class="hljs-number">0</span>);
-<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row){
-<span class="hljs-meta">?&gt;</span>
-    &lt;tr&gt;
-        &lt;td&gt;&lt;img src=<span class="hljs-string">&quot;img/&lt;?=$row[&apos;file&apos;]?&gt;&quot;</span> width=<span class="hljs-number">300</span> height=<span class="hljs-number">30</span>&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type=text value=<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;text&apos;</span>]<span class="hljs-meta">?&gt;</span> name=text[<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;id&apos;</span>]<span class="hljs-meta">?&gt;</span>]&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type=radio value=<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;id&apos;</span>]<span class="hljs-meta">?&gt;</span> name=dpy <span class="hljs-meta">&lt;?</span>=($row[<span class="hljs-string">&quot;dpy&quot;</span>])?<span class="hljs-string">&quot;checked&quot;</span>:<span class="hljs-string">&quot;&quot;</span><span class="hljs-meta">?&gt;</span>&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type=checkbox value=<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;id&apos;</span>]<span class="hljs-meta">?&gt;</span> name=del[]&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type=<span class="hljs-string">&quot;button&quot;</span> onclick=<span class="hljs-string">&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=mdy_title&amp;id=&lt;?=$row[&apos;id&apos;]?&gt;&amp;#39;)&quot;</span> value=<span class="hljs-string">&quot;&#x66F4;&#x65B0;&#x5716;&#x7247;&quot;</span>&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-<span class="hljs-meta">&lt;?php</span>
-}
-<span class="hljs-meta">?&gt;</span>
-    &lt;/table&gt;
-</code></pre>
-<p>&#x6CE8;&#x610F;&#xFF1A;</p>
+<h3 id="2-&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">2. &#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
 <ol>
-<li>&#x56E0;&#x70BA;&#x4E00;&#x6B21;&#x4FEE;&#x6539;&#xFF0C;&#x5C07;text&#x505A;&#x6210;array&#xFF0C;&#x9663;&#x5217;&#x7684;&#x683C;&#x6578;&#x7576;&#x4F5C;idx&#x4F7F;&#x7528;</li>
-<li>radio&#x8981;&#x505A;&#x9810;&#x8A2D;&#x503C;&#x9078;&#x53D6;&#xFF0C;&#x900F;&#x904E;&#x904B;&#x7B97;&#x5B50;&#x505A;&#x662F;&#x5426;&#x6210;&#x7ACB;&#x589E;&#x52A0;checked</li>
-<li>&#x9019;&#x88E1;&#x7684;<strong>&lt;input type=button&gt;</strong>&#x662F;&#x8907;&#x88FD;&#x4F86;&#x81EA;&#x672C;&#x6BB5;&#x7684;<strong>&#x65B0;&#x589E;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x5716;&#x7247;</strong>&#xFF0C;&#x9810;&#x8A2D;&#x53CD;&#x61C9;&#x662F;&#x5F48;&#x8DF3;&#x4ECB;&#x9762;&#x547C;&#x53EB;&#x51FA;<strong>view.php</strong>&#x4E26;&#x81EA;&#x5E36;<strong>GET[&apos;do&apos;]</strong>&#x505A;&#x8655;&#x7406;&#x3002;&#x6240;&#x4EE5;&#x8981;&#x8ABF;&#x6574;&#x4FEE;&#x6539;2&#x500B;&#x7684;&#x539F;&#x5148;onclick&#x4EE3;&#x78BC;&#xFF0C;&#x9019;&#x6A23;&#x65B9;&#x4FBF;&#x4E4B;&#x5F8C;&#x505A;&#x4EFB;&#x4F55;&#x8655;&#x7406;</li>
+<li>&#x627E;&#x5230;&#x8868;&#x683C;&#x4E2D;&#x9593;&#xFF0C;&#x585E;&#x5165;php&#x4F7F;&#x53EF;&#x4EE5;&#x9806;&#x5229;select&#x4E26;&#x5E36;&#x5165;tr&gt;td&#x986F;&#x793A;</li>
+<li>&#x6CE8;&#x610F;input&#x7684;name&#x8207;value&#xFF0C;&#x5BA3;&#x544A;&#x65B9;&#x6CD5;&#x4F9D;&#x64DA;&#x4FEE;&#x6539;&#x8207;&#x522A;&#x9664;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;&#x53C3;&#x8003;&#x91CD;&#x9EDE;&#x8AAA;&#x660E;</li>
+<li>&#x65B0;&#x589E;&#x55AE;&#x9805;&#x7684;&#x63D0;&#x4EA4;&#x5230;view.php&#xFF0C;&#x8D70;?do=addtitle</li>
+<li>form&#x7684;&#x63D0;&#x4EA4;&#x5230;api.php&#xFF0C;&#x8D70;?do=mdytitle</li>
+<li>&#x66F4;&#x65B0;&#x5716;&#x7247;&#x7684;&#x63D0;&#x4EA4;&#x5230;view.php&#xFF0C;&#x8D70;?do=chgtitle&#xFF0C;&#x4E26;&#x593E;&#x5E36;ID</li>
 </ol>
-<p>&#x66F4;&#x65B0;&#x5716;&#x7247;&#x7684;get&#x70BA; <strong>?do=mdy_title&#xFF0C;</strong>&#x4E26;&#x5077;<strong>&#x5E36;id</strong>&#x53C3;&#x6578;</p>
-<pre><code class="lang-php">onclick=<span class="hljs-string">&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=mdy_title&amp;id=&lt;?=$row[&apos;id&apos;]?&gt;&amp;#39;)&quot;</span>
+<pre><code class="lang-php">&lt;p class=&quot;t cent botli&quot;&gt;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x7BA1;&#x7406;&lt;/p&gt;
+&lt;form action=&quot;api.php?do=mdytitle&quot; method=&quot;post&quot;&gt;
+    &lt;table width=&quot;100%&quot;&gt;
+        &lt;tr class=&quot;yel&quot;&gt;
+            &lt;td width=&quot;45%&quot;&gt;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&lt;/td&gt;&lt;td width=&quot;23%&quot;&gt;&#x66FF;&#x4EE3;&#x6587;&#x5B57;&lt;/td&gt;&lt;td width=&quot;7%&quot;&gt;&#x986F;&#x793A;&lt;/td&gt;&lt;td width=&quot;7%&quot;&gt;&#x522A;&#x9664;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+
+&lt;?php
+    $result=select(&quot;t3_title&quot;,1);
+    foreach ($result as $row){
+?&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;img src=&quot;upload/&lt;?=$row[&apos;img&apos;]?&gt;&quot; width=300 height=30&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;title[&lt;?=$row[&apos;id&apos;]?&gt;]&quot; value=&quot;&lt;?=$row[&apos;title&apos;]?&gt;&quot;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;radio&quot; name=&quot;dpy&quot; &lt;?=($row[&apos;dpy&apos;]==1)?&quot;checked&quot;:&quot;&quot;?&gt; value=&lt;?=$row[&apos;id&apos;]?&gt;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;checkbox&quot; name=&quot;del[]&quot; value=&quot;&lt;?=$row[&apos;id&apos;]?&gt;&quot;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;&#x66F4;&#x65B0;&#x5716;&#x7247;&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=chgtitle&amp;id=&lt;?=$row[&apos;id&apos;]?&gt;&amp;#39;)&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;?php
+}
+?&gt;
+&lt;/table&gt;
+           &lt;table style=&quot;margin-top:40px; width:70%;&quot;&gt;
+     &lt;tbody&gt;&lt;tr&gt;
+      &lt;td width=&quot;200px&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=addtitle&amp;#39;)&quot; value=&quot;&#x65B0;&#x589E;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x5716;&#x7247;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
+     &lt;/tr&gt;
+    &lt;/tbody&gt;&lt;/table&gt;    
+    &lt;/form&gt;
 </code></pre>
-<p>&#x65B0;&#x589E;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x5716;&#x7247;&#x7684;get&#x70BA; <strong>?do=add_title</strong></p>
-<pre><code class="lang-php">onclick=<span class="hljs-string">&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=add_title&amp;#39;)&quot;</span>
+<p><strong>&#x91CD;&#x9EDE;1&#xFF1A;</strong></p>
+<p>function update&#x8A2D;&#x8A08;&#x6210;&#x53EF;&#x4EE5;&#x591A;&#x7B46;&#x8CC7;&#x6599;&#x4E00;&#x8D77;&#x66F4;&#x65B0;&#xFF0C;&#x539F;&#x7406;&#x70BA;&#x4E00;&#x6B21;&#x6293;&#x4E00;&#x7B46;&#x8B8A;&#x6578;&#x505A;update sql&#x3002;&#x6240;&#x4EE5;&#x4E00;&#x500B;&#x8B8A;&#x6578;&#x5C31;&#x8981;&#x6709;id&#x7D22;&#x5F15;&#x3001;name&#x6B04;&#x4F4D;&#x540D;&#x7A31;&#x3001;value&#x5167;&#x5BB9;&#x503C;&#x3002;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5229;&#x7528;&#x4E8C;&#x7DAD;&#x9663;&#x5217;&#x5132;&#x5B58;&#x3002;&#x8209;&#x4F8B;&#x4F86;&#x8AAA;&#x8981;&#x66F4;&#x65B0;&#x67D0;&#x6B04;&#x4F4D;&#x540D;&#x7A31;(title)&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x6574;&#x5408;ID(8)&#x8DDF;&#x65B0;title&#x5167;&#x5BB9;(&#x65B0;&#x6A19;&#x984C;)&#x3002;&#x90A3;input&#x6703;&#x50CF;&#x662F;</p>
+<pre><code class="lang-php">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> name=<span class="hljs-string">&quot;title[8]&quot;</span> value=<span class="hljs-string">&quot;&#x65B0;&#x6A19;&#x984C;&quot;</span>&gt;
 </code></pre>
-<p>&#x9084;&#x8A18;&#x5F97;&#x4E4B;&#x524D;&#x7684;from&#x8868;&#x55AE;&#x8655;&#x7406;&#x90FD;&#x7368;&#x7ACB;&#x5230;api.php&#xFF0C;&#x6240;&#x4EE5;from&#x8981;&#x6539;&#x4E00;&#x4E0B;&#x555F;&#x52D5;&#x4F5C;&#x6CD5;&#x3002;&#x4FEE;&#x6539;</p>
-<pre><code class="lang-php">&lt;form method=<span class="hljs-string">&quot;post&quot;</span> target=<span class="hljs-string">&quot;back&quot;</span> action=<span class="hljs-string">&quot;?do=tii&quot;</span>&gt;
+<p>&#x9019;&#x6A23;&#x5728;sql.php&#x624D;&#x6703;&#x63A5;&#x53D7;&#x8655;&#x7406;&#x6210;&#xFF1A;(&#x7531;api.php&#x544A;&#x77E5;table&#x5C0D;&#x8C61;)</p>
+<pre><code class="lang-php">sql=<span class="hljs-string">&quot;UPDATE table SET title=&apos;&#x65B0;&#x6A19;&#x984C;&apos; where id=8&quot;</span>;
 </code></pre>
-<p>&#x70BA;</p>
-<pre><code class="lang-php">&lt;form method=<span class="hljs-string">&quot;post&quot;</span> action=<span class="hljs-string">&quot;api.php?do=tii&quot;</span>&gt;
+<p><strong>&#x91CD;&#x9EDE;2&#xFF1A;</strong></p>
+<p>function delete&#x4E5F;&#x662F;&#x591A;&#x7B46;&#x4E00;&#x8D77;&#x522A;&#x9664;&#xFF0C;&#x539F;&#x7406;&#x4E5F;&#x662F;&#x4E00;&#x6B21;&#x6293;&#x4E00;&#x7B46;&#x8B8A;&#x6578;&#x505A;delete sql&#xFF0C;&#x4F46;&#x53EA;&#x9700;&#x8981;del&#x52D5;&#x4F5C;&#x8207;id&#x5C0D;&#x8C61;&#x3002;&#x4E00;&#x7DAD;&#x9663;&#x5217;&#x5373;&#x53EF;&#x3002;input&#x6703;&#x50CF;&#x662F;</p>
+<pre><code class="lang-php">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> name=<span class="hljs-string">&quot;del[]&quot;</span> value=<span class="hljs-string">&quot;8&quot;</span>&gt;
 </code></pre>
-<p>&#x5230;&#x9019;&#x88E1;&#x958B;&#x59CB;&#x8981;&#x4FEE;&#x6539;api.php&#x7684;&#x8868;&#x55AE;&#x8655;&#x7406;&#x7D50;&#x679C;&#xFF0C;&#x4EE5;&#x53CA;view.php&#x65B0;&#x589E;&#x8207;&#x4FEE;&#x6539;&#x3002;&#x5148;&#x505A;view.php&#x518D;&#x505A;api.php</p>
+<p>&#x7576;sql.php&#x5206;&#x6790;&#x6642;&#x770B;&#x5230;&#x540D;&#x7A31;&#x53EB;del&#x5C31;&#x77E5;&#x9053;&#x8981;&#x505A;&#x522A;&#x9664;&#x52D5;&#x4F5C;&#xFF1A;(&#x7531;api.php&#x544A;&#x77E5;table&#x5C0D;&#x8C61;)</p>
+<pre><code class="lang-php">sql=<span class="hljs-string">&quot;DELETE FTOM table where id=8&quot;</span>;
+</code></pre>
 <hr>
 <h1 id="&#x65B0;&#x589E;viewphp">&#x65B0;&#x589E;view.php</h1>
-<h3 id="4-&#x65B0;&#x589E;&#x55AE;&#x7B46;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">4. &#x65B0;&#x589E;&#x55AE;&#x7B46;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
-<p>&#x6703;&#x9032;&#x5165;view.php&#x7684;GET&#x6709;&#x5169;&#x7A2E;&#xFF0C;&#x5206;&#x5225;&#x662F;<strong>do=add_title</strong>&#x8DDF;<strong>do=mdy_title</strong>&#x3002;&#x9019;&#x88E1;&#x5148;&#x8A2D;&#x5B9A;&#x597D;switch&#x4E26;&#x5148;&#x505A;<strong>add_title</strong>&#x7684;&#x8655;&#x7406;&#x3002;&#x4F9D;&#x64DA;&#x984C;&#x76EE;&#x7684;&#x9801;&#x9762;&#x505A;table&#x8207;from&#x3002;&#x8981;&#x8A18;&#x5F97;from&#x8868;&#x55AE;&#x90FD;&#x662F;&#x4E1F;&#x5230;api.php&#x8655;&#x7406;&#x3002;<strong>mdy_title</strong>&#x665A;&#x9EDE;&#x518D;&#x505A;&#x3002;<br>(&#x591A;&#x5229;&#x7528;&#x539F;&#x6709;&#x7684;css&#xFF0C;&#x53EF;&#x5FEB;&#x901F;&#x505A;&#x51FA;&#x6A21;&#x64EC;&#x756B;&#x9762;)</p>
+<h3 id="3-&#x65B0;&#x589E;&#x55AE;&#x7B46;">3. &#x65B0;&#x589E;&#x55AE;&#x7B46;</h3>
+<p>&#x4E4B;&#x5F8C;&#x6703;&#x6709;&#x5F88;&#x591A;&#x7A2E;&#x4E0D;&#x540C;&#x64CD;&#x4F5C;&#x9032;&#x5165;view.php&#xFF0C;&#x5148;&#x8A2D;&#x5B9A;&#x597D;switch&#x4E26;&#x5148;&#x505A;<strong>addtitle</strong>&#x7684;&#x8655;&#x7406;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x986F;&#x793A;HTML FORM&#x3002;</p>
+<p>&#x8868;&#x55AE;&#x63D0;&#x4EA4;&#x5230;api.php&#xFF0C;&#x505A;&#x8DDF;&#x8A72;&#x74B0;&#x7BC0;&#x6709;&#x76F8;&#x540C;&#x7684;do&#x4EE3;&#x78BC;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;(&#x4E5F;&#x5C31;&#x662F;do=addtitle)&#xFF0C;&#x9019;&#x80FD;&#x65B9;&#x4FBF;&#x4E4B;&#x5F8C;&#x7684;&#x5FEB;&#x901F;&#x8907;&#x88FD;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x6709;&#x7528;&#x5230;&#x6A94;&#x6848;&#x4E0A;&#x50B3;&#x6642;&#xFF0C;form enctype=&quot;multipart/form-data&quot;</p>
 <pre><code class="lang-php">&lt;?php
+include &quot;sql.php&quot;;
 switch($_GET[&apos;do&apos;]){
-    case &apos;add_title&apos;:
-        ?&gt;
+    case &apos;addtitle&apos;:
+?&gt;
         &lt;p class=&quot;t cent botli&quot;&gt;&#x65B0;&#x589E;&#x6A19;&#x984C;&#x5340;&#x5716;&#x7247;&lt;/p&gt;
-        &lt;form method=post enctype=&quot;multipart/form-data&quot; action=api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&gt;
-            &lt;table style=&quot;margin:auto&quot;&gt;
-                &lt;tr&gt;
-                    &lt;td align=right&gt;&#x6A19;&#x984C;&#x5340;&#x5716;&#x7247;&#xFF1A;&lt;/td&gt;
-                    &lt;td&gt;&lt;input type=file name=file required=required&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                    &lt;td align=right&gt;&#x6A19;&#x984C;&#x5340;&#x66FF;&#x4EE3;&#x6587;&#x5B57;&#xFF1A;&lt;/td&gt;
-                    &lt;td&gt;&lt;input type=text name=text required=required&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                    &lt;td colspan=2&gt;&lt;input type=hidden name=dpy value=0&gt;&lt;input type=submit value=&#x65B0;&#x589E;&gt;&lt;input type=reset value=&#x91CD;&#x7F6E;&gt;&lt;/td&gt;
+        &lt;form action=&quot;api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+            &lt;table width=100% class=&quot;cent&quot;&gt;
+                &lt;tr&gt;&lt;td&gt;&#x6A19;&#x984C;&#x5340;&#x5716;&#x7247;&lt;input type=&quot;file&quot; name=&quot;file&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;&#x6A19;&#x984C;&#x5340;&#x66FF;&#x4EE3;&#x6587;&#x5B57;&lt;input type=&quot;text&quot; name=&quot;title&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x65B0;&#x589E;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
                 &lt;/tr&gt;
             &lt;/table&gt;
         &lt;/form&gt;
-        &lt;?php
-    break;
-    case &apos;mdy_title&apos;:
-
+&lt;?php
     break;
 }
 ?&gt;
 </code></pre>
-<hr>
-<h1 id="&#x4FEE;&#x6539;apiphp">&#x4FEE;&#x6539;api.php</h1>
-<h3 id="5-&#x65B0;&#x589E;&#x5F8C;&#x7684;sql&#x8655;&#x7406;">5. &#x65B0;&#x589E;&#x5F8C;&#x7684;SQL&#x8655;&#x7406;</h3>
-<p>&#x898F;&#x5283;<strong>add_title</strong>&#x7684;&#x52D5;&#x4F5C;&#xFF0C;&#x65B0;&#x589E;case&#x900F;&#x904E;function&#x5FEB;&#x901F;&#x5B8C;&#x6210;insert&#xFF0C;&#x4E26;&#x56DE;&#x5230;admin&#x9996;&#x9801;&#x3002;</p>
-<pre><code class="lang-php">  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;add_title&apos;</span>:
-    $_POST[<span class="hljs-string">&apos;file&apos;</span>]=addfile($_FILES);<span class="hljs-comment">//&#x56E0;&#x70BA;FILES&#x7121;&#x6CD5;&#x6B78;&#x5165;POST&#xFF0C;&#x53E6;&#x5916;&#x8655;&#x7406;&#x518D;&#x56DE;&#x50B3;&#x65B0;&#x540D;&#x5B57;;</span>
-    insert($_POST,<span class="hljs-string">&quot;title_t3&quot;</span>);
+<h1 id="&#x589E;&#x6DFB;apiphp">&#x589E;&#x6DFB;api.php</h1>
+<p>&#x898F;&#x5283;<strong>addtitle</strong>&#x7684;&#x52D5;&#x4F5C;&#xFF0C;&#x65B0;&#x589E;case&#x900F;&#x904E;function&#x5FEB;&#x901F;&#x5B8C;&#x6210;insert&#xFF0C;&#x4E26;&#x56DE;&#x5230;admin&#x9996;&#x9801;</p>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;addtitle&apos;</span>:
+    $_POST[<span class="hljs-string">&apos;img&apos;</span>]=addfile($_FILES[<span class="hljs-string">&apos;file&apos;</span>]);    <span class="hljs-comment">//&#x5C07;FILE&#x4E0A;&#x50B3;&#x6A94;&#x6848;&#x5F8C;&#x53D6;&#x5F97;&#x65B0;&#x6A94;&#x6848;&#x540D;&#xFF0C;&#x6B78;&#x5165;&#x70BA;$_POST[&apos;img&apos;]</span>
+    insert($_POST,<span class="hljs-string">&quot;t3_title&quot;</span>);
     plo(<span class="hljs-string">&quot;admin.php&quot;</span>);
-  <span class="hljs-keyword">break</span>;
-</code></pre>
-<p>&#x9084;&#x6C92;&#x5BEB;&#x5B8C;&#x7684;sql.php&#x9577;&#x9019;&#x6A23;</p>
-<pre><code class="lang-php"><span class="hljs-comment">//insret sql&#xFF0C;&#x8A18;&#x5F97;&#x628A;post&#x4E1F;&#x9032;&#x4F86;&#x5206;&#x6790;name&#x8207;value</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">insert</span><span class="hljs-params">($post,$table)</span></span>{
-    <span class="hljs-keyword">global</span> $dblink;
-    $insertA=<span class="hljs-string">&quot;id,&quot;</span>;
-    $insertB=<span class="hljs-string">&quot;&apos;null&apos;,&quot;</span>;
-    <span class="hljs-keyword">foreach</span>($post <span class="hljs-keyword">as</span> $name=&gt;$data) {
-      <span class="hljs-keyword">if</span>(!is_array($data)){
-        $insertA.=<span class="hljs-string">&quot;&quot;</span>.$name.<span class="hljs-string">&quot;,&quot;</span>;
-        $insertB.=<span class="hljs-string">&quot;&apos;&quot;</span>.$data.<span class="hljs-string">&quot;&apos;,&quot;</span>;
-      }
-    }
-    $sql=<span class="hljs-string">&quot;insert into &quot;</span>.$table.<span class="hljs-string">&quot; (&quot;</span>.substr($insertA,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>).<span class="hljs-string">&quot;) values(&quot;</span>.substr($insertB,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>).<span class="hljs-string">&quot;)&quot;</span>;
-    <span class="hljs-keyword">return</span> $dblink-&gt;exec($sql);
-}
-<span class="hljs-comment">//add file</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addfile</span><span class="hljs-params">($file)</span></span>{
-    $name=date(<span class="hljs-string">&quot;YmdHis&quot;</span>).<span class="hljs-string">&quot;_&quot;</span>.$file[<span class="hljs-string">&quot;file&quot;</span>][<span class="hljs-string">&quot;name&quot;</span>]; <span class="hljs-comment">//&#x524D;&#x7DB4;&#x6642;&#x9593;&#x547D;&#x540D;</span>
-    copy($file[<span class="hljs-string">&quot;file&quot;</span>][<span class="hljs-string">&quot;tmp_name&quot;</span>], <span class="hljs-string">&quot;img/&quot;</span>.$name);
-    <span class="hljs-keyword">return</span> $name;
-}
-</code></pre>
-<h3 id="6-&#x4FEE;&#x6539;&#x5F8C;&#x7684;sql&#x8655;&#x7406;">6. &#x4FEE;&#x6539;&#x5F8C;&#x7684;SQL&#x8655;&#x7406;</h3>
-<p>&#x63A5;&#x8457;&#x898F;&#x5283;&#x5168;&#x90E8;&#x4FEE;&#x6539;&#x7684;&#x52D5;&#x4F5C;&#xFF0C;&#x5F9E;<strong>admin_title.php</strong>&#x5F97;&#x77E5;&#x8868;&#x55AE;&#x6703;&#x9001;&#x5230;api.php?do=tii&#x3002;&#x56E0;&#x6B64;&#x898F;&#x5283;case&#xFF0C;&#x4E26;&#x505A;&#x5169;&#x500B;function&#x52D5;&#x4F5C;&#x5206;&#x5225;&#x662F;update&#x8207;delete&#xFF0C;&#x518D;&#x56DE;&#x5230;admin&#x9996;&#x9801;</p>
-<pre><code class="lang-php">  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;tii&apos;</span>:
-    update($_POST,<span class="hljs-string">&quot;title_t3&quot;</span>);
-    delete($_POST,<span class="hljs-string">&quot;title_t3&quot;</span>);
-    plo(<span class="hljs-string">&quot;admin.php&quot;</span>);
-  <span class="hljs-keyword">break</span>;
-</code></pre>
-<p>&#x9084;&#x6C92;&#x5077;&#x5BEB;&#x5B8C;&#x7684;sql.php&#xFF0C;&#x6B64;&#x6642;</p>
-<pre><code class="lang-php"><span class="hljs-comment">//update sql</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span><span class="hljs-params">($post,$table)</span></span>{
-    <span class="hljs-keyword">global</span> $dblink;
-    <span class="hljs-keyword">foreach</span>($post <span class="hljs-keyword">as</span> $name=&gt;$data) {
-        <span class="hljs-keyword">switch</span>($name){
-            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;text&apos;</span>:
-                <span class="hljs-keyword">foreach</span>($data <span class="hljs-keyword">as</span> $idx=&gt;$value) $dblink-&gt;exec(<span class="hljs-string">&quot;update &quot;</span>.$table.<span class="hljs-string">&quot; set text=&apos;&quot;</span>.$value.<span class="hljs-string">&quot;&apos; where id=&quot;</span>.$idx);
-            <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;dpy&apos;</span>:
-                $dblink-&gt;exec(<span class="hljs-string">&quot;update &quot;</span>.$table.<span class="hljs-string">&quot; set dpy=&apos;0&apos; where 1&quot;</span>);
-                <span class="hljs-keyword">if</span>(!is_array($data)) $dblink-&gt;exec(<span class="hljs-string">&quot;update &quot;</span>.$table.<span class="hljs-string">&quot; set dpy=&apos;1&apos; where id=&quot;</span>.$data);
-            <span class="hljs-keyword">break</span>;
-        }
-    }
-}
-<span class="hljs-comment">//delete sql</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delete</span><span class="hljs-params">($post,$table)</span></span>{
-    <span class="hljs-keyword">global</span> $dblink;
-    <span class="hljs-keyword">foreach</span>($post <span class="hljs-keyword">as</span> $name=&gt;$data) {
-        <span class="hljs-keyword">if</span>($name==<span class="hljs-string">&quot;del&quot;</span>){
-            <span class="hljs-keyword">if</span>(!is_array($data)) <span class="hljs-keyword">return</span> $dblink-&gt;exec(<span class="hljs-string">&quot;delete from &quot;</span>.$table.<span class="hljs-string">&quot; where id=&quot;</span>.$data);
-            <span class="hljs-keyword">else</span> <span class="hljs-keyword">foreach</span>($data <span class="hljs-keyword">as</span> $value) $dblink-&gt;exec(<span class="hljs-string">&quot;delete from &quot;</span>.$table.<span class="hljs-string">&quot; where id=&quot;</span>.$value);
-        }
-    }
-}
+<span class="hljs-keyword">break</span>;
 </code></pre>
 <hr>
-<h1 id="&#x589E;&#x6DFB;viewphp&#x7E7C;&#x7E8C;&#x5B8C;&#x6210;&#x55AE;&#x6539;&#x5716;&#x7247;">&#x589E;&#x6DFB;view.php&#x7E7C;&#x7E8C;&#x5B8C;&#x6210;&#x55AE;&#x6539;&#x5716;&#x7247;</h1>
-<h3 id="7-&#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">7. &#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
-<p>&#x9019;&#x6642;&#x5019;&#x7684;&#x65B0;&#x589E;&#x4FEE;&#x6539;&#x522A;&#x9664;&#x90FD;&#x53EF;&#x4EE5;&#x9806;&#x5229;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x5269;&#x55AE;&#x5716;&#x7247;&#x66F4;&#x6539;&#x4F5C;&#x696D;&#x3002;&#x5B8C;&#x6210;view.php&#x3002;&#x53EF;&#x4EE5;&#x62FF;&#x524D;&#x4E00;case&#x4F86;&#x6539;&#x4E00;&#x4E0B;</p>
-<pre><code class="lang-php">    case &apos;mdy_title&apos;:
-        ?&gt;
-        &lt;p class=&quot;t cent botli&quot;&gt;&#x66F4;&#x6539;&#x6A19;&#x984C;&#x5716;&#x7247;&lt;/p&gt;
-        &lt;form method=post enctype=&quot;multipart/form-data&quot; action=api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&gt;
-            &lt;table style=&quot;margin:auto&quot;&gt;
-                &lt;tr&gt;
-                    &lt;td align=right&gt;&#x6A19;&#x984C;&#x5340;&#x5716;&#x7247;&#xFF1A;&lt;/td&gt;
-                    &lt;td&gt;&lt;input type=file name=file required=required&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                    &lt;td colspan=2&gt;&lt;input type=hidden name=id value=&lt;?=$_GET[&apos;id&apos;]?&gt;&gt;&lt;input type=submit value=&#x66F4;&#x65B0;&gt;&lt;input type=reset value=&#x91CD;&#x7F6E;&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/table&gt;
-        &lt;/form&gt;
-        &lt;?php
+<h3 id="4-&#x4FEE;&#x6539;&#x591A;&#x7B46;--&#x522A;&#x9664;&#x591A;&#x7B46;">4. &#x4FEE;&#x6539;&#x591A;&#x7B46; + &#x522A;&#x9664;&#x591A;&#x7B46;</h3>
+<p>&#x5F9E;&#x524D;&#x53F0;&#x8A66;&#x8457;&#x64CD;&#x4F5C;&#x591A;&#x7B46;&#x4FEE;&#x6539;&#x8DDF;&#x522A;&#x9664;&#x6309;&#x4E0B;&#x9001;&#x51FA;&#x3002;&#x7DB2;&#x9801;&#x6703;&#x5230;api.php?do=mdytitle&#x3002;&#x6240;&#x4EE5;&#x7E7C;&#x7E8C;&#x6B64;&#x52D5;&#x4F5C;&#x8655;&#x7406;&#xFF0C;&#x5B8C;&#x6210;&#x5F8C;&#x56DE;&#x5230;&#x5F8C;&#x53F0;&#x9801;&#x9762;admin.php</p>
+<p>&#x6C92;&#x628A;&#x63E1;&#x4F60;&#x53EF;&#x4EE5;&#x5728;case&#x5167;&#x5148;&#x4E0B;print_r($_POST)&#xFF0C;&#x78BA;&#x8A8D;&#x756B;&#x9762;&#x7684;&#x8CC7;&#x6599;&#x6B63;&#x4E0D;&#x6B63;&#x5E38;&#x8DDF;&#x6709;&#x54EA;&#x4E9B;&#x8CC7;&#x6599;</p>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;mdytitle&apos;</span>:
+    update($_POST,<span class="hljs-string">&quot;t3_title&quot;</span>);
+    delete($_POST,<span class="hljs-string">&quot;t3_title&quot;</span>);
+    plo(<span class="hljs-string">&quot;admin.php&quot;</span>);
+<span class="hljs-keyword">break</span>;
+</code></pre>
+<hr>
+<h1 id="&#x589E;&#x6DFB;viewphp">&#x589E;&#x6DFB;view.php</h1>
+<h3 id="5-&#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;">5. &#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;</h3>
+<p>&#x9019;&#x6642;&#x5019;&#x7684;&#x65B0;&#x589E;&#x4FEE;&#x6539;&#x522A;&#x9664;&#x90FD;&#x53EF;&#x4EE5;&#x9806;&#x5229;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x5269;&#x55AE;&#x5716;&#x7247;&#x66F4;&#x6539;&#x4F5C;&#x696D;&#x3002;&#x5B8C;&#x6210;view.php&#x3002;&#x53EF;&#x4EE5;&#x62FF;&#x524D;&#x4E00;case&#x4F86;&#x6539;&#x4E00;&#x4E0B;&#x3002;&#x56E0;&#x70BA;&#x53EA;&#x6709;&#x7D14;&#x4E0A;&#x50B3;&#x5716;&#x7247;&#xFF0C;&#x6211;&#x5011;&#x9700;&#x8981;&#x85CF;&#x4E00;&#x500B;ID</p>
+<pre><code class="lang-php">    case &apos;chgtitle&apos;:
+?&gt;
+    &lt;p class=&quot;t cent botli&quot;&gt;&#x4FEE;&#x6539;&#x6A19;&#x984C;&#x5340;&#x5716;&#x7247;&lt;/p&gt;
+    &lt;form action=&quot;api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+        &lt;table width=100% class=&quot;cent&quot;&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&#x6A19;&#x984C;&#x5340;&#x5716;&#x7247;&lt;input type=&quot;file&quot; name=&quot;file&quot;&gt;&lt;/td&gt;
+                &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&lt;?=$_GET[&apos;id&apos;]?&gt;&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/form&gt;
+&lt;?php
     break;
 </code></pre>
-<hr>
 <h1 id="&#x589E;&#x6DFB;apiphp">&#x589E;&#x6DFB;api.php</h1>
-<h3 id="8-&#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;&#x5F8C;&#x7684;sql&#x8655;&#x7406;">8. &#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;&#x5F8C;&#x7684;SQL&#x8655;&#x7406;</h3>
-<p>&#x53C3;&#x8003;&#x4E4B;&#x524D;&#x7684;case add_title&#xFF0C;&#x540C;&#x6642;&#x70BA;&#x4E86;&#x914D;&#x5408;function&#xFF0C;&#x5C07;id&#x8DDF;file&#x5408;&#x4F75;&#x70BA;&#x4E00;&#x500B;&#x9663;&#x5217;</p>
-<pre><code class="lang-php">  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;mdy_title&apos;</span>:
-    $newpost[<span class="hljs-string">&apos;file&apos;</span>][$_POST[<span class="hljs-string">&apos;id&apos;</span>]]=addfile($_FILES);<span class="hljs-comment">//&#x56E0;&#x70BA;FILES&#x7121;&#x6CD5;&#x6B78;&#x5165;POST&#xFF0C;&#x53E6;&#x5916;&#x8655;&#x7406;&#x518D;&#x56DE;&#x50B3;&#x65B0;&#x540D;&#x5B57;&#xFF0C;&#x540C;&#x6642;&#x5C07;idx&#x8207;filename&#x5408;&#x4F75;&#x70BA;&#x4E00;&#x500B;array</span>
-    update($newpost,<span class="hljs-string">&quot;title_t3&quot;</span>);
+<p>&#x53C3;&#x8003;&#x4E4B;&#x524D;&#x7684;case addtitle&#xFF0C;&#x56E0;&#x70BA;&#x540C;&#x6642;&#x70BA;&#x4E86;&#x914D;&#x5408;function&#xFF0C;&#x5C07;id&#x3001;&#x6B04;&#x4F4D;&#x5C0D;&#x8C61;&#x3001;&#x65B0;&#x6A94;&#x540D;&#x505A;&#x6210;&#x9663;&#x5217;&#x9001;&#x4EA4;&#x7D66;update</p>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;chgtitle&apos;</span>:
+    $post[<span class="hljs-string">&apos;img&apos;</span>][$_POST[<span class="hljs-string">&apos;id&apos;</span>]]=addfile($_FILES[<span class="hljs-string">&apos;file&apos;</span>]);
+    update($post,<span class="hljs-string">&quot;t3_title&quot;</span>);
     plo(<span class="hljs-string">&quot;admin.php&quot;</span>);
-  <span class="hljs-keyword">break</span>;
+<span class="hljs-keyword">break</span>;
 </code></pre>
-<p>&#x9084;&#x6C92;&#x5077;&#x5BEB;&#x5B8C;&#x7684;sql.php&#xFF0C;&#x6B64;&#x6642;</p>
-<pre><code class="lang-php"><span class="hljs-comment">//update sql</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span><span class="hljs-params">($post,$table)</span></span>{
-    <span class="hljs-keyword">global</span> $dblink;
-    <span class="hljs-keyword">foreach</span>($post <span class="hljs-keyword">as</span> $name=&gt;$data) {
-        <span class="hljs-keyword">switch</span>($name){
-            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;dpy&apos;</span>:
-                $dblink-&gt;exec(<span class="hljs-string">&quot;update &quot;</span>.$table.<span class="hljs-string">&quot; set dpy=&apos;0&apos; where 1&quot;</span>);
-                <span class="hljs-keyword">if</span>(!is_array($data)) $dblink-&gt;exec(<span class="hljs-string">&quot;update &quot;</span>.$table.<span class="hljs-string">&quot; set dpy=&apos;1&apos; where id=&quot;</span>.$data);
-            <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">default</span>:
-            <span class="hljs-keyword">foreach</span>($data <span class="hljs-keyword">as</span> $idx=&gt;$value) $dblink-&gt;exec(<span class="hljs-string">&quot;update &quot;</span>.$table.<span class="hljs-string">&quot; set &quot;</span>.$name.<span class="hljs-string">&quot;=&apos;&quot;</span>.$value.<span class="hljs-string">&quot;&apos; where id=&quot;</span>.$idx);
-        }
-    }
-}
-</code></pre>
-<p>&#x6B64;&#x6642;&#x5230;&#x9019;&#x88E1;&#xFF0C;&#x5F8C;&#x53F0;&#x7684;&#x529F;&#x80FD;&#x5DF2;&#x8A2D;&#x8A08;&#x5B8C;&#x6210;&#x3002;&#x63A5;&#x4E0B;&#x4F86;&#x662F;&#x5728;&#x5404;&#x7248;&#x578B;&#x5167;&#x986F;&#x793A;&#x8A72;title&#x5716;&#x7247;</p>
 <hr>
 <h1 id="&#x589E;&#x6DFB;sqlphp">&#x589E;&#x6DFB;sql.php</h1>
-<h3 id="9-&#x524D;&#x53F0;&#x7684;title&#x986F;&#x793A;&#x683C;&#x5F0F;">9. &#x524D;&#x53F0;&#x7684;title&#x986F;&#x793A;&#x683C;&#x5F0F;</h3>
-<p>&#x6488;&#x53D6;title&#x8DDF;title_text&#xFF0C;&#x589E;&#x52A0;&#x4EE5;&#x4E0B;&#x4EE3;&#x78BC;</p>
-<pre><code class="lang-php">$result=select(<span class="hljs-string">&quot;title_t3&quot;</span>,<span class="hljs-string">&quot;dpy=1&quot;</span>);
-<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row){
-    $title = <span class="hljs-string">&quot;img/&quot;</span>.$row[<span class="hljs-string">&quot;file&quot;</span>];
-    $title_text = $row[<span class="hljs-string">&quot;text&quot;</span>];
-}
+<h3 id="6-&#x524D;&#x53F0;&#x986F;&#x793A;">6. &#x524D;&#x53F0;&#x986F;&#x793A;</h3>
+<p>&#x56E0;&#x70BA;inde.php&#x7D20;&#x6750;&#x4EE3;&#x78BC;&#x592A;&#x591A;&#xFF0C;&#x6211;&#x5011;&#x628A;PHP&#x5BEB;&#x5728;SQL.php&#x5167;&#xFF0C;&#x7B49;&#x540C;&#x65BC;&#x5BEB;&#x5728;index.php (&#x5176;&#x5BE6;&#x9019;&#x6A23;&#x6240;&#x6709;&#x9801;&#x9762;&#x90FD;&#x80FD;&#x7E7C;&#x627F;&#xFF0C;&#x6240;&#x4EE5;&#x8B8A;&#x6578;&#x540D;&#x7A31;&#x8981;&#x5C0F;&#x5FC3;)</p>
+<pre><code class="lang-php"><span class="hljs-comment">//t3</span>
+$result=select(<span class="hljs-string">&quot;t3_title&quot;</span>,<span class="hljs-string">&quot;dpy=1&quot;</span>);
+$t3img=<span class="hljs-string">&quot;upload/&quot;</span>.$result[<span class="hljs-number">0</span>][<span class="hljs-string">&apos;img&apos;</span>];
+$t3title=$result[<span class="hljs-number">0</span>][<span class="hljs-string">&apos;title&apos;</span>];
 </code></pre>
-<h1 id="&#x4FEE;&#x6539;&#x56DB;&#x7D44;&#x4E3B;&#x677F;&#x578B;&#x5167;&#x5BB9;">&#x4FEE;&#x6539;&#x56DB;&#x7D44;&#x4E3B;&#x677F;&#x578B;&#x5167;&#x5BB9;</h1>
-<p>&#x5C07;admin.php&#x3001;login.php&#x3001;index.php&#x3001;news.php&#x7684;title&#x5340;&#x57DF;&#x90E8;&#x5206;&#x505A;&#x4FEE;&#x6539;<strong>(&#x8A18;&#x5F97;&#x524D;&#x9762;&#x8981;&#x6709;include sql.php)</strong></p>
+<h1 id="&#x4FEE;&#x6539;adminphp&#x3001;loginphp&#x3001;indexphp&#x3001;newsphp">&#x4FEE;&#x6539;admin.php&#x3001;login.php&#x3001;index.php&#x3001;news.php</h1>
+<p>&#x5C07;title&#x5340;&#x57DF;&#x90E8;&#x5206;&#x505A;&#x4FEE;&#x6539;<strong>(&#x8A18;&#x5F97;&#x524D;&#x9762;&#x8981;&#x6709;include sql.php)</strong>&#xFF0C;&#x540C;&#x6642;&#x8D85;&#x9023;&#x7D50;&#x9806;&#x624B;&#x4E00;&#x5F8B;&#x5C0E;&#x5411;index.php(&#x984C;&#x76EE;&#x6C92;&#x8981;&#x6C42;&#x5C0E;&#x5411;)</p>
+<p>&#x8981;&#x6C42;&#x5716;&#x7247;&#x66FF;&#x4EE3;&#x6587;&#x5B57;&#x7D20;&#x6750;&#x537B;&#x7528;background&#xFF0C;&#x4E0D;&#x505A;&#x63A8;&#x6E2C;&#xFF0C;a&#x8207;div&#x90FD;&#x7D66;&#x4E88;title&#x8AAA;&#x660E;</p>
 <pre><code class="lang-php">&lt;a title=&quot;&quot; href=&quot;?&quot;&gt;&lt;div class=&quot;ti&quot; style=&quot;background:url(&amp;#39;use/&amp;#39;); background-size:cover;&quot;&gt;&lt;/div&gt;&lt;!--&#x6A19;&#x984C;--&gt;&lt;/a&gt;
 </code></pre>
-<p>&#x5E36;&#x5165;$title_img&#x8207;$title_text&#xFF0C;&#x6539;&#x70BA;</p>
-<pre><code class="lang-php">&lt;a title=&quot;&lt;?=$title_text?&gt;&quot; href=&quot;?&quot;&gt;&lt;div class=&quot;ti&quot; style=&quot;background:url(&amp;#39;&lt;?=$title_img?&gt;&amp;#39;); background-size:cover;&quot;&gt;&lt;/div&gt;&lt;!--&#x6A19;&#x984C;--&gt;&lt;/a&gt;
+<p>&#x5E36;&#x5165;$t3img&#x8207;$t3title&#xFF0C;&#x6539;&#x70BA;</p>
+<pre><code class="lang-php">&lt;a title=&quot;&lt;?=$t3title?&gt;&quot; href=&quot;index.php&quot;&gt;
+&lt;div class=&quot;ti&quot; style=&quot;background:url(&apos;&lt;?=$t3img?&gt;&apos;); background-size:cover;&quot; title=&quot;&lt;?=$t3title?&gt;&quot;&gt;&lt;/div&gt;&lt;!--&#x6A19;&#x984C;--&gt;
+&lt;/a&gt;
 </code></pre>
 
                                 
@@ -1279,7 +1217,7 @@ switch($_GET[&apos;do&apos;]){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3. 網站標題 (35%)","level":"1.2.3","depth":2,"next":{"title":"4. 動態文字廣告 (30%)","level":"1.2.4","depth":2,"path":"web01/4.md","ref":"web01/4.md","articles":[]},"previous":{"title":"10. 管理登入按鈕 (20%)","level":"1.2.2","depth":2,"path":"web01/10.md","ref":"web01/10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/3.md","mtime":"2019-02-11T02:57:51.015Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. 網站標題 (35%)","level":"1.2.3","depth":2,"next":{"title":"4. 動態文字廣告 (30%)","level":"1.2.4","depth":2,"path":"web01/4.md","ref":"web01/4.md","articles":[]},"previous":{"title":"10. 管理登入按鈕 (20%)","level":"1.2.2","depth":2,"path":"web01/10.md","ref":"web01/10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/3.md","mtime":"2019-03-01T06:55:54.308Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-01T11:48:09.180Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

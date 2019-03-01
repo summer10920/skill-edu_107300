@@ -991,56 +991,50 @@
                                 <h1 id="&#x7B2C;8&#x984C;-&#x9801;&#x5C3E;&#x7248;&#x6B0A;">&#x7B2C;8&#x984C;. &#x9801;&#x5C3E;&#x7248;&#x6B0A;</h1>
 <p>&#x5C31;&#x62FF;&#x7B2C;7&#x984C;&#x4F86;&#x6539;&#x5427;</p>
 <hr>
-<h1 id="&#x8907;&#x88FD;admintotalphp&#x5230;-adminbottomphp">&#x8907;&#x88FD;admin_total.php&#x5230; admin_bottom.php</h1>
+<h1 id="&#x65B0;&#x589E;adminbottomphp&#x53C3;&#x8003;admintotalphp">&#x65B0;&#x589E;admin_bottom.php(&#x53C3;&#x8003;admin_total.php)</h1>
 <h3 id="1-&#x4FEE;&#x6539;&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">1. &#x4FEE;&#x6539;&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
-<p>&#x6574;&#x500B;&#x8907;&#x88FD;&#x7248;&#x578B;&#x5F8C;&#xFF0C;&#x6839;&#x64DA;&#x9700;&#x6C42;&#x505A;&#x4FEE;&#x6539;&#x8ABF;&#x6574;&#xFF0C;&#x8A18;&#x5F97;from&#x63D0;&#x4EA4;&#x6539;&#x6210;&#x5230;do=bottom</p>
-<pre><code class="lang-php">&lt;div style=&quot;width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;&quot;&gt;
-                                    &lt;p class=&quot;t cent botli&quot;&gt;&#x9032;&#x7AD9;&#x7E3D;&#x4EBA;&#x6578;&#x7BA1;&#x7406;&lt;/p&gt;
-        &lt;form method=&quot;post&quot; action=&quot;api.php?do=bottom&quot;&gt;
-    &lt;table style=&quot;margin:auto&quot;&gt;
+<p>&#x6574;&#x500B;&#x8907;&#x88FD;&#x7248;&#x578B;&#x5F8C;&#xFF0C;&#x6839;&#x64DA;&#x9700;&#x6C42;&#x505A;&#x4FEE;&#x6539;&#x8ABF;&#x6574;&#xFF0C;&#x8A18;&#x5F97;from&#x63D0;&#x4EA4;&#x6539;&#x6210;&#x5230;do=mdyfooter</p>
+<pre><code class="lang-php">&lt;p class=&quot;t cent botli&quot;&gt;&#x9801;&#x5C3E;&#x7248;&#x6B0A;&#x8CC7;&#x6599;&#x7BA1;&#x7406;&lt;/p&gt;
+&lt;form action=&quot;api.php?do=mdyfooter&quot; method=&quot;post&quot;&gt;
+    &lt;table width=&quot;100%&quot;&gt;
 &lt;?php
-$result=select(&quot;footer_t8&quot;,0);
-foreach($result as $row){
+    $result=select(&quot;t8_footer&quot;,1);
 ?&gt;
     &lt;tr&gt;
-        &lt;td align=right bgcolor=orange&gt;&#x9801;&#x5C3E;&#x7248;&#x6B0A;&#x8CC7;&#x6599;&#xFF1A;&lt;/td&gt;
-        &lt;td&gt;&lt;input type=text value=&quot;&lt;?=$row[&apos;once&apos;]?&gt;&quot; name=once&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr class=&quot;cent&quot;&gt;
-        &lt;td colspan=2&gt;&lt;input type=submit value=&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&gt;&lt;input type=reset value=&#x91CD;&#x7F6E;&gt;&lt;/td&gt;
+        &lt;td bgcolor=#ff0&gt;&#x9801;&#x5C3E;&#x7248;&#x6B0A;&#x8CC7;&#x6599;:&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;once&quot; value=&quot;&lt;?=$result[0][&apos;once&apos;]?&gt;&quot; style=&quot;width:90%&quot;&gt;&lt;/td&gt;
     &lt;/tr&gt;
 &lt;?php
-}
 ?&gt;
     &lt;/table&gt;
-        &lt;/form&gt;
-&lt;/div&gt;
+    &lt;table style=&quot;margin-top:40px; width:100%;&quot;&gt;
+        &lt;tbody&gt;&lt;tr&gt;
+            &lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;&lt;/table&gt;    
+&lt;/form&gt;
 </code></pre>
-<hr>
 <h1 id="&#x589E;&#x6DFB;apiphp">&#x589E;&#x6DFB;api.php</h1>
-<h3 id="2-&#x4FEE;&#x6539;&#x5F8C;&#x7684;sql&#x8655;&#x7406;">2. &#x4FEE;&#x6539;&#x5F8C;&#x7684;SQL&#x8655;&#x7406;</h3>
 <p>&#x5C0D;api.php&#x505A;SQL&#x8655;&#x7406;&#xFF0C;&#x63A5;&#x8457;&#x56DE;&#x5230;&#x8A72;&#x55AE;&#x5143;&#x5167;&#x5BB9;&#x3002;(&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)</p>
-<pre><code class="lang-php">  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;bottom&apos;</span>:
-    update($_POST,<span class="hljs-string">&quot;footer_t8&quot;</span>);
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;mdyfooter&apos;</span>:
+    update($_POST,<span class="hljs-string">&quot;t8_footer&quot;</span>);
     plo(<span class="hljs-string">&quot;admin.php?do=admin&amp;redo=bottom&quot;</span>);
-  <span class="hljs-keyword">break</span>;
+<span class="hljs-keyword">break</span>;
 </code></pre>
 <hr>
 <h1 id="&#x589E;&#x6DFB;sqlphp">&#x589E;&#x6DFB;sql.php</h1>
-<h3 id="5-&#x524D;&#x53F0;&#x7684;total&#x986F;&#x793A;&#x683C;&#x5F0F;">5. &#x524D;&#x53F0;&#x7684;total&#x986F;&#x793A;&#x683C;&#x5F0F;</h3>
+<h3 id="5-&#x524D;&#x53F0;&#x7684;&#x986F;&#x793A;">5. &#x524D;&#x53F0;&#x7684;&#x986F;&#x793A;</h3>
 <p>&#x589E;&#x52A0;&#x4EE5;&#x4E0B;&#x4EE3;&#x78BC;&#x505A;&#x63D0;&#x53D6;</p>
-<pre><code class="lang-php"><span class="hljs-comment">//for t8</span>
-$result=select(<span class="hljs-string">&quot;footer_t8&quot;</span>,<span class="hljs-number">1</span>);
-<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row){
-    $bottom_text=$row[<span class="hljs-string">&quot;once&quot;</span>];
-}
+<pre><code class="lang-php"><span class="hljs-comment">//t8</span>
+$result=select(<span class="hljs-string">&quot;t8_footer&quot;</span>,<span class="hljs-number">1</span>);
+$t8footer=$result[<span class="hljs-number">0</span>][<span class="hljs-string">&apos;once&apos;</span>];
 </code></pre>
-<h1 id="&#x4FEE;&#x6539;&#x56DB;&#x7D44;&#x524D;&#x53F0;&#x677F;&#x578B;">&#x4FEE;&#x6539;&#x56DB;&#x7D44;&#x524D;&#x53F0;&#x677F;&#x578B;</h1>
-<p>&#x5C07;admin.php&#x3001;login.php&#x3001;index.php&#x3001;news.php&#x7684;&#x9032;&#x7AD9;&#x7E3D;&#x4EBA;&#x6578;&#x5340;&#x57DF;&#x90E8;&#x5206;&#x6A19;&#x7C64;&#x5167;&#x589E;&#x52A0;php&#x8B8A;&#x6578;</p>
+<h1 id="&#x4FEE;&#x6539;adminphp&#x3001;loginphp&#x3001;indexphp&#x3001;newsphp">&#x4FEE;&#x6539;admin.php&#x3001;login.php&#x3001;index.php&#x3001;news.php</h1>
+<p>&#x5C07;&#x7684;&#x9032;&#x7AD9;&#x7E3D;&#x4EBA;&#x6578;&#x5340;&#x57DF;&#x90E8;&#x5206;&#x6A19;&#x7C64;&#x5167;&#x589E;&#x52A0;php&#x8B8A;&#x6578;</p>
 <pre><code class="lang-php">&lt;span class=&quot;t&quot; style=&quot;line-height:123px;&quot;&gt;&lt;/span&gt;
 </code></pre>
 <p>&#x5E36;&#x5165;$bottom_text&#xFF0C;&#x6539;&#x70BA;</p>
-<pre><code class="lang-php">&lt;span class=&quot;t&quot; style=&quot;line-height:123px;&quot;&gt;&lt;?=$bottom_text?&gt;&lt;/span&gt;
+<pre><code class="lang-php">&lt;span class=&quot;t&quot; style=&quot;line-height:123px;&quot;&gt;&lt;?=$t8footer?&gt;&lt;/span&gt;
 </code></pre>
 
                                 
@@ -1085,7 +1079,7 @@ $result=select(<span class="hljs-string">&quot;footer_t8&quot;</span>,<span clas
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8. 頁尾版權 (10%)","level":"1.2.8","depth":2,"next":{"title":"9. 最新消息 (55%)","level":"1.2.9","depth":2,"path":"web01/9.md","ref":"web01/9.md","articles":[]},"previous":{"title":"7. 進站總人數 (20%)","level":"1.2.7","depth":2,"path":"web01/7.md","ref":"web01/7.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/8.md","mtime":"2019-02-11T02:57:51.062Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8. 頁尾版權 (10%)","level":"1.2.8","depth":2,"next":{"title":"9. 最新消息 (55%)","level":"1.2.9","depth":2,"path":"web01/9.md","ref":"web01/9.md","articles":[]},"previous":{"title":"7. 進站總人數 (20%)","level":"1.2.7","depth":2,"path":"web01/7.md","ref":"web01/7.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/8.md","mtime":"2019-03-01T07:35:51.202Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-01T11:48:09.180Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

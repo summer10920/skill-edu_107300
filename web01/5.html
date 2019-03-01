@@ -989,142 +989,132 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x7B2C;5&#x984C;-&#x898F;&#x5283;&#x52D5;&#x756B;&#x8F2A;&#x64AD;">&#x7B2C;5&#x984C;. &#x898F;&#x5283;&#x52D5;&#x756B;&#x8F2A;&#x64AD;</h1>
-<p>&#x900F;&#x904E;&#x5DF2;&#x5B8C;&#x6210;&#x7684;&#x7B2C;&#x4E09;&#x984C;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x62FF;&#x4F86;&#x5F88;&#x5FEB;&#x8907;&#x88FD;&#x4FEE;&#x6539;&#x51FA;&#x7B2C;&#x4E94;&#x984C;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;&#x3002;</p>
+<p>&#x900F;&#x904E;&#x524D;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x62FF;&#x4F86;&#x5F88;&#x5FEB;&#x8907;&#x88FD;&#x4FEE;&#x6539;&#x51FA;&#x6B64;&#x984C;&#x7684;&#x5F8C;&#x53F0;&#x5167;&#x5BB9;&#x683C;&#x5F0F;&#x3002;</p>
 <hr>
-<h1 id="&#x8907;&#x88FD;admintitlephp-&#x5230;-adminmvimphp">&#x8907;&#x88FD;admin_title.php &#x5230; admin_mvim.php</h1>
-<h3 id="1-&#x4FEE;&#x6539;&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">1. &#x4FEE;&#x6539;&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
-<p>&#x6574;&#x500B;&#x8907;&#x88FD;&#x7248;&#x578B;&#x5F8C;&#xFF0C;&#x6839;&#x64DA;&#x9700;&#x6C42;&#x505A;&#x4FEE;&#x6539;&#x8ABF;&#x6574;&#xFF0C;&#x8A18;&#x5F97;from&#x63D0;&#x4EA4;&#x6539;&#x6210;&#x5230;do=mvim&#xFF0C;&#x55AE;&#x7B46;&#x65B0;&#x589E;&#x6539;&#x6210;do=add_mvim&#x3002;&#x55AE;&#x7B46;&#x4FEE;&#x6539;&#x70BA;do=mdy_mvim&#x3002;&#x9019;&#x6642;&#x5019;img&#x4E0D;&#x80FD;&#x64AD;&#x653E;swf&#xFF0C;&#x6545;&#x8981;&#x6539;embed&#x3002;</p>
-<pre><code class="lang-php">&lt;div style=&quot;width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;&quot;&gt;
-                                    &lt;p class=&quot;t cent botli&quot;&gt;&#x52D5;&#x756B;&#x5716;&#x7247;&#x7BA1;&#x7406;&lt;/p&gt;
-        &lt;form method=&quot;post&quot; action=&quot;api.php?do=mvim&quot;&gt;
+<h1 id="&#x65B0;&#x589E;adminmvimphp&#x53C3;&#x8003;&#x7248;&#x578B;admintitlephp">&#x65B0;&#x589E;admin_mvim.php(&#x53C3;&#x8003;&#x7248;&#x578B;admin_title.php)</h1>
+<h3 id="1-&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">1. &#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
+<ol>
+<li>&#x627E;&#x5230;&#x8868;&#x683C;&#x4E2D;&#x9593;&#xFF0C;&#x585E;&#x5165;php&#x4F7F;&#x53EF;&#x4EE5;&#x9806;&#x5229;select&#x4E26;&#x5E36;&#x5165;tr&gt;td&#x986F;&#x793A;</li>
+<li>&#x6CE8;&#x610F;input&#x7684;name&#x8207;value&#xFF0C;&#x5BA3;&#x544A;&#x65B9;&#x6CD5;&#x4F9D;&#x64DA;&#x4FEE;&#x6539;&#x8207;&#x522A;&#x9664;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;</li>
+<li>&#x65B0;&#x589E;&#x55AE;&#x9805;&#x7684;&#x63D0;&#x4EA4;&#x5230;view.php&#xFF0C;&#x8D70;?do=addmvim</li>
+<li>form&#x7684;&#x63D0;&#x4EA4;&#x5230;api.php&#xFF0C;&#x8D70;?do=mdytmvim</li>
+<li>&#x66F4;&#x65B0;&#x52D5;&#x756B;&#x7684;&#x63D0;&#x4EA4;&#x5230;view.php&#xFF0C;&#x8D70;?do=chgmvim&#xFF0C;&#x4E26;&#x593E;&#x5E36;ID</li>
+<li>&#x63D0;&#x4EA4;&#x524D;&#x591A;&#x4E00;&#x7D44;dpy[$id]=0&#xFF0C;&#x9019;&#x6A23;&#x6C92;&#x9078;&#x7684;&#x6703;&#x662F;0&#xFF0C;&#x6709;&#x9078;&#x7684;&#x6703;&#x662F;1&#xFF0C;update&#x6642;&#x4E00;&#x5F8B;&#x66F4;&#x65B0;</li>
+</ol>
+<pre><code class="lang-php">&lt;p class=&quot;t cent botli&quot;&gt;&#x52D5;&#x756B;&#x5716;&#x7247;&#x7BA1;&#x7406;&lt;/p&gt;
+&lt;form action=&quot;api.php?do=mdymvim&quot; method=&quot;post&quot;&gt;
     &lt;table width=&quot;100%&quot;&gt;
-        &lt;tbody&gt;&lt;tr class=&quot;yel&quot;&gt;
+        &lt;tr class=&quot;yel&quot;&gt;
             &lt;td width=&quot;68%&quot;&gt;&#x52D5;&#x756B;&#x5716;&#x7247;&lt;/td&gt;&lt;td width=&quot;7%&quot;&gt;&#x986F;&#x793A;&lt;/td&gt;&lt;td width=&quot;7%&quot;&gt;&#x522A;&#x9664;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;
                     &lt;/tr&gt;
-    &lt;/tbody&gt;
 &lt;?php
-$result=select(&quot;mvim_t5&quot;,0);
-foreach($result as $row){
+    $result=select(&quot;t5_mvim&quot;,1);
+    foreach ($result as $row){
 ?&gt;
     &lt;tr&gt;
-        &lt;td class=&quot;cent&quot;&gt;&lt;embed src=&quot;img/&lt;?=$row[&apos;file&apos;]?&gt;&quot; width=50%&gt;&lt;/td&gt;
-        &lt;td&gt;
-            &lt;input type=hidden value=0 name=dpy[&lt;?=$row[&apos;id&apos;]?&gt;]&gt;
-            &lt;input type=checkbox value=1 name=dpy[&lt;?=$row[&apos;id&apos;]?&gt;] &lt;?=($row[&quot;dpy&quot;])?&quot;checked&quot;:&quot;&quot;?&gt;&gt;
-        &lt;/td&gt;
-        &lt;td&gt;&lt;input type=checkbox value=&lt;?=$row[&apos;id&apos;]?&gt; name=del[]&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=mdy_mvim&amp;id=&lt;?=$row[&apos;id&apos;]?&gt;&amp;#39;)&quot; value=&quot;&#x66F4;&#x63DB;&#x52D5;&#x756B;&quot;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;embed src=&quot;upload/&lt;?=$row[&apos;file&apos;]?&gt;&quot; width=300&gt;&lt;/td&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;dpy[&lt;?=$row[&apos;id&apos;]?&gt;]&quot; value=0&gt;
+        &lt;td&gt;&lt;input type=&quot;checkbox&quot; name=&quot;dpy[&lt;?=$row[&apos;id&apos;]?&gt;]&quot; &lt;?=($row[&apos;dpy&apos;]==1)?&quot;checked&quot;:&quot;&quot;?&gt; value=1&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;checkbox&quot; name=&quot;del[]&quot; value=&quot;&lt;?=$row[&apos;id&apos;]?&gt;&quot;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;&#x66F4;&#x63DB;&#x52D5;&#x756B;&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=chgmvim&amp;id=&lt;?=$row[&apos;id&apos;]?&gt;&amp;#39;)&quot;&gt;&lt;/td&gt;
     &lt;/tr&gt;
 &lt;?php
 }
 ?&gt;
-    &lt;/table&gt;
+&lt;/table&gt;
            &lt;table style=&quot;margin-top:40px; width:70%;&quot;&gt;
      &lt;tbody&gt;&lt;tr&gt;
-      &lt;td width=&quot;200px&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=add_mvim&amp;#39;)&quot; value=&quot;&#x65B0;&#x589E;&#x52D5;&#x756B;&#x5716;&#x7247;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
+      &lt;td width=&quot;200px&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=addmvim&amp;#39;)&quot; value=&quot;&#x65B0;&#x589E;&#x52D5;&#x756B;&#x5F71;&#x7247;&quot;&gt;&lt;/td&gt;
+      &lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
      &lt;/tr&gt;
-    &lt;/tbody&gt;&lt;/table&gt;    
-
-        &lt;/form&gt;
-&lt;/div&gt;
+    &lt;/tbody&gt;&lt;/table&gt;
+&lt;/form&gt;
 </code></pre>
 <hr>
 <h1 id="&#x589E;&#x6DFB;viewphp">&#x589E;&#x6DFB;view.php</h1>
-<h3 id="2-&#x65B0;&#x589E;&#x55AE;&#x7B46;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">2. &#x65B0;&#x589E;&#x55AE;&#x7B46;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
+<h3 id="2-&#x65B0;&#x589E;&#x55AE;&#x7B46;">2. &#x65B0;&#x589E;&#x55AE;&#x7B46;</h3>
 <p>&#x5C0D;view.php&#x505A;&#x65B0;&#x7684;case&#x898F;&#x5283; (&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)</p>
-<pre><code class="lang-php">    case &apos;add_mvim&apos;:
-        ?&gt;
-        &lt;p class=&quot;t cent botli&quot;&gt;&#x65B0;&#x589E;&#x52D5;&#x756B;&#x5716;&#x7247;&lt;/p&gt;
-        &lt;form method=post enctype=&quot;multipart/form-data&quot; action=api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&gt;
-            &lt;table style=&quot;margin:auto&quot;&gt;
-                &lt;tr&gt;
-                    &lt;td align=right&gt;&#x52D5;&#x756B;&#x5716;&#x7247;&#xFF1A;&lt;/td&gt;
-                    &lt;td&gt;&lt;input type=file name=file required=required&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr class=&quot;cent&quot;&gt;
-                    &lt;td colspan=2&gt;&lt;input type=hidden name=dpy value=0&gt;&lt;input type=submit value=&#x65B0;&#x589E;&gt;&lt;input type=reset value=&#x91CD;&#x7F6E;&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/table&gt;
-        &lt;/form&gt;
-        &lt;?php
+<pre><code class="lang-php">    case &apos;addmvim&apos;:
+?&gt;
+    &lt;p class=&quot;t cent botli&quot;&gt;&#x65B0;&#x589E;&#x52D5;&#x756B;&#x5716;&#x7247;&lt;/p&gt;
+    &lt;form action=&quot;api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+        &lt;table width=100% class=&quot;cent&quot;&gt;
+            &lt;tr&gt;&lt;td&gt;&#x52D5;&#x756B;&#x5716;&#x7247;&#xFF1A;&lt;input type=&quot;file&quot; name=&quot;file&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x65B0;&#x589E;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/form&gt;
+&lt;?php
     break;
 </code></pre>
-<hr>
 <h1 id="&#x589E;&#x6DFB;apiphp">&#x589E;&#x6DFB;api.php</h1>
-<h3 id="3-&#x65B0;&#x589E;&#x55AE;&#x7B46;&#x5F8C;&#x7684;sql&#x8655;&#x7406;">3. &#x65B0;&#x589E;&#x55AE;&#x7B46;&#x5F8C;&#x7684;SQL&#x8655;&#x7406;</h3>
 <p>&#x5C0D;api.php&#x505A;SQL&#x8655;&#x7406;&#xFF0C;&#x63A5;&#x8457;&#x56DE;&#x5230;&#x8A72;&#x55AE;&#x5143;&#x5167;&#x5BB9;&#x3002;(&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)</p>
-<pre><code class="lang-php">  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;add_mvim&apos;</span>:
-    $_POST[<span class="hljs-string">&apos;file&apos;</span>]=addfile($_FILES);<span class="hljs-comment">//&#x56E0;&#x70BA;FILES&#x7121;&#x6CD5;&#x6B78;&#x5165;POST&#xFF0C;&#x53E6;&#x5916;&#x8655;&#x7406;&#x518D;&#x56DE;&#x50B3;&#x65B0;&#x540D;&#x5B57;;</span>
-    insert($_POST,<span class="hljs-string">&quot;mvim_t5&quot;</span>);
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;addmvim&apos;</span>:
+    $_POST[<span class="hljs-string">&apos;file&apos;</span>]=addfile($_FILES[<span class="hljs-string">&apos;file&apos;</span>]);
+    insert($_POST,<span class="hljs-string">&quot;t5_mvim&quot;</span>);
     plo(<span class="hljs-string">&quot;admin.php?do=admin&amp;redo=mvim&quot;</span>);
-  <span class="hljs-keyword">break</span>;
-</code></pre>
-<h3 id="4-&#x4FEE;&#x6539;&#x5F8C;&#x7684;sql&#x8655;&#x7406;">4. &#x4FEE;&#x6539;&#x5F8C;&#x7684;SQL&#x8655;&#x7406;</h3>
-<p>&#x5C0D;api.php&#x505A;SQL&#x8655;&#x7406;&#xFF0C;&#x63A5;&#x8457;&#x56DE;&#x5230;&#x8A72;&#x55AE;&#x5143;&#x5167;&#x5BB9;&#x3002;(&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)</p>
-<pre><code class="lang-php">  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;mvim&apos;</span>:
-    update($_POST,<span class="hljs-string">&quot;mvim_t5&quot;</span>);
-    delete($_POST,<span class="hljs-string">&quot;mvim_t5&quot;</span>);
-    plo(<span class="hljs-string">&quot;admin.php?do=admin&amp;redo=mvim&quot;</span>);
-  <span class="hljs-keyword">break</span>;
+<span class="hljs-keyword">break</span>;
 </code></pre>
 <hr>
-<h1 id="&#x589E;&#x6DFB;viewphp&#x7E7C;&#x7E8C;&#x5B8C;&#x6210;&#x55AE;&#x6539;&#x5716;&#x7247;">&#x589E;&#x6DFB;view.php&#x7E7C;&#x7E8C;&#x5B8C;&#x6210;&#x55AE;&#x6539;&#x5716;&#x7247;</h1>
-<h3 id="5-&#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">5. &#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
-<p>&#x9019;&#x6642;&#x5019;&#x7684;&#x65B0;&#x589E;&#x4FEE;&#x6539;&#x522A;&#x9664;&#x90FD;&#x53EF;&#x4EE5;&#x9806;&#x5229;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x5269;&#x55AE;&#x5716;&#x7247;&#x66F4;&#x6539;&#x4F5C;&#x696D;&#x3002;&#x5B8C;&#x6210;view.php&#x3002;&#x53EF;&#x4EE5;&#x62FF;&#x524D;&#x4E00;case&#x4F86;&#x6539;&#x4E00;&#x4E0B;</p>
-<pre><code class="lang-php">    case &apos;mdy_mvim&apos;:
-        ?&gt;
-        &lt;p class=&quot;t cent botli&quot;&gt;&#x66F4;&#x6539;&#x52D5;&#x756B;&#x5716;&#x7247;&lt;/p&gt;
-        &lt;form method=post enctype=&quot;multipart/form-data&quot; action=api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&gt;
-            &lt;table style=&quot;margin:auto&quot;&gt;
-                &lt;tr&gt;
-                    &lt;td align=right&gt;&#x52D5;&#x756B;&#x5716;&#x7247;&#xFF1A;&lt;/td&gt;
-                    &lt;td&gt;&lt;input type=file name=file required=required&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr class=&quot;cent&quot;&gt;
-                    &lt;td colspan=2&gt;&lt;input type=hidden name=id value=&lt;?=$_GET[&apos;id&apos;]?&gt;&gt;&lt;input type=submit value=&#x66F4;&#x65B0;&gt;&lt;input type=reset value=&#x91CD;&#x7F6E;&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/table&gt;
-        &lt;/form&gt;
-        &lt;?php
+<h3 id="3-&#x4FEE;&#x6539;&#x591A;&#x7B46;--&#x522A;&#x9664;&#x591A;&#x7B46;">3. &#x4FEE;&#x6539;&#x591A;&#x7B46; + &#x522A;&#x9664;&#x591A;&#x7B46;</h3>
+<p>&#x5C0D;api.php&#x505A;SQL&#x8655;&#x7406;&#xFF0C;&#x63A5;&#x8457;&#x56DE;&#x5230;&#x8A72;&#x55AE;&#x5143;&#x5167;&#x5BB9;&#x3002;(&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)</p>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;mdymvim&apos;</span>:
+    update($_POST,<span class="hljs-string">&quot;t5_mvim&quot;</span>);
+    delete($_POST,<span class="hljs-string">&quot;t5_mvim&quot;</span>);
+    plo(<span class="hljs-string">&quot;admin.php?do=admin&amp;redo=mvim&quot;</span>);
+<span class="hljs-keyword">break</span>;
+</code></pre>
+<hr>
+<h1 id="&#x589E;&#x6DFB;viewphp">&#x589E;&#x6DFB;view.php</h1>
+<h3 id="4-&#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;">4. &#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;</h3>
+<p>&#x9019;&#x6642;&#x5019;&#x7684;&#x65B0;&#x589E;&#x4FEE;&#x6539;&#x522A;&#x9664;&#x90FD;&#x53EF;&#x4EE5;&#x9806;&#x5229;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x5269;&#x63DB;&#x5716;&#x4F5C;&#x696D;&#x3002;&#x53EF;&#x4EE5;&#x62FF;&#x524D;&#x4E00;case&#x4F86;&#x6539;&#x4E00;&#x4E0B;&#x3002;&#x56E0;&#x70BA;&#x53EA;&#x6709;&#x7D14;&#x4E0A;&#x50B3;&#xFF0C;&#x6211;&#x5011;&#x9700;&#x8981;&#x85CF;&#x4E00;&#x500B;ID</p>
+<pre><code class="lang-php">    case &apos;chgmvim&apos;:
+?&gt;
+    &lt;p class=&quot;t cent botli&quot;&gt;&#x4FEE;&#x6539;&#x52D5;&#x756B;&#x5716;&#x7247;&lt;/p&gt;
+    &lt;form action=&quot;api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+        &lt;table width=100% class=&quot;cent&quot;&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&#x52D5;&#x756B;&#x5716;&#x7247;&#xFF1A;&lt;input type=&quot;file&quot; name=&quot;file&quot;&gt;&lt;/td&gt;
+                &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&lt;?=$_GET[&apos;id&apos;]?&gt;&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/form&gt;
+&lt;?php
     break;
 </code></pre>
-<hr>
 <h1 id="&#x589E;&#x6DFB;apiphp">&#x589E;&#x6DFB;api.php</h1>
-<h3 id="6-&#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;&#x5F8C;&#x7684;sql&#x8655;&#x7406;">6. &#x4FEE;&#x6539;&#x55AE;&#x4E00;&#x5716;&#x7247;&#x5F8C;&#x7684;SQL&#x8655;&#x7406;</h3>
-<p>&#x53C3;&#x8003;&#x4E4B;&#x524D;&#x7684;case add_title&#xFF0C;&#x540C;&#x6642;&#x70BA;&#x4E86;&#x914D;&#x5408;function&#xFF0C;&#x5C07;id&#x8DDF;file&#x5408;&#x4F75;&#x70BA;&#x4E00;&#x500B;&#x9663;&#x5217;</p>
-<pre><code class="lang-php">  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;mdy_mvim&apos;</span>:
-    $newpost[<span class="hljs-string">&apos;file&apos;</span>][$_POST[<span class="hljs-string">&apos;id&apos;</span>]]=addfile($_FILES);<span class="hljs-comment">//&#x56E0;&#x70BA;FILES&#x7121;&#x6CD5;&#x6B78;&#x5165;POST&#xFF0C;&#x53E6;&#x5916;&#x8655;&#x7406;&#x518D;&#x56DE;&#x50B3;&#x65B0;&#x540D;&#x5B57;&#xFF0C;&#x540C;&#x6642;&#x5C07;idx&#x8207;filename&#x5408;&#x4F75;&#x70BA;&#x4E00;&#x500B;array</span>
-    update($newpost,<span class="hljs-string">&quot;mvim_t5&quot;</span>);
+<p>&#x53C3;&#x8003;&#x4E4B;&#x524D;&#x7684;case&#xFF0C;&#x540C;&#x6642;&#x70BA;&#x4E86;&#x914D;&#x5408;function&#xFF0C;&#x5C07;id&#x8DDF;file&#x5408;&#x4F75;&#x70BA;&#x4E00;&#x500B;&#x9663;&#x5217;</p>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;chgmvim&apos;</span>:
+    $_POST[<span class="hljs-string">&apos;file&apos;</span>][$_POST[<span class="hljs-string">&apos;id&apos;</span>]]=addfile($_FILES[<span class="hljs-string">&apos;file&apos;</span>]);
+    update($_POST,<span class="hljs-string">&quot;t5_mvim&quot;</span>);
     plo(<span class="hljs-string">&quot;admin.php?do=admin&amp;redo=mvim&quot;</span>);
-  <span class="hljs-keyword">break</span>;
+<span class="hljs-keyword">break</span>;
 </code></pre>
 <p>&#x6B64;&#x6642;&#x5230;&#x9019;&#x88E1;&#xFF0C;&#x5F8C;&#x53F0;&#x7684;&#x529F;&#x80FD;&#x5DF2;&#x8A2D;&#x8A08;&#x5B8C;&#x6210;&#x3002;&#x63A5;&#x4E0B;&#x4F86;&#x662F;&#x5728;&#x5404;&#x7248;&#x578B;&#x5167;&#x986F;&#x793A;&#x8A72;title&#x5716;&#x7247;</p>
 <hr>
 <h1 id="&#x589E;&#x6DFB;sqlphp">&#x589E;&#x6DFB;sql.php</h1>
-<h3 id="7-&#x524D;&#x53F0;&#x7684;&#x52D5;&#x756B;&#x986F;&#x793A;&#x683C;&#x5F0F;">7. &#x524D;&#x53F0;&#x7684;&#x52D5;&#x756B;&#x986F;&#x793A;&#x683C;&#x5F0F;</h3>
-<p>&#x5148;&#x6488;&#x53D6;&#x51FA;mvim&#x7684;&#x6240;&#x6709;&#x6A94;&#x6848;&#x8DEF;&#x5F91;&#xFF0C;&#x5B58;&#x5728;&#x4E00;&#x500B;array&#x3002;&#x4E4B;&#x5F8C;&#x6703;&#x7528;&#x5230;</p>
-<pre><code class="lang-php"><span class="hljs-comment">//for t5</span>
-$result=select(<span class="hljs-string">&quot;mvim_t5&quot;</span>,<span class="hljs-string">&quot;dpy=1&quot;</span>);
-<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row){
-    $mvim_ary[]=<span class="hljs-string">&quot;img/&quot;</span>.$row[<span class="hljs-string">&quot;file&quot;</span>];
-}
+<h3 id="5-&#x524D;&#x53F0;&#x7684;&#x52D5;&#x756B;&#x986F;&#x793A;">5. &#x524D;&#x53F0;&#x7684;&#x52D5;&#x756B;&#x986F;&#x793A;</h3>
+<p>&#x5148;&#x6488;&#x53D6;&#x51FA;mvim&#x7684;&#x6240;&#x6709;&#x6A94;&#x6848;&#x8DEF;&#x5F91;&#xFF0C;&#x5148;&#x5B58;&#x5728;&#x4E00;&#x500B;array&#x3002;&#x4E4B;&#x5F8C;&#x6703;&#x7528;&#x5230;</p>
+<pre><code class="lang-php"><span class="hljs-comment">//t5</span>
+$result=select(<span class="hljs-string">&quot;t5_mvim&quot;</span>,<span class="hljs-string">&quot;dpy=1&quot;</span>);
+<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row) $t5mvim[]=<span class="hljs-string">&quot;upload/&quot;</span>.$row[<span class="hljs-string">&apos;file&apos;</span>];
 </code></pre>
 <h1 id="&#x4FEE;&#x6539;indexphp">&#x4FEE;&#x6539;index.php</h1>
 <p>&#x984C;&#x76EE;&#x5DF2;&#x7D93;&#x505A;&#x597D;js&#x7684;&#x8F2A;&#x64AD;&#x5DE5;&#x5177;&#x3002;&#x900F;&#x904E;&#x7406;&#x89E3;&#x77E5;&#x9053;&#x7531;&#x4E00;&#x500B;JS&#x9663;&#x5217;&#x8B8A;&#x6578;lin&#x9032;&#x884C;&#x62BD;&#x63DB;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x8981;&#x5E6B;&#x6240;&#x6709;&#x5716;&#x7247;&#x585E;&#x5165;&#x5230;&#x8A72;&#x9663;&#x5217;&#x3002;php&#x7684;array&#x8981;&#x585E;&#x5230;js&#x7684;&#x9663;&#x5217;&#x53EF;&#x4F7F;&#x7528;json_encode&#x4F86;&#x5FEB;&#x901F;&#x5B8C;&#x6210;&#x3002;&#x5FEB;&#x4E86;&#x8CAA;&#x5FEB;&#xFF0C;&#x628A;&#x5BA3;&#x544A;new array&#x7D66;&#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x4E86;&#x3002;</p>
 <pre><code class="lang-java">var lin=<span class="hljs-keyword">new</span> Array();
 </code></pre>
 <p>&#x4FEE;&#x6539;&#x70BA;</p>
-<pre><code class="lang-php"><span class="hljs-keyword">var</span> lin=<span class="hljs-meta">&lt;?</span>=json_encode($mvim_ary)<span class="hljs-meta">?&gt;</span>;
+<pre><code class="lang-php"><span class="hljs-keyword">var</span> lin=<span class="hljs-meta">&lt;?</span>=json_encode($t5mvim)<span class="hljs-meta">?&gt;</span>;
 </code></pre>
 <p>&#x6B64;&#x6642;&#x5C31;&#x80FD;&#x6B63;&#x5E38;&#x64AD;&#x653E;&#x3002;&#x4F46;&#x521D;&#x59CB;&#x756B;&#x9762;&#x6709;3&#x79D2;&#x7684;&#x7A7A;&#x7A97;&#x6C92;&#x6771;&#x897F;&#x3002;&#x9019;&#x662F;&#x984C;&#x76EE;&#x8A2D;&#x8A08;&#x6C92;&#x5F04;&#x597D;&#x3002;&#x5982;&#x679C;&#x8981;&#x4FEE;&#x6B63;&#x53EF;&#x8ABF;&#x6574;&#x5169;&#x9EDE;(&#x53EF;&#x4EE5;&#x4E0D;&#x505A;)</p>
 <ol>
 <li>&#x7DB2;&#x9801;&#x57F7;&#x884C;&#x6642;&#xFF0C;&#x61C9;&#x8A72;&#x5148;&#x51FA;&#x73FE;DIV&#x518D;&#x6709;JS(&#x624D;&#x80FD;&#x6293;&#x5230;div&#x4F4D;&#x7F6E;)&#x3002;&#x539F;&#x984C;&#x76EE;&#x985B;&#x5012;&#x3002;</li>
-<li>if&#x8CA0;&#x8CAC;&#x7B49;&#x5F85;&#x4E09;&#x79D2;&#xFF0C;&#x61C9;&#x8A72;&#x5728;&#x7B49;&#x5F85;&#x4E09;&#x79D2;&#x524D;&#x5148;&#x8DD1;&#x4E00;&#x6B21;html&#x5370;&#x51FA;</li>
+<li>if&#x5167;&#x8CA0;&#x8CAC;&#x7B49;&#x5F85;&#x4E09;&#x79D2;&#xFF0C;&#x61C9;&#x8A72;&#x5728;&#x7B49;&#x5F85;&#x4E09;&#x79D2;&#x524D;&#x5148;&#x8DD1;&#x4E00;&#x6B21;html&#x5370;&#x51FA;</li>
 </ol>
 <p>&#x8ABF;&#x6574;&#x539F;&#x6BB5;</p>
 <pre><code class="lang-java">&lt;!--&#x6B63;&#x4E2D;&#x592E;--&gt;
 &lt;script&gt;
-    var lin=&lt;?=json_encode($mvim_ary)?&gt;;
+    var lin=&lt;?=json_encode($t5mvim)?&gt;;
     var now=0;
     if(lin.length&gt;1)
     {
@@ -1147,30 +1137,30 @@ $result=select(<span class="hljs-string">&quot;mvim_t5&quot;</span>,<span class=
 &lt;/div&gt;
 </code></pre>
 <p>&#x4FEE;&#x6B63;&#x70BA;</p>
-<pre><code class="lang-java">&lt;!--&#x6B63;&#x4E2D;&#x592E;--&gt;
-&lt;div style=&quot;width:100%; padding:2px; height:290px;&quot;&gt;
+<pre><code class="lang-java">&lt;div style=&quot;width:100%; padding:2px; height:290px;&quot;&gt;
     &lt;div id=&quot;mwww&quot; loop=&quot;true&quot; style=&quot;width:100%; height:100%;&quot;&gt;
         &lt;div style=&quot;width:99%; height:100%; position:relative;&quot; class=&quot;cent&quot;&gt;&#x6C92;&#x6709;&#x8CC7;&#x6599;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;script&gt;
-    var lin=&lt;?=json_encode($mvim_ary)?&gt;;
+    // var lin=new Array();
+    var lin=&lt;?=json_encode($t5mvim)?&gt;;
     var now=0;
     if(lin.length&gt;1)
-    {
-        $(&quot;#mwww&quot;).html(&quot;&lt;embed loop=true src=&apos;&quot;+lin[now]+&quot;&apos; style=&apos;width:99%; height:100%;&apos;&gt;&lt;/embed&gt;&quot;);
-        setInterval(&quot;ww()&quot;,3000);
-        now=1;
-    }
+        {
+            $(&quot;#mwww&quot;).html(&quot;&lt;embed loop=true src=&apos;&quot;+lin[now]+&quot;&apos; style=&apos;width:99%; height:100%;&apos;&gt;&lt;/embed&gt;&quot;)
+            setInterval(&quot;ww()&quot;,3000);
+            now=1;
+        }
     function ww()
     {
-        $(&quot;#mwww&quot;).html(&quot;&lt;embed loop=true src=&apos;&quot;+lin[now]+&quot;&apos; style=&apos;width:99%; height:100%;&apos;&gt;&lt;/embed&gt;&quot;);
+        $(&quot;#mwww&quot;).html(&quot;&lt;embed loop=true src=&apos;&quot;+lin[now]+&quot;&apos; style=&apos;width:99%; height:100%;&apos;&gt;&lt;/embed&gt;&quot;)
         //$(&quot;#mwww&quot;).attr(&quot;src&quot;,lin[now])
         now++;
         if(now&gt;=lin.length)
         now=0;
     }
-&lt;/script&gt;
+    &lt;/script&gt;
 </code></pre>
 
                                 
@@ -1215,7 +1205,7 @@ $result=select(<span class="hljs-string">&quot;mvim_t5&quot;</span>,<span class=
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5. 動畫圖片輪播 (30%)","level":"1.2.5","depth":2,"next":{"title":"6. 校園映像 (40%)","level":"1.2.6","depth":2,"path":"web01/6.md","ref":"web01/6.md","articles":[]},"previous":{"title":"4. 動態文字廣告 (30%)","level":"1.2.4","depth":2,"path":"web01/4.md","ref":"web01/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/5.md","mtime":"2019-02-11T02:57:51.034Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5. 動畫圖片輪播 (30%)","level":"1.2.5","depth":2,"next":{"title":"6. 校園映像 (40%)","level":"1.2.6","depth":2,"path":"web01/6.md","ref":"web01/6.md","articles":[]},"previous":{"title":"4. 動態文字廣告 (30%)","level":"1.2.4","depth":2,"path":"web01/4.md","ref":"web01/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/5.md","mtime":"2019-03-01T08:16:58.317Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-01T11:48:09.180Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

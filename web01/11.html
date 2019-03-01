@@ -991,100 +991,75 @@
                                 <h1 id="&#x7B2C;11&#x984C;-&#x7BA1;&#x7406;&#x8005;&#x5E33;&#x865F;">&#x7B2C;11&#x984C;. &#x7BA1;&#x7406;&#x8005;&#x5E33;&#x865F;</h1>
 <p>&#x56E0;&#x70BA;&#x662F;&#x6587;&#x5B57;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x6311;&#x7B2C;&#x56DB;&#x984C;&#x4F86;&#x8907;&#x88FD;&#x4FEE;&#x6539;</p>
 <hr>
-<h1 id="&#x8907;&#x88FD;adminadphp-&#x5230;-adminadminphp">&#x8907;&#x88FD;admin_ad.php &#x5230; admin_admin.php</h1>
-<h3 id="1-&#x4FEE;&#x6539;&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">1. &#x4FEE;&#x6539;&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
+<h1 id="&#x65B0;&#x589E;adminadminphp&#x53C3;&#x8003;adminadphp">&#x65B0;&#x589E;admin_admin.php(&#x53C3;&#x8003;admin_ad.php)</h1>
+<h3 id="1-&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">1. &#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
 <p>&#x6574;&#x500B;&#x8907;&#x88FD;&#x7248;&#x578B;&#x5F8C;&#xFF0C;&#x6839;&#x64DA;&#x9700;&#x6C42;&#x505A;&#x4FEE;&#x6539;&#x8ABF;&#x6574;&#xFF0C;&#x8A18;&#x5F97;from&#x63D0;&#x4EA4;&#x6539;&#x6210;&#x5230;do=admin&#xFF0C;&#x55AE;&#x7B46;&#x65B0;&#x589E;&#x6539;&#x6210;do=add_admin</p>
-<pre><code class="lang-php">&lt;div style=&quot;width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;&quot;&gt;
-                                    &lt;p class=&quot;t cent botli&quot;&gt;&#x52D5;&#x614B;&#x6587;&#x5B57;&#x5EE3;&#x544A;&#x7BA1;&#x7406;&lt;/p&gt;
-        &lt;form method=&quot;post&quot; action=&quot;api.php?do=meqe&quot;&gt;
+<h3 id="1-&#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">1. &#x5F8C;&#x53F0;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
+<ol>
+<li>&#x6CE8;&#x610F;input&#x7684;name&#x8207;value&#xFF0C;&#x5BA3;&#x544A;&#x65B9;&#x6CD5;&#x4F9D;&#x64DA;&#x4FEE;&#x6539;&#x8207;&#x522A;&#x9664;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;</li>
+<li>&#x65B0;&#x589E;&#x55AE;&#x9805;&#x7684;&#x63D0;&#x4EA4;&#x5230;view.php&#xFF0C;&#x8D70;?do=addadmin</li>
+<li>form&#x7684;&#x63D0;&#x4EA4;&#x5230;api.php&#xFF0C;&#x8D70;?do=mdyadmin</li>
+</ol>
+<pre><code class="lang-php">&lt;p class=&quot;t cent botli&quot;&gt;&#x7BA1;&#x7406;&#x8005;&#x5E33;&#x865F;&#x7BA1;&#x7406;&lt;/p&gt;
+&lt;form action=&quot;api.php?do=mdyadmin&quot; method=&quot;post&quot;&gt;
     &lt;table width=&quot;100%&quot;&gt;
-        &lt;tbody&gt;&lt;tr class=&quot;yel&quot;&gt;
-            &lt;td width=&quot;68%&quot;&gt;&#x52D5;&#x614B;&#x6587;&#x5B57;&#x5EE3;&#x544A;&lt;/td&gt;&lt;td width=&quot;7%&quot;&gt;&#x986F;&#x793A;&lt;/td&gt;&lt;td width=&quot;7%&quot;&gt;&#x522A;&#x9664;&lt;/td&gt;
-                    &lt;/tr&gt;
-    &lt;/tbody&gt;
+        &lt;tr class=&quot;yel&quot;&gt;
+            &lt;td width=&quot;34%&quot;&gt;&#x5E33;&#x865F;&lt;/td&gt;&lt;td width=&quot;34%&quot;&gt;&#x5BC6;&#x78BC;&lt;/td&gt;&lt;td width=&quot;14%&quot;&gt;&#x522A;&#x9664;&lt;/td&gt;
+        &lt;/tr&gt;
 &lt;?php
-$result=select(&quot;maqe_t4&quot;,0);
-foreach($result as $row){
+    $result=select(&quot;t10_admin&quot;,1);
+    foreach ($result as $row){
 ?&gt;
     &lt;tr&gt;
-        &lt;td&gt;&lt;input type=text value=&lt;?=$row[&apos;text&apos;]?&gt; name=text[&lt;?=$row[&apos;id&apos;]?&gt;] style=&quot;width:90%&quot;&gt;&lt;/td&gt;
-        &lt;td&gt;
-            &lt;input type=hidden value=0 name=dpy[&lt;?=$row[&apos;id&apos;]?&gt;]&gt;
-            &lt;input type=checkbox value=1 name=dpy[&lt;?=$row[&apos;id&apos;]?&gt;] &lt;?=($row[&quot;dpy&quot;])?&quot;checked&quot;:&quot;&quot;?&gt;&gt;
-        &lt;/td&gt;
-        &lt;td&gt;&lt;input type=checkbox value=&lt;?=$row[&apos;id&apos;]?&gt; name=del[]&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;acc[&lt;?=$row[&apos;id&apos;]?&gt;]&quot; value=&quot;&lt;?=$row[&apos;acc&apos;]?&gt;&quot; style=&quot;width:90%&quot;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;pwd[&lt;?=$row[&apos;id&apos;]?&gt;]&quot; value=&quot;&lt;?=$row[&apos;pwd&apos;]?&gt;&quot; style=&quot;width:90%&quot;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type=&quot;checkbox&quot; name=&quot;del[]&quot; value=&quot;&lt;?=$row[&apos;id&apos;]?&gt;&quot;&gt;&lt;/td&gt;
     &lt;/tr&gt;
 &lt;?php
 }
 ?&gt;
-    &lt;/table&gt;
+&lt;/table&gt;
            &lt;table style=&quot;margin-top:40px; width:70%;&quot;&gt;
      &lt;tbody&gt;&lt;tr&gt;
-      &lt;td width=&quot;200px&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=add_meqe&amp;#39;)&quot; value=&quot;&#x65B0;&#x589E;&#x52D5;&#x614B;&#x6587;&#x5B57;&#x5EE3;&#x544A;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
+      &lt;td width=&quot;200px&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=addadmin&amp;#39;)&quot; value=&quot;&#x65B0;&#x589E;&#x7BA1;&#x7406;&#x8005;&#x5E33;&#x865F;&quot;&gt;&lt;/td&gt;
+      &lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
      &lt;/tr&gt;
     &lt;/tbody&gt;&lt;/table&gt;    
-
-        &lt;/form&gt;
-                                    &lt;/div&gt;
+&lt;/form&gt;
 </code></pre>
 <hr>
 <h1 id="&#x589E;&#x6DFB;viewphp">&#x589E;&#x6DFB;view.php</h1>
-<h3 id="2-&#x65B0;&#x589E;&#x55AE;&#x7B46;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;">2. &#x65B0;&#x589E;&#x55AE;&#x7B46;&#x7684;&#x5167;&#x5BB9;&#x683C;&#x5F0F;</h3>
+<h3 id="2-&#x65B0;&#x589E;&#x55AE;&#x7B46;">2. &#x65B0;&#x589E;&#x55AE;&#x7B46;</h3>
 <p>&#x5C0D;view.php&#x505A;&#x65B0;&#x7684;case&#x898F;&#x5283; (&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)</p>
-<pre><code class="lang-php">    case &apos;add_admin&apos;:
-        ?&gt;
-        &lt;p class=&quot;t cent botli&quot;&gt;&#x65B0;&#x589E;&#x7BA1;&#x7406;&#x8005;&#x5E33;&#x865F;&lt;/p&gt;
-        &lt;form method=post enctype=&quot;multipart/form-data&quot; action=api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&gt;
-            &lt;table style=&quot;margin:auto&quot;&gt;
-                &lt;tr&gt;
-                    &lt;td align=right&gt;&#x5E33;&#x865F;&#xFF1A;&lt;/td&gt;
-                    &lt;td&gt;&lt;input type=text name=acc required=required&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                    &lt;td align=right&gt;&#x5BC6;&#x78BC;&#xFF1A;&lt;/td&gt;
-                    &lt;td&gt;&lt;input type=text name=pwd required=required&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                    &lt;td align=right&gt;&#x78BA;&#x8A8D;&#x5BC6;&#x78BC;&#xFF1A;&lt;/td&gt;
-                    &lt;td&gt;&lt;input type=text name=pwd2 required=required&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr class=&quot;cent&quot;&gt;
-                    &lt;td colspan=2&gt;&lt;input type=submit value=&#x65B0;&#x589E;&gt;&lt;input type=reset value=&#x91CD;&#x7F6E;&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/table&gt;
-        &lt;/form&gt;
-        &lt;?php
+<pre><code class="lang-php">    case &apos;addadmin&apos;:
+?&gt;
+    &lt;p class=&quot;t cent botli&quot;&gt;&#x65B0;&#x589E;&#x7BA1;&#x7406;&#x8005;&#x5E33;&#x865F;&lt;/p&gt;
+    &lt;form action=&quot;api.php?do=&lt;?=$_GET[&apos;do&apos;]?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+        &lt;table width=100% class=&quot;cent&quot;&gt;
+            &lt;tr&gt;&lt;td&gt;&#x5E33;&#x865F;&#xFF1A;&lt;input type=&quot;text&quot; name=&quot;acc&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&#x5BC6;&#x78BC;&#xFF1A;&lt;input type=&quot;text&quot; name=&quot;pwd&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&#x78BA;&#x8A8D;&#x5BC6;&#x78BC;&#xFF1A;&lt;input type=&quot;text&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x65B0;&#x589E;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/form&gt;
+&lt;?php
     break;
 </code></pre>
-<hr>
 <h1 id="&#x589E;&#x6DFB;apiphp">&#x589E;&#x6DFB;api.php</h1>
-<h3 id="3-&#x65B0;&#x589E;&#x55AE;&#x7B46;&#x5F8C;&#x7684;sql&#x8655;&#x7406;">3. &#x65B0;&#x589E;&#x55AE;&#x7B46;&#x5F8C;&#x7684;SQL&#x8655;&#x7406;</h3>
-<p>&#x5C0D;api.php&#x505A;SQL&#x8655;&#x7406;&#xFF0C;&#x63A5;&#x8457;&#x56DE;&#x5230;&#x8A72;&#x55AE;&#x5143;&#x5167;&#x5BB9;&#x3002;(&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)</p>
-<pre><code class="lang-php">  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;add_admin&apos;</span>:
-    <span class="hljs-keyword">if</span>($_POST[<span class="hljs-string">&apos;pwd&apos;</span>]!=$_POST[<span class="hljs-string">&apos;pwd2&apos;</span>]) <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;script&gt;alert(&apos;&#x5BC6;&#x78BC;&#x4E0D;&#x4E00;&#x81F4;&apos;);window.history.back();&lt;/script&gt;&quot;</span>;
-    <span class="hljs-keyword">else</span> {
-      <span class="hljs-keyword">unset</span>($_POST[<span class="hljs-string">&apos;pwd2&apos;</span>]); <span class="hljs-comment">//pwd2&#x4E0D;&#x8981;&#x4E86;&#xFF0C;&#x8981;&#x6E05;&#x6389;&#x5426;&#x5247;sql&#x516C;&#x7528;&#x6703;&#x7121;&#x6CD5;&#x65B0;&#x589E;sql</span>
-      insert($_POST,<span class="hljs-string">&quot;admin_t10&quot;</span>);
-      plo(<span class="hljs-string">&quot;admin.php?do=admin&amp;redo=admin&quot;</span>);
-    }
-  <span class="hljs-keyword">break</span>;
-</code></pre>
-<h3 id="4-&#x4FEE;&#x6539;&#x5F8C;&#x7684;sql&#x8655;&#x7406;">4. &#x4FEE;&#x6539;&#x5F8C;&#x7684;SQL&#x8655;&#x7406;</h3>
-<p>&#x5C0D;api.php&#x505A;SQL&#x8655;&#x7406;&#xFF0C;&#x63A5;&#x8457;&#x56DE;&#x5230;&#x8A72;&#x55AE;&#x5143;&#x5167;&#x5BB9;&#x3002;(&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)</p>
-<pre><code class="lang-php">  <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;admin&apos;</span>:
-    update($_POST,<span class="hljs-string">&quot;admin_t10&quot;</span>);
-    delete($_POST,<span class="hljs-string">&quot;admin_t10&quot;</span>);
+<p>&#x5C0D;api.php&#x505A;SQL&#x8655;&#x7406;&#xFF0C;&#x63A5;&#x8457;&#x56DE;&#x5230;&#x8A72;&#x55AE;&#x5143;&#x5167;&#x5BB9;&#x3002;(&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)&#x3002;&#x984C;&#x76EE;&#x6C92;&#x8981;&#x6C42;&#x9A57;&#x8B49;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x82B1;&#x6642;&#x9593;&#x53BB;&#x505A;</p>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;addadmin&apos;</span>:
+    insert($_POST,<span class="hljs-string">&quot;t10_admin&quot;</span>);
     plo(<span class="hljs-string">&quot;admin.php?do=admin&amp;redo=admin&quot;</span>);
-  <span class="hljs-keyword">break</span>;
+<span class="hljs-keyword">break</span>;
 </code></pre>
 <hr>
-<h1 id="&#x4FEE;&#x6539;adminadminphp">&#x4FEE;&#x6539;admin_admin.php</h1>
-<h3 id="5-&#x4E0D;&#x8981;&#x986F;&#x793A;admin&#x5E33;&#x6236;">5. &#x4E0D;&#x8981;&#x986F;&#x793A;admin&#x5E33;&#x6236;</h3>
-<p>&#x96D6;&#x7136;&#x984C;&#x76EE;&#x6C92;&#x8981;&#x6C42;&#xFF0C;&#x4F46;&#x53C3;&#x8003;&#x5716;&#x4E0A;&#x6C92;&#x986F;&#x793A;admin&#x3002;&#x6240;&#x4EE5;&#x6539;&#x4E00;&#x4E0B;sql&#x505A;limit&#x6488;&#x53D6;&#x7684;&#x8D77;&#x59CB;&#x9EDE;(&#x53CD;&#x6B63;admin&#x662F;&#x7B2C;&#x4E00;&#x7B46;)</p>
-<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
-$result=select(<span class="hljs-string">&quot;admin_t10&quot;</span>,<span class="hljs-string">&quot;1 limit 1, 999&quot;</span>);<span class="hljs-comment">//LIMIT&#x6C92;&#x6709;ALL&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x7D66;&#x4E00;&#x500B;&#x6975;&#x5927;&#x6578;&#x5B57;&#x5373;&#x53EF;</span>
-<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row){
-<span class="hljs-meta">?&gt;</span>
+<h3 id="3-&#x4FEE;&#x6539;&#x591A;&#x7B46;--&#x522A;&#x9664;&#x591A;&#x7B46;">3. &#x4FEE;&#x6539;&#x591A;&#x7B46; + &#x522A;&#x9664;&#x591A;&#x7B46;</h3>
+<p>&#x5C0D;api.php&#x505A;SQL&#x8655;&#x7406;&#xFF0C;&#x63A5;&#x8457;&#x56DE;&#x5230;&#x8A72;&#x55AE;&#x5143;&#x5167;&#x5BB9;&#x3002;(&#x53EF;&#x8907;&#x88FD;&#x524D;&#x984C;&#x76EE;&#x505A;&#x4FEE;&#x6539;)</p>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;mdyadmin&apos;</span>:
+    update($_POST,<span class="hljs-string">&quot;t10_admin&quot;</span>);
+    delete($_POST,<span class="hljs-string">&quot;t10_admin&quot;</span>);
+    plo(<span class="hljs-string">&quot;admin.php?do=admin&amp;redo=admin&quot;</span>);
+<span class="hljs-keyword">break</span>;
 </code></pre>
 
                                 
@@ -1129,7 +1104,7 @@ $result=select(<span class="hljs-string">&quot;admin_t10&quot;</span>,<span clas
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"11. 管理者帳號管理功能 (15%)","level":"1.2.10","depth":2,"next":{"title":"12. 選單管理功能 (45%)","level":"1.2.11","depth":2,"path":"web01/12.md","ref":"web01/12.md","articles":[]},"previous":{"title":"9. 最新消息 (55%)","level":"1.2.9","depth":2,"path":"web01/9.md","ref":"web01/9.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/11.md","mtime":"2019-02-11T02:57:51.086Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"11. 管理者帳號管理功能 (15%)","level":"1.2.10","depth":2,"next":{"title":"12. 選單管理功能 (45%)","level":"1.2.11","depth":2,"path":"web01/12.md","ref":"web01/12.md","articles":[]},"previous":{"title":"9. 最新消息 (55%)","level":"1.2.9","depth":2,"path":"web01/9.md","ref":"web01/9.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/11.md","mtime":"2019-03-01T10:40:15.131Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-01T11:48:09.180Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
