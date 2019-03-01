@@ -1119,7 +1119,7 @@ $t3title=$result[<span class="hljs-number">0</span>][<span class="hljs-string">&
 <span class="hljs-comment">//t4</span>
 $result=select(<span class="hljs-string">&quot;t4_maqe&quot;</span>,<span class="hljs-string">&quot;dpy=1&quot;</span>);
 $t4maqe=<span class="hljs-string">&quot;&quot;</span>;
-<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row) $t4maqe.=$t4maqe.<span class="hljs-string">&quot;&#x3000;&#x3000;&quot;</span>.$row[<span class="hljs-string">&apos;text&apos;</span>];
+<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row) $t4maqe.=$row[<span class="hljs-string">&apos;text&apos;</span>].<span class="hljs-string">&quot;&#x3000;&#x3000;&quot;</span>;
 
 <span class="hljs-comment">//t5</span>
 $result=select(<span class="hljs-string">&quot;t5_mvim&quot;</span>,<span class="hljs-string">&quot;dpy=1&quot;</span>);
@@ -1155,6 +1155,22 @@ $t9news=<span class="hljs-string">&quot;&quot;</span>;
 <span class="hljs-keyword">for</span>($i=<span class="hljs-number">0</span>;$i&lt;$max;$i++)
     $t9news.=<span class="hljs-string">&apos;&lt;li&gt;&apos;</span>.mb_substr($result[$i][<span class="hljs-string">&apos;text&apos;</span>],<span class="hljs-number">0</span>,<span class="hljs-number">10</span>).<span class="hljs-string">&apos;&lt;span class=&quot;all&quot; style=&quot;display:none&quot;&gt;&apos;</span>.$result[$i][<span class="hljs-string">&apos;text&apos;</span>].<span class="hljs-string">&apos;&lt;/span&gt;&lt;/li&gt;&apos;</span>;
 
+<span class="hljs-comment">//t9 more</span>
+$nowpage=(<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;page&apos;</span>]))?<span class="hljs-number">1</span>:$_GET[<span class="hljs-string">&apos;page&apos;</span>];
+$t9beign=($nowpage<span class="hljs-number">-1</span>)*<span class="hljs-number">5</span>;
+$result=select(<span class="hljs-string">&quot;t9_news&quot;</span>,<span class="hljs-string">&quot;dpy=1 limit &quot;</span>.$t9beign.<span class="hljs-string">&quot;,5&quot;</span>);
+$t9more=<span class="hljs-string">&quot;&quot;</span>;
+<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row)
+    $t9more.=<span class="hljs-string">&apos;&lt;li class=sswww&gt;&apos;</span>.mb_substr($row[<span class="hljs-string">&apos;text&apos;</span>],<span class="hljs-number">0</span>,<span class="hljs-number">10</span>).<span class="hljs-string">&apos;&lt;span class=&quot;all&quot; style=&quot;display:none&quot;&gt;&apos;</span>.$row[<span class="hljs-string">&apos;text&apos;</span>].<span class="hljs-string">&apos;&lt;/span&gt;&lt;/li&gt;&apos;</span>;
+
+$result=page_link(<span class="hljs-string">&quot;t9_news&quot;</span>,<span class="hljs-string">&quot;dpy=1&quot;</span>,<span class="hljs-number">5</span>,$nowpage);
+$t9page=<span class="hljs-string">&quot;&quot;</span>;
+<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $name=&gt;$data){
+    <span class="hljs-keyword">if</span>($nowpage==$name)
+        $t9page.=<span class="hljs-string">&apos; &lt;a class=&quot;bl&quot; style=&quot;text-decoration:none;font-size:60px&quot; href=&quot;?page=&apos;</span>.$data.<span class="hljs-string">&apos;&quot;&gt;&apos;</span>.$name.<span class="hljs-string">&apos;&lt;/a&gt; &apos;</span>;
+    <span class="hljs-keyword">else</span>
+        $t9page.=<span class="hljs-string">&apos; &lt;a class=&quot;bl&quot; style=&quot;text-decoration:none;font-size:30px;&quot; href=&quot;?page=&apos;</span>.$data.<span class="hljs-string">&apos;&quot;&gt;&apos;</span>.$name.<span class="hljs-string">&apos;&lt;/a&gt; &apos;</span>;
+}
 <span class="hljs-comment">//t12</span>
 $t12menu=<span class="hljs-string">&quot;&quot;</span>;
 $result=select(<span class="hljs-string">&quot;t12_menu&quot;</span>,<span class="hljs-string">&quot;dpy=1 and parent=0&quot;</span>);
@@ -1210,7 +1226,7 @@ $result=select(<span class="hljs-string">&quot;t12_menu&quot;</span>,<span class
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"B. 函式庫規劃","level":"1.2.1.2","depth":3,"next":{"title":"C. 資料庫整理","level":"1.2.1.3","depth":3,"path":"web01/03.md","ref":"web01/03.md","articles":[]},"previous":{"title":"A. 檔案整理","level":"1.2.1.1","depth":3,"path":"web01/01.md","ref":"web01/01.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/02.md","mtime":"2019-02-28T19:39:30.733Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-01T11:48:09.180Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"B. 函式庫規劃","level":"1.2.1.2","depth":3,"next":{"title":"C. 資料庫整理","level":"1.2.1.3","depth":3,"path":"web01/03.md","ref":"web01/03.md","articles":[]},"previous":{"title":"A. 檔案整理","level":"1.2.1.1","depth":3,"path":"web01/01.md","ref":"web01/01.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/02.md","mtime":"2019-03-01T11:56:07.051Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-01T11:57:50.479Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
