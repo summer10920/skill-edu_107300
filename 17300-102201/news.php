@@ -20,72 +20,33 @@ include "sql.php";
 </div>
 <iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-		<a title="<?=$title_text?>" href="?"><div class="ti" style="background:url(&#39;<?=$title_img?>&#39;); background-size:cover;"></div><!--標題--></a>
+    	<!-- <a title="" href="?"><div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div></a> -->
+		<a title="<?=$t3title?>" href="index.php">
+			<div class="ti" style="background:url('<?=$t3img?>'); background-size:cover;" title="<?=$t3title?>"></div><!--標題-->
+		</a>
         	<div id="ms">
              	<div id="lf" style="float:left;">
             		<div id="menuput" class="dbor">
                     <!--主選單放此-->
-                                                    <span class="t botli">主選單區</span>
-<?=$menu_text?>
+                    	                            <span class="t botli">主選單區</span><?=$t12menu?>
                                                 </div>
                     <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     	<span class="t">進站總人數 : 
-						<?=$total_num?>                        </span>
+						<?=$t7total?>                        </span>
                     </div>
         		</div>
                 <div class="di" style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
-				<marquee scrolldelay="120" direction="left" style="position:absolute; width:100%; height:40px;"><?=$maqe_text?></marquee>
+                	                     <marquee scrolldelay="120" direction="left" style="position:absolute; width:100%; height:40px;"><?=$t4maqe?>
+                    	                    </marquee>
                     <div style="height:32px; display:block;"></div>
-<!-- t9 start -->
                                         <!--正中央-->
-<!-- from index code start -->
-<div style="width:95%; padding:2px; height:190px; margin-top:10px; padding:5px 10px 5px 10px; position:relative;">
-    <span class="t botli" style="text-align:left">更多最新消息顯示區</span>
-            <?php
-                $now_page=empty($_GET['p'])?1:$_GET['p'];
-                $str=$now_page*5-5;
-            ?>
-    <ol class="ssaa" style="list-style-type:decimal;" start="<?=$str+1?>">
-<!-- from admin_image+sql+index code start -->
-            <?php
-                $result=select("news_t9","1 limit $str,5"); //資料不只一個名稱，所以還沒轉成$row。這裡要注意一下
-                foreach($result as $row) 
-                    echo "<li style='width:220px'>".mb_substr($row['text'],0,10)."<span class='all' style='display:none'>".$row['text']."</li>";
-            ?>
-<!-- from admin_image+sql+index code end -->
-    </ol>
-    <div id="altt" style="position: absolute; width: 350px; min-height: 100px; background-color: rgb(255, 255, 204); top: 50px; left: 220px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
-
-        <script>
-            $(".ssaa li").hover(
-                function (){
-                    $("#altt").html("<pre>"+$(this).children(".all").html()+"</pre>")
-                    $("#altt").show()
-                }
-            )
-            $(".ssaa li").mouseout(
-                function(){
-                    $("#altt").hide()
-                }
-            )
-        </script>
-</div>
-<!-- from index code end -->
-<!-- from admin_image code start -->
+<span class="t botli">最新消息區</span>
+<ol class="ssaa" style="list-style-type:decimal;" start=<?=$t9beign+1?>>
+	<?=$t9more?>
+</ol>
 <div style="text-align:center;">
-        <?php
-            $pagelink=page_link("news_t9",0,5,$now_page);
-            foreach($pagelink as $name=>$data)
-                if(is_array($data)) foreach($data as $value) {
-                    $size=($value==$now_page)?50:30;
-                    echo "<a class='bl' style='font-size:".$size."px;' href='?p=".$value."'>".$value."</a>";
-                }
-                else
-                    echo "<a class='bl' style='font-size:30px;' href='?p=".$data."'>".$name."</a>";
-        ?>
+	<?=$t9page?>
 </div>
-<!-- from admin_image code end -->
-<!-- t9 end -->
 	                </div>
                 <div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
                     	<script>
@@ -105,40 +66,34 @@ include "sql.php";
                         </script>
                                  <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 	<!--右邊-->   
-                	<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;<?=$btnlink?>&#39;)"><?=$btn?></button>
+                	<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('admin.php?do=admin')">回後台管理</button>
                 	<div style="width:89%; height:480px;" class="dbor">
                     	<span class="t botli">校園映象區</span>
-
-<div class="cent" style="width:80%;margin:10px auto">
-	<img src="img/01E01.jpg" onclick="pp(1)">
-<?php
-	foreach($img_ary as $key=>$value) {
-		echo "<img class='im' id='ssaa".($key)."' src='".$value."' width=150 height=103>";
-	}
-?>
-	<img src="img/01E02.jpg" onclick="pp(2)">
-</div>
-
-<script>
-	var nowpage=0,num=<?=count($img_ary)?>;
-	function pp(x){
-		var s,t;
-		if(x==1&&nowpage-1>=0) {nowpage--;}
-		if(x==2&&(nowpage+1)<=num-3) {nowpage++;}
-		$(".im").hide()
-		for(s=0;s<=2;s++){
-			t=s*1+nowpage*1;
-			$("#ssaa"+t).show()
-		}
-	}
-	pp(1);
-</script>
+						<div class="cent" style="width:80%;margin:10px auto"><?=$t6img?></div>
+						                        <script>
+                        	var nowpage=0,num=<?=$t6total?>;
+							function pp(x)
+							{
+								var s,t;
+								if(x==1&&nowpage-1>=0)
+								{nowpage--;}
+								if(x==2&&(nowpage+1)<=num-3)
+								{nowpage++;}
+								$(".im").hide()
+								for(s=0;s<=2;s++)
+								{
+									t=s*1+nowpage*1;
+									$("#ssaa"+t).show()
+								}
+							}
+							pp(1)
+                        </script>
                     </div>
                 </div>
                             </div>
              	<div style="clear:both;"></div>
             	<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-				<span class="t" style="line-height:123px;"><?=$bottom_text?></span>
+                	<span class="t" style="line-height:123px;"><?=$t8footer?></span>
                 </div>
     </div>
 

@@ -1,9 +1,8 @@
 ﻿<?php
 include "sql.php";
-$content_zone="admin_title";
-if(!empty($_GET['redo'])) $content_zone=$_GET['do']."_".$_GET['redo'];
+if(empty($_SESSION['admin'])) plo("login.php");
+$admin_zone=(empty($_GET['redo']))?"admin_title":$_GET['do']."_".$_GET['redo'];
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0068)?do=admin&redo=title -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,13 +22,16 @@ if(!empty($_GET['redo'])) $content_zone=$_GET['do']."_".$_GET['redo'];
 </div>
 <iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-    	<a title="<?=$title_text?>" href="?"><div class="ti" style="background:url(&#39;<?=$title_img?>&#39;); background-size:cover;"></div><!--標題--></a>
+    	<!-- <a title="" href="?"><div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div></a> -->
+		<a title="<?=$t3title?>" href="index.php">
+			<div class="ti" style="background:url('<?=$t3img?>'); background-size:cover;" title="<?=$t3title?>"></div><!--標題-->
+		</a>
         	<div id="ms">
              	<div id="lf" style="float:left;">
             		<div id="menuput" class="dbor">
                     <!--主選單放此-->
                     	                    		<span class="t botli">後台管理選單</span>
-                			                            <a style="color:#000; font-size:13px; text-decoration:none;" href="admin.php">
+                			                            <a style="color:#000; font-size:13px; text-decoration:none;" href="?do=admin&redo=title">
                             	<div class="mainmu">
                     			網站標題管理                    			</div>
                             </a>
@@ -70,17 +72,19 @@ if(!empty($_GET['redo'])) $content_zone=$_GET['do']."_".$_GET['redo'];
 							                    </div>
                     <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     	<span class="t">進站總人數 : 
-                        	<?=$total_num?>                        </span>
+						<?=$t7total?>                        </span>
                     </div>
         		</div>
                 <div class="di" style="height:540px; border:#999 1px solid; width:76.5%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
                 	                     <!--正中央-->
                                                     <table width="100%">
                                 	<tbody><tr>
-                                    	<td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;" class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a></td><td><button onclick="document.cookie=&#39;user=&#39;;location.replace(&#39;api.php?do=logout&#39;)" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
+                                    	<td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;" class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a></td><td><button onclick="document.cookie=&#39;user=&#39;;location.replace('api.php?do=logout')" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
                                     </tr>
                                 </tbody></table>
-                                <?php include $content_zone.".php" ?>
+                                <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
+<?php include $admin_zone.".php"?>
+                                    </div>
                                                 </div>
                 <div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
                     	<script>
@@ -101,7 +105,7 @@ if(!empty($_GET['redo'])) $content_zone=$_GET['do']."_".$_GET['redo'];
                              </div>
              	<div style="clear:both;"></div>
             	<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-				<span class="t" style="line-height:123px;"><?=$bottom_text?></span>
+                	<span class="t" style="line-height:123px;"><?=$t8footer?></span>
                 </div>
     </div>
 
