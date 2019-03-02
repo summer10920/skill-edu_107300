@@ -1,5 +1,5 @@
 ﻿<?php
-    include "sql.php";
+include "sql.php";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
@@ -18,11 +18,11 @@
 <iframe name="back" style="display:none;"></iframe>
 	<div id="all">
     	<div id="title">
-            <?=$today?> | 今日瀏覽: <?=$today_visit?> | 累積瀏覽: <?=$all_visit?>
+			<?=$t3today?> | 今日瀏覽: <?=$_SESSION['visit_num']?> | 累積瀏覽: <?=$t3total?>
 			<a href="index.php" style="float:right">回首頁</a>
 		</div>
         <div id="title2">
-            <a href="index.php"><img width="100%" src=img/02B01.jpg alt="健康促進網-回首頁" title="健康促進網-回首頁"/></a>
+		<a href="index.php"><img src="img/02B01.jpg" alt="健康促進網-回首頁" title="健康促進網-回首頁"></a>
         </div>
         <div id="mm">
         	<div class="hal" id="lef">
@@ -30,24 +30,18 @@
                	                 </div>
             <div class="hal" id="main">
             	<div>
-            		<marquee width="80%">請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
-<span style="width:18%; display:inline-block;">
-	<?=$login?>
-</span>
-                    	<div class="">
-							<?php include $content_zone.".php" ?>
-						</div>
+					<span style="width:80%; display:inline-block;"><marquee>請民眾踴躍投報電子報，讓電子報成為大家相互交流、分享的園地!詳見最新文章</marquee></span>
+					<span style="width:18%; display:inline-block;"><?=$t6userbtn?></span>
+					<div class=""><?php include $content_zone.".php"?></div>
                 </div>
             </div>
-		</div>
-<div id="bottom" style="text-align:center">
-	<div style="display:inline-block">
-		本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © <?=date("Y")?>健康促進網社群平台 All Right Reserved
-		<br><span style="float:right">服務信箱：health@test.labor.gov.tw<img src="./home_files/02B02.jpg" width="45" style="vertical-align:middle"></span>
-	</div>
-</div>
-
-</div>
+        </div>
+		<div id="bottom" style="text-align: center;">
+			<div style="display:inline-block">
+				本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © <?=date("Y")?>健康促進網社群平台 All Right Reserved<br>
+				<span style="float:right">服務信箱：health@test.labor.gov.tw<img src="./home_files/02B02.jpg" width="45"></span>
+			</div>
+        </div>
     </div>
 
 </body></html>

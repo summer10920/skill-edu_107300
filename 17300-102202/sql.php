@@ -1,142 +1,180 @@
-<?php  
-/*********************前段為公用*************************/
-//修正系統時間
+<?php
+//  更改時區
 date_default_timezone_set('Asia/Taipei');
-//連結SQL
-$dblink=new PDO("mysql:host=localhost;dbname=php_q2;charset=utf8","root","");
-
-//PHP 轉址
+//  SQL連結之物件 註1
+$dblink=new PDO("mysql:host=127.0.0.1;dbname=php_v2q2;charset=utf8","root","");
+//open session;
+session_start();
+// php轉址
 function plo($link){
     return header("location:".$link);
 }
-//JS 轉址
+// JS轉址
 function jlo($link){
-    return "<script>document.location.href='".$link."'</script>";
+	return "location.href='".$link."'";
 }
-//select sql
-function select($table,$sql){
-    global $dblink;
-    if($sql) return $dblink->query("select * from ".$table." where ".$sql)->fetchAll();
-    else return $dblink->query("select * from ".$table)->fetchAll();
+//select SQL
+function select($table,$where){	//TABLE名稱,條件
+	global $dblink;
+	return $dblink->query("SELECT * FROM ".$table." WHERE ".$where)->fetchAll();
 }
-//分頁導航做成array
-function page_link($table,$sql,$range,$now_page){
-    $total=count(select($table,$sql));
-    $page_many=ceil($total/$range);
-    $pagelink['<']=($now_page==1)?1:$now_page-1;
-    for($i=1;$i<=$page_many;$i++) $pagelink['num'][]=$i;
-    $pagelink['>']=($now_page==$page_many)?$now_page:$now_page+1;
-    return $pagelink;
+//分頁導覽 註2
+function page_link($table,$where,$range,$now_page){			//TABLE名稱,條件,單頁範圍比數,目前頁碼
+	$total=count(select($table,$where));					//計算該table有多少筆總數
+	$many=ceil($total/$range);								//總頁數為 總數除以單頁範圍，無條件進位(ceil)
+	$page_nav['<']=($now_page==1)?1:$now_page-1;			//左箭頭的頁碼依目前頁有不同定義，不是1就是少1
+	for($i=1;$i<=$many;$i++) $page_nav[$i]=$i;				//一連串的數字與頁碼定義
+	$page_nav['>']=($now_page==$many)?$now_page:$now_page+1;	//左箭頭的頁碼依目前頁有不同定義，不是1就是少1
+	return $page_nav;
 }
-
-//insret sql，單筆
-function insert($post,$table){
-    global $dblink;
-    $insertA="id,";
-    $insertB="'null',";
-    foreach($post as $name=>$data) {
-        $insertA.="".$name.",";
-        $insertB.="'".$data."',";
-    }
-    $sql="insert into ".$table." (".substr($insertA,0,-1).") values(".substr($insertB,0,-1).")";
-    return $dblink->exec($sql);
+//insert SQL單筆 註3
+function insert($ary,$table){	//陣列,TABLE名稱
+	global $dblink;
+	$table_name="id";
+	$table_val="null";
+	foreach($ary as $name=>$value){
+		$table_name.=",".$name;
+		$table_val.=",'".$value."'";
+	}
+	$dblink->exec("INSERT INTO ".$table." (".$table_name.") VALUES(".$table_val.")");
+	return $dblink->lastInsertId();	//取得這筆的ID回傳
 }
-//update sql
-function update($post,$table){
-    global $dblink;
-    foreach($post as $name=>$data) {
-        switch($name){
-            case 'dpy':
-                if(!is_array($data)){   //非array為radio性質且單值，所以就要清全部再補1
-                    $dblink->exec("update ".$table." set dpy='0' where 1");
-                    $dblink->exec("update ".$table." set dpy='1' where id=".$data);
-                }
-                else{
-                    foreach($data as $idx=>$value){ //array=checkbox性質，前端都做成全部提交記錄是0還是1
-                        $dblink->exec("update ".$table." set dpy=".$value." where id=".$idx);
-                    }
-                }
-            break;
-            case 'once': //一次性資料，沒有索引所以是where 1
-                $dblink->exec("update ".$table." set once='".$data."' where 1");
-            break;
-            default:
-                foreach($data as $idx=>$value) {
-                $value=(substr($value,0,-2)=="num")? $value : "'".$value."'";    //如果num後面有2個字(+1 or-1)則為算式就不要引號
-                $dblink->exec("update ".$table." set ".$name."=".$value." where id=".$idx);
-            }
-        }
-    }
+//update SQL 註4
+function update($ary,$table){
+	global $dblink;
+	foreach($ary as $name=>$data){
+		switch($name){
+			case 'dpy': //dpy的前端必須先對所有ID對象設定$value=0 or 1
+				foreach($data as $idx=>$value)		//$idx=索引,$value=0 or 1
+					$dblink->exec("UPDATE ".$table." SET dpy=".$value." WHERE id=".$idx);	//指定的變1
+			break;
+			case 'once':
+				$dblink->exec("UPDATE ".$table." SET once='".$data."' WHERE 1");
+			break;
+			case 'num+1':
+				$dblink->exec("UPDATE ".$table." SET num=num+1 WHERE id=".$data);
+			break;
+			case 'num-1':
+				$dblink->exec("UPDATE ".$table." SET num=num-1 WHERE id=".$data);
+			break;
+			default:
+				foreach($data as $idx=>$value)
+					$dblink->exec("UPDATE ".$table." SET ".$name."='".$value."' WHERE id=".$idx);
+			break;
+		}
+	}
 }
-//delete sql
-function delete($post,$table){
-    global $dblink;
-    foreach($post as $name=>$data) {
-        switch ($name){
-            case 'del':
-                if(!is_array($data)) return $dblink->exec("delete from ".$table." where id=".$data);
-                else foreach($data as $value) $dblink->exec("delete from ".$table." where id=".$value);
-            break;
-            case 'sql':
-                return $dblink->exec("delete from ".$table." where ".$data);
-            break;
-        }
-    }
+//delete SQL
+function delete($ary,$table){
+	global $dblink;
+	foreach($ary as $name=>$data){
+		switch($name){
+			case 'del':
+				if(!is_array($data))
+					$dblink->exec("DELETE  FROM ".$table." WHERE id=".$data);
+				else
+					foreach($data as $idx)
+						$dblink->exec("DELETE  FROM ".$table." WHERE id=".$idx);
+			break;
+			case 'delat':
+				$dblink->exec("DELETE  FROM ".$table." WHERE ".$data);
+			break;
+		}
+	}
 }
-//add file
+//add file	單筆，不要整個$_FILES丟過來
 function addfile($file){
-    $name=date("YmdHis")."_".$file["file"]["name"]; //前綴時間命名
-    copy($file["file"]["tmp_name"], "img/".$name);
-    return $name;
+	$name=date("YmdHis")."_".$file["name"];
+	copy($file["tmp_name"],"upload/".$name);
+	return $name;
 }
+/*  註1
+PDO是一種可以連線任何品牌的SQL連線方式。(mysql,mssql,oracle等等都可以)
+PHP5.4有列入為內建物件導向，使用前需要new物件並存放到變數$dblink
+之後舉凡任何sql的insert,update,select,delete都能透過PDO的函式執行
+
+***宣告前先提供連線資訊，帳號，密碼***
+連線資訊為 "類型:host=位置;dbname=資料庫名;charset=編碼"
+
+本解析會用到的PDO function為
+query()->fetchAll()	//執行SQL取得多筆資料以陣列回傳(fetchAll需搭配query)
+exec()		//語法執行，會回傳受影響之筆數
+*/
+
+/* 註2
+產生一個array，紀錄key與value。key=文字，value=頁碼。
+讓前端以此array逐一列印出來。同時用link的URL來做網址。例如
+foreach($result as $key=>$value)
+	echo '<a href="?gage='.$value.'">'.$key.'</a> ';
+這樣你會得到一連串的超連結	
+*/
+
+/* 註3
+SQL新增語法=INSERT INTO table (name1,name2,name3...)VALUES(val1,val2,val3...) 
+因此你需要整理成以上字串，再透過exec()去執行結果
+整理時，forech幫忙加上,，最後跑完最後再刪除最後的,
+*/
+
+/*註4
+題目大部分提出修改的有單筆或多筆。兩者的處理方式只差別前端用一維或二維陣列包過來的
+修改方式有三種不同做法，分類出是dpy(顯不顯示之修改)，once(單值修改)，跟普通的資料修改
+利用array的$name(key值)來判斷要哪種的[修改動作]
+
+dpy在前端有兩種，單筆的radio(第一題)，多筆的checkbox(四大題都有)
+dpy:radio就是包dpy(修改動作)跟data(ID)就夠了，因為知道目標值要改1
+dpy:checked就是包dpy(修改動作)跟data(value+id)，data是個二維陣列，需要知道各筆的value跟id會是什麼
+
+once:資料庫只有一筆，所以可以取得data(值)就好，where條件為1
+
+default: 其他考量，可能有單筆或多筆。就不管全部都要做成二維陣列
+$array as $name=>$data
+	$data as $idx=>$value
+$name=欄位名稱
+$idx=索引
+$value=修改值
+*/
 ?>
 <?php
-/*********************後為Q2使用*************************/
-//使用session
-session_start();
-
-//for t3
-$today= date("m 月 d 號 l"); //for include t3.first
-$check=select("visit_t3","date='".$today."'");
-if($check==null) {  //找不到今天紀錄
-    $ary["date"]=$today;
-    $ary["num"]=0;
-    insert($ary,"visit_t3");    //新增今天且初始0
-}
-else{
-    foreach ($check as $row){
-        if(empty($_SESSION['visit'])){          //新訪客則給值並table visit.num+1
-            $_SESSION['visit']="new user";  
-            $ary['num'][$row['id']]="num+1";    //array['name']['id']=value;
-            update($ary,"visit_t3");            //update function只能依id做處理
-            $today_visit=$row['num']+1;
-        }
-        else $today_visit=$row['num'];  //for include t3.second
+/***********************Q2***********************/
+//t3
+$t3today=date("m月d號 l");	//今日日期
+if(empty($_SESSION['visit'])){	//新訪客時
+    $_SESSION['visit']=123;
+    $result=select("t3_visit","date='".date("Y-m-d")."'");
+    if($result==null){	//如果找不到今天資料則新增一筆今日，同時宣告拜訪數為1
+        $ary['date']=date("Y-m-d");
+        $ary['num']=1;
+        insert($ary,"t3_visit");
+        $_SESSION['visit_num']=1;//拜訪數回存
+    }
+    else{
+        $ary['num+1']=$result[0]['id'];//更新拜訪數+1
+        update($ary,"t3_visit");
+        $_SESSION['visit_num']=$result[0]['num']+1;//剛取得的拜訪數+1回存
     }
 }
-$get_check=select("visit_t3","");
-$all_visit=0;
-foreach($get_check as $row) $all_visit+=$row['num'];  //for include t3.third 拜訪統計
-//for t4
-$admin_active = (!empty($_SESSION['acc'])&&$_SESSION['acc']=="admin") ? "admin_main" : "main";
-$content_zone = (empty($_GET['do'])) ? $admin_active : $_GET['do']; //content=main or $_GET[do]
-//for t6
-$login = (empty($_SESSION['acc'])) ?"<a href='?do=login'>會員登入</a>":"歡迎，".$_SESSION['acc']."<a href='?do=logout'>登出</a>"; 
-
-//for t14
-$adminmenu='
-<a class="blo" href="?do=admin_user">帳號管理</a>
-<a class="blo" href="?do=null">分類網誌</a>
-<a class="blo" href="?do=admin_news">最新文章管理</a>
-<a class="blo" href="?do=null">講座管理</a>
-<a class="blo" href="?do=admin_que">問卷管理</a>
-';
+$result=select("t3_visit",1);
+$t3total=0;
+foreach($result as $row) $t3total+=$row['num'];//計算所有拜訪數總值
+//t4
+$admin_active=(!empty($_SESSION['user'])&&$_SESSION['user']=='admin')?"admin_main":"main";
+$content_zone=(empty($_GET['do']))?$admin_active:$_GET['do'];
+//t6
+$t6userbtn=(empty($_SESSION['user']))?'<a href="?do=login">會員登入</a>':'歡迎，'.$_SESSION['user'].' <a style="border: solid 1px #000000" href="api.php?do=logout">登出</a>';
+//t14
 $usermenu='
 <a class="blo" href="?do=po">分類網誌</a>
 <a class="blo" href="?do=news">最新文章</a>
 <a class="blo" href="?do=pop">人氣文章</a>
-<a class="blo" href="?do=null">講座訊息</a>
+<a class="blo" href="#">講座訊息</a>
 <a class="blo" href="?do=que">問卷調查</a>
 ';
-$menu = (!empty($_SESSION['acc'])&&$_SESSION['acc']=="admin") ?$adminmenu:$usermenu; //是否(存在登入且為admin)做對應menu值為何
+$adminmenu='
+<a class="blo" href="?do=admin_user">帳號管理</a>
+<a class="blo" href="#">分類網誌</a>
+<a class="blo" href="?do=admin_news">最新文章管理</a>
+<a class="blo" href="#">講座管理</a>
+<a class="blo" href="?do=admin_que">問卷調查</a>
+';
+$menu=(!empty($_SESSION['user'])&&$_SESSION['user']=='admin')?$adminmenu:$usermenu;
 ?>

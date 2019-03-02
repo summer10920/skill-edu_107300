@@ -1,25 +1,5 @@
 <fieldset>
-<legend>帳號管理</legend>
-<form action="api.php?do=delmem" method="post">
-<table>
-    <tr><td>帳號</td><td>密碼</td><td>刪除</td></tr>
-<?php
-    $result=select("t6_user","id!=1");
-    foreach($result as $row){
-?>
-    <tr>
-        <td><?=$row['acc']?></td>
-        <td><?=$row['pwd']?></td>
-        <td><input type="checkbox" name="del[]" value="<?=$row['id']?>"></td>
-    </tr>
-<?php
-    }
-?>
-    <tr><td colpsan=3><input type="submit" value="確定刪除"><input type="reset" value="清空選取"></td></tr>
-</table>
-</form>
-
-<h3>新增會員</h3>
+<legend>會員註冊</legend>
 <form action="api.php?do=reg" method="post">
 <table>
     <tr align=right><td>*請設定您要註冊的帳號及密碼(最長12個字元)</td></tr>

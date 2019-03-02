@@ -19,6 +19,8 @@ switch($_GET['do']){
 		plo("admin.php");
 	break;
 	case 'mdytitle':
+		$_POST['dpy'][$_POST['radio']]=1;
+		unset($_POST['radio']);
 		update($_POST,"t3_title");
 		delete($_POST,"t3_title");
 		plo("admin.php");
