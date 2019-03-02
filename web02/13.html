@@ -989,135 +989,123 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x7B2C;13&#x984C;&#x554F;&#x5377;&#x8ABF;&#x67E5;">&#x7B2C;13&#x984C;.&#x554F;&#x5377;&#x8ABF;&#x67E5;</h1>
-<p>&#x554F;&#x5377;&#x6709;&#x4E09;&#x7A2E;&#x4E0D;&#x540C;&#x756B;&#x9762;&#x9700;&#x6C42;&#xFF0C;&#x96E3;&#x5EA6;&#x8F03;&#x9AD8;&#x7684;&#x662F;&#x767E;&#x5206;&#x6BD4;&#x7D71;&#x8A08;&#x9700;&#x8981;&#x4F9D;&#x8CF4;&#x7B97;&#x6578;&#x908F;&#x8F2F;&#x3002;&#x5176;&#x6B21;&#x662F;&#x8981;&#x591A;&#x6B21;&#x6488;&#x53D6;&#x8CC7;&#x6599;&#x689D;&#x4EF6;&#x65BC;&#x4E0D;&#x540C;&#x9700;&#x6C42;&#x3002;</p>
+<p>&#x554F;&#x5377;&#x6709;&#x4E09;&#x7A2E;&#x4E0D;&#x540C;&#x756B;&#x9762;&#x9700;&#x6C42;&#xFF0C;&#x5206;&#x5225;&#x662F;&#x521D;&#x59CB;&#x756B;&#x9762;&#xFF0C;&#x6295;&#x7968;&#x756B;&#x9762;&#xFF0C;&#x7D50;&#x679C;&#x756B;&#x9762;&#x3002;&#x9019;&#x88E1;&#x900F;&#x904E;GET&#x53C3;&#x6578;&#x505A;switch&#x5C0D;&#x61C9;&#x6307;&#x5411;&#x3002;</p>
 <hr>
-<h1 id="&#x5EFA;&#x7ACB;quephp">&#x5EFA;&#x7ACB;que.php</h1>
+<h1 id="&#x65B0;&#x589E;quephp">&#x65B0;&#x589E;que.php</h1>
 <h3 id="1-&#x898F;&#x5283;&#x53EF;&#x4E09;&#x7A2E;&#x756B;&#x9762;&#x7684;&#x5207;&#x63DB;&#x529F;&#x80FD;">1. &#x898F;&#x5283;&#x53EF;&#x4E09;&#x7A2E;&#x756B;&#x9762;&#x7684;&#x5207;&#x63DB;&#x529F;&#x80FD;</h3>
 <p>&#x9019;&#x984C;&#x5206;&#x70BA;&#x4E09;&#x7A2E;&#x7248;&#x578B;&#xFF0C;&#x5206;&#x5225;&#x662F;&#x521D;&#x59CB;&#x756B;&#x9762;&#xFF0C;&#x6295;&#x7968;&#x756B;&#x9762;&#xFF0C;&#x7D50;&#x679C;&#x756B;&#x9762;&#x3002;&#x6839;&#x64DA;GET&#x53C3;&#x6578;&#x505A;&#x5C0D;&#x61C9;&#x6307;&#x5411;&#x3002;&#x898F;&#x5283;switch&#x4F86;&#x5340;&#x5206;&#x9019;&#x4E09;&#x7D44;&#x756B;&#x9762;</p>
-<pre><code class="lang-php">&lt;fieldset&gt;
-<span class="hljs-meta">&lt;?php</span>
-$layout=<span class="hljs-number">0</span>;<span class="hljs-comment">//&#x521D;&#x59CB;</span>
-<span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;join&apos;</span>])) $layout=<span class="hljs-number">1</span>;<span class="hljs-comment">//&#x6295;&#x7968;</span>
-<span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;final&apos;</span>])) $layout=<span class="hljs-number">2</span>;<span class="hljs-comment">//&#x7D50;&#x679C;</span>
-<span class="hljs-keyword">switch</span>($layout){
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+$layout=<span class="hljs-number">0</span>;
+<span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;vote&apos;</span>])) $layout=<span class="hljs-number">1</span>;
+<span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;show&apos;</span>])) $layout=<span class="hljs-number">2</span>;
+<span class="hljs-keyword">switch</span> ($layout) {
     <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
-        <span class="hljs-comment">// pull your html</span>
     <span class="hljs-keyword">break</span>;
     <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
-        <span class="hljs-comment">// pull your html</span>
     <span class="hljs-keyword">break</span>;
     <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
-        <span class="hljs-comment">// pull your html</span>
     <span class="hljs-keyword">break</span>;
 }
 <span class="hljs-meta">?&gt;</span>
-&lt;/fieldset&gt;
 </code></pre>
-<h3 id="2-&#x898F;&#x5283;&#x521D;&#x59CB;&#x756B;&#x9762;">2. &#x898F;&#x5283;&#x521D;&#x59CB;&#x756B;&#x9762;</h3>
-<p>&#x5148;&#x898F;&#x5283;&#x4E00;&#x958B;&#x59CB;&#x7684;&#x5167;&#x5BB9;&#x756B;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x5F9E;pop.php&#x8907;&#x88FD;&#x904E;&#x4F86;&#x958B;&#x59CB;&#x8ABF;&#x6574;&#x3002;&#x521D;&#x59CB;&#x756B;&#x9762;&#x4F4D;&#x7F6E;&#x5728;</p>
-<pre><code>case 0:
-// pull your html
-break;
-</code></pre><ol>
-<li>&#x522A;&#x9664;&#x4E0D;&#x8981;&#x7684;code&#xFF0C;&#x7559;&#x4E0B;&#x4E26;&#x8ABF;&#x6574;&#x6210;&#x53EF;&#x4F7F;&#x7528;&#x7684;&#x7248;&#x578B;&#xFF0C;&#x9069;&#x6642;&#x7684;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x7121;&#x932F;&#x8AA4;&#x986F;&#x793A;&#x3002;</li>
-<li>&#x524D;&#x5F80;case 1 &amp; 2&#x4E4B;&#x524D;&#xFF0C;case 0 &#x9700;&#x8981;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;GET&#xFF1A;&#x8B6C;&#x5982;
-case 1&#xFF1A;&#x9700;&#x8981;case 0&#x7684;&#x4E3B;&#x984C;id&#x505A;&#x641C;&#x5C0B;&#x689D;&#x4EF6;&#xFF0C;text&#x7576;&#x6A19;&#x984C;<br>case 2&#xFF1A;&#x9700;&#x8981;case 0&#x7684;&#x4E3B;&#x984C;id&#x505A;&#x641C;&#x5C0B;&#x689D;&#x4EF6;&#xFF0C;text&#x7576;&#x6A19;&#x984C;&#xFF0C;num_total&#x7576;&#x767E;&#x5206;&#x6BD4;&#x5206;&#x6BCD;</li>
+<hr>
+<h3 id="2-&#x521D;&#x59CB;&#x756B;&#x9762;">2. &#x521D;&#x59CB;&#x756B;&#x9762;</h3>
+<p>&#x5148;&#x898F;&#x5283;&#x4E00;&#x958B;&#x59CB;&#x7684;&#x5167;&#x5BB9;&#x756B;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x5F9E;pop.php&#x8907;&#x88FD;&#x904E;&#x4F86;&#x958B;&#x59CB;&#x8ABF;&#x6574;&#x3002;&#x521D;&#x59CB;&#x756B;&#x9762;&#x4F4D;&#x7F6E;&#x5728;case 0&#x5167;&#xFF1A;</p>
+<ol>
+<li><p>&#x8D85;&#x9023;&#x7D50;&#x8655;&#x524D;&#x5F80;&#x5230;&#x672C;&#x9801;&#x9762;&#xFF0C;&#x593E;&#x5E36;&#x4EE5;&#x4E0B;&#x53EF;&#x80FD;GET&#x503C;<br>case 1&#xFF1A;vote=id&#xFF0C;title=&#x6A19;&#x984C;<br>case 2&#xFF1A;show=id&#xFF0C;title=&#x6A19;&#x984C;&#xFF0C;&#x4EE5;&#x53CA;$total&#x7E3D;&#x6578;&#x4E5F;&#x9001;&#x904E;&#x53BB;</p>
+</li>
+<li><p>&#x6709;&#x7121;&#x767B;&#x5165;&#x5229;&#x7528;&#x8B8A;&#x6578;$votebtn&#x53BB;&#x53CD;&#x61C9;&#xFF0C;&#x585E;&#x5165;&#x5224;&#x5225;&#x5F0F;</p>
+</li>
 </ol>
 <p>&#x4EE5;&#x4E0B;&#x70BA;&#x521D;&#x59CB;&#x7248;&#x578B;&#x4E14;&#x53EF;&#x6488;&#x53D6;&#x554F;&#x5377;&#x4E3B;&#x984C;&#x8207;&#x7DE8;&#x865F;&#x6392;&#x5E8F;</p>
-<pre><code class="lang-php">    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
-    $result=select(<span class="hljs-string">&quot;vote_t13&quot;</span>,<span class="hljs-string">&quot;parent=0&quot;</span>);
-<span class="hljs-meta">?&gt;</span>
-        &lt;legend&gt;&#x76EE;&#x524D;&#x4F4D;&#x7F6E; : &#x9996;&#x9801; &gt; &#x554F;&#x5377;&#x8ABF;&#x67E5;&lt;/legend&gt;
-        &lt;table width=<span class="hljs-number">100</span>% cellpadding=<span class="hljs-number">5</span>&gt;
-            &lt;tr&gt;
-                &lt;td&gt;&#x7DE8;&#x865F;&lt;/td&gt;&lt;td&gt;&#x554F;&#x5377;&#x984C;&#x76EE;&lt;/td&gt;&lt;td&gt;&#x6295;&#x7968;&#x7E3D;&#x6578;&lt;/td&gt;&lt;td&gt;&#x7D50;&#x679C;&lt;/td&gt;&lt;td&gt;&#x72C0;&#x614B;&lt;/td&gt;
-            &lt;/tr&gt;
-<span class="hljs-meta">&lt;?php</span>
-    $login_state=<span class="hljs-string">&quot;&quot;</span>;
-    $i=<span class="hljs-number">1</span>;
-    <span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row){
-    <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($_SESSION[<span class="hljs-string">&apos;acc&apos;</span>])) $login_state=<span class="hljs-string">&quot;&lt;a href=&apos;?do=que&amp;join=&quot;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&quot;&amp;title=&quot;</span>.$row[<span class="hljs-string">&apos;text&apos;</span>].<span class="hljs-string">&quot;&apos;&gt;&#x53C3;&#x8207;&#x6295;&#x7968;&lt;/a&gt;&quot;</span>;
-    <span class="hljs-keyword">else</span> $login_state=<span class="hljs-string">&quot;&#x8ACB;&#x5148;&#x767B;&#x5165;&quot;</span>;
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+        <span class="hljs-meta">?&gt;</span>
+        &lt;fieldset&gt;
+        &lt;legend&gt;&#x76EE;&#x524D;&#x4F4D;&#x7F6E;:&#x9996;&#x9801;&#xFF1E;&#x554F;&#x5377;&#x8ABF;&#x67E5;&lt;/legend&gt;
+        &lt;table width=<span class="hljs-number">100</span>%&gt;
+            &lt;tr&gt;&lt;td&gt;&#x7DE8;&#x865F;&lt;/td&gt;&lt;td&gt;&#x554F;&#x5377;&#x984C;&#x76EE;&lt;/td&gt;&lt;td&gt;&#x6295;&#x7968;&#x7E3D;&#x6578;&lt;/td&gt;&lt;td&gt;&#x7D50;&#x679C;&lt;/td&gt;&lt;td&gt;&#x72C0;&#x614B;&lt;/td&gt;&lt;/tr&gt;
+        <span class="hljs-meta">&lt;?php</span>
+        $result=select(<span class="hljs-string">&quot;t13_vote&quot;</span>,<span class="hljs-string">&quot;parent=0&quot;</span>);
+        <span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row){
+            $check=select(<span class="hljs-string">&quot;t13_vote&quot;</span>,<span class="hljs-string">&quot;parent=&quot;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>]);
+            $total=<span class="hljs-number">0</span>;
+            <span class="hljs-keyword">foreach</span>($check <span class="hljs-keyword">as</span> $num) $total+=$num[<span class="hljs-string">&apos;num&apos;</span>];
 
-    $get_num=select(<span class="hljs-string">&quot;vote_t13&quot;</span>,<span class="hljs-string">&quot;parent=&quot;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>]);
-    $total_num=<span class="hljs-number">0</span>;
-    $que_title=$row[<span class="hljs-string">&apos;text&apos;</span>];
-    <span class="hljs-keyword">foreach</span>($get_num <span class="hljs-keyword">as</span> $value) $total_num+=$value[<span class="hljs-string">&apos;num&apos;</span>];
-<span class="hljs-meta">?&gt;</span>
+            $votebtn=(<span class="hljs-keyword">empty</span>($_SESSION[<span class="hljs-string">&apos;user&apos;</span>]))?<span class="hljs-string">&quot;&#x8ACB;&#x5148;&#x767B;&#x5165;&quot;</span>:<span class="hljs-string">&quot;&lt;a href=&apos;?do=que&amp;vote=&quot;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&quot;&amp;title=&quot;</span>.$row[<span class="hljs-string">&apos;text&apos;</span>].<span class="hljs-string">&quot;&apos;&gt;&#x53C3;&#x8207;&#x6295;&#x7968;&lt;/a&gt;&quot;</span>
+        <span class="hljs-meta">?&gt;</span> 
             &lt;tr&gt;
-                &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$i<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
+                &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;id&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
                 &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;text&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
-                &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$total_num<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
-                &lt;td&gt;&lt;a href=<span class="hljs-string">&quot;?do=que&amp;final=&lt;?=$row[&apos;id&apos;]?&gt;&amp;title=&lt;?=$que_title?&gt;&amp;total=&lt;?=$total_num?&gt;&quot;</span>&gt;&#x7D50;&#x679C;&lt;/a&gt;&lt;/td&gt;
-                &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$login_state<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
+                &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$total<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
+                &lt;td&gt;&lt;a href=<span class="hljs-string">&quot;?do=que&amp;show=&lt;?=$row[&apos;id&apos;]?&gt;&amp;title=&lt;?=$row[&apos;text&apos;]?&gt;&amp;total=&lt;?=$total?&gt;&quot;</span>&gt;&#x7D50;&#x679C;&lt;/a&gt;&lt;/td&gt;
+                &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$votebtn<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
             &lt;/tr&gt;
-<span class="hljs-meta">&lt;?php</span>
-        $i++;
-    }
-<span class="hljs-meta">?&gt;</span>
+        <span class="hljs-meta">&lt;?php</span>
+        }
+        <span class="hljs-meta">?&gt;</span>
         &lt;/table&gt;
-<span class="hljs-meta">&lt;?php</span>
-    <span class="hljs-keyword">break</span>;
+        &lt;/fieldset&gt;
+        <span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">break</span>;
 </code></pre>
 <hr>
-<h3 id="2-&#x898F;&#x5283;&#x6295;&#x7968;&#x7248;&#x9762;">2. &#x898F;&#x5283;&#x6295;&#x7968;&#x7248;&#x9762;</h3>
-<p>&#x5C0D;case 1&#x8A2D;&#x8A08;&#x6295;&#x7968;&#x756B;&#x9762;&#xFF0C;&#x53D6;&#x5F97;GET&#x505A;select&#x3002;&#x4E26;&#x63D0;&#x4EA4;&#x5230;api.php?do=vote&#x984D;&#x5916;&#x8655;&#x7406;form&#x3002;</p>
-<pre><code class="lang-php">    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
-    $result=select(<span class="hljs-string">&quot;vote_t13&quot;</span>,<span class="hljs-string">&quot;parent=&quot;</span>.$_GET[<span class="hljs-string">&apos;join&apos;</span>]);
-<span class="hljs-meta">?&gt;</span>
-        &lt;legend&gt;&#x76EE;&#x524D;&#x4F4D;&#x7F6E; : &#x9996;&#x9801; &gt; &#x554F;&#x5377;&#x8ABF;&#x67E5; &gt; <span class="hljs-meta">&lt;?</span>=$_GET[<span class="hljs-string">&apos;title&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/legend&gt;
-        &lt;h5&gt;<span class="hljs-meta">&lt;?</span>=$_GET[<span class="hljs-string">&apos;title&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/h5&gt;
-        &lt;form method=post action=<span class="hljs-string">&apos;api.php?do=vote&apos;</span>&gt;
-<span class="hljs-meta">&lt;?php</span>
-    <span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row) <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;input type=radio name=num[&quot;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&quot;] value=num+1&gt;&quot;</span>.$row[<span class="hljs-string">&apos;text&apos;</span>].<span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
-<span class="hljs-meta">?&gt;</span>
-        &lt;input type=submit value=&#x6211;&#x8981;&#x6295;&#x7968;&gt;
-        &lt;/form&gt;
-<span class="hljs-meta">&lt;?php</span>
-    <span class="hljs-keyword">break</span>;
-</code></pre>
-<p>&#x6CE8;&#x610F;&#x4E00;&#x4E0B;&#x9019;&#x88E1;&#x7528;num[id]=num+1&#xFF0C;&#x4F5C;&#x70BA;&#x4E09;&#x7A2E;&#x8CC7;&#x8A0A;&#x5408;&#x4F75;&#x4E00;&#x500B;&#x9663;&#x5217;&#x55AE;&#x4F4D;&#x3002;&#x70BA;&#x51FD;&#x5F0F;&#x5EAB;&#x7528;</p>
-<h1 id="&#x589E;&#x6DFB;apiphp">&#x589E;&#x6DFB;api.php</h1>
-<pre><code class="lang-php">    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;vote&apos;</span>:
-        update($_POST,<span class="hljs-string">&quot;vote_t13&quot;</span>);
-        plo(<span class="hljs-string">&quot;index.php?do=que&quot;</span>);
-    <span class="hljs-keyword">break</span>;
-</code></pre>
-<hr>
-<h3 id="3-&#x898F;&#x5283;&#x7D50;&#x679C;&#x7248;&#x9762;">3. &#x898F;&#x5283;&#x7D50;&#x679C;&#x7248;&#x9762;</h3>
-<p>&#x9019;&#x6642;&#x5019;&#x624B;&#x52D5;&#x6A21;&#x64EC;&#x767B;&#x5165;&#x5E33;&#x865F;&#x505A;&#x4E00;&#x4E9B;&#x6295;&#x7968;&#x52D5;&#x4F5C;&#xFF0C;&#x8B93;&#x8CC7;&#x6599;&#x6709;&#x4E9B;&#x6578;&#x64DA;&#x65B9;&#x4FBF;&#x8A2D;&#x8A08;&#x6AA2;&#x67E5;&#x7D50;&#x679C;&#x756B;&#x9762;&#x3002;&#x91CD;&#x9EDE;&#x5728;&#x767E;&#x5206;&#x6BD4;&#x7684;&#x8A2D;&#x8A08;&#x3002;&#x898F;&#x5283;&#x4E00;&#x500B;div&#x3002;&#x9AD8;&#x5EA6;&#x70BA;1em(&#x540C;&#x9810;&#x8A2D;&#x6587;&#x5B57;&#x9AD8;&#x5EA6;)&#xFF0C;&#x5BEC;&#x5EA6;&#x70BA;(&#x8A72;num&#x9664;&#x7E3D;tital)&#x4E58;100&#xFF0C;&#x4EE5;&#x53CA;&#x505A;inline-block&#x3002;table&#x7A0D;&#x5FAE;&#x6392;&#x7248;&#x4E00;&#x4E0B;&#x8DDF;&#x793A;&#x610F;&#x5716;&#x76F8;&#x8FD1;</p>
-<pre><code class="lang-php">    case 2:
-    $result=select(&quot;vote_t13&quot;,&quot;parent=&quot;.$_GET[&apos;final&apos;]);
-?&gt;
-        &lt;legend&gt;&#x76EE;&#x524D;&#x4F4D;&#x7F6E; : &#x9996;&#x9801; &gt; &#x554F;&#x5377;&#x8ABF;&#x67E5; &gt; &lt;?=$_GET[&apos;title&apos;]?&gt;&lt;/legend&gt;
-        &lt;table cellpadding=5&gt;
-&lt;?php
-    $i=1;
-    foreach($result as $row){
-        $pse=($row[&apos;num&apos;]/$_GET[&apos;total&apos;]*100);
+<h3 id="2-&#x6295;&#x7968;&#x7248;&#x9762;">2. &#x6295;&#x7968;&#x7248;&#x9762;</h3>
+<p>&#x5C0D;case 1&#x8A2D;&#x8A08;&#x6295;&#x7968;&#x756B;&#x9762;&#xFF0C;&#x5F9E;GET&#x53D6;&#x7684;parent&#x503C;&#x3002;&#x4E4B;&#x5F8C;&#x63D0;&#x4EA4;&#x5230;api.php?do=vote&#x8655;&#x7406;form&#x3002;</p>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-meta">?&gt;</span>
+    &lt;fieldset&gt;
+    &lt;legend&gt;&#x76EE;&#x524D;&#x4F4D;&#x7F6E;:&#x9996;&#x9801;&#xFF1E;&#x554F;&#x5377;&#x8ABF;&#x67E5;&#xFF1E;<span class="hljs-meta">&lt;?</span>=$_GET[<span class="hljs-string">&apos;title&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/legend&gt;
+    &lt;h3&gt;<span class="hljs-meta">&lt;?</span>=$_GET[<span class="hljs-string">&apos;title&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/h3&gt;
+    &lt;form action=<span class="hljs-string">&quot;api.php?do=vote&quot;</span> method=<span class="hljs-string">&quot;post&quot;</span>&gt;
+    <span class="hljs-meta">&lt;?php</span>
+    $result=select(<span class="hljs-string">&quot;t13_vote&quot;</span>,<span class="hljs-string">&quot;parent=&quot;</span>.$_GET[<span class="hljs-string">&apos;vote&apos;</span>]);
+    <span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row) <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;&lt;input type=&quot;radio&quot; name=&quot;num+1&quot; value=&apos;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&apos;&gt;&apos;</span>.$row[<span class="hljs-string">&apos;text&apos;</span>].<span class="hljs-string">&apos;&lt;br&gt;&apos;</span>;
+    <span class="hljs-meta">?&gt;</span>
+    &lt;input type=<span class="hljs-string">&quot;submit&quot;</span> value=<span class="hljs-string">&quot;&#x6211;&#x8981;&#x6295;&#x7968;&quot;</span>&gt;
+    &lt;/form&gt;
+    &lt;/fieldset&gt;
 
-?&gt;
+    <span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">break</span>;
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x4E00;&#x4E0B;&#x9019;&#x88E1;&#x7528;name=num+1&#x4E26;&#x503C;&#x70BA;ID</p>
+<h1 id="&#x589E;&#x6DFB;apiphp">&#x589E;&#x6DFB;api.php</h1>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;vote&apos;</span>:
+    update($_POST,<span class="hljs-string">&quot;t13_vote&quot;</span>);
+    plo(<span class="hljs-string">&quot;index.php?do=que&quot;</span>);
+<span class="hljs-keyword">break</span>;
+</code></pre>
+<hr>
+<h3 id="3-&#x7D50;&#x679C;&#x7248;&#x9762;">3. &#x7D50;&#x679C;&#x7248;&#x9762;</h3>
+<p>&#x9019;&#x6642;&#x5019;&#x624B;&#x52D5;&#x6A21;&#x64EC;&#x767B;&#x5165;&#x5E33;&#x865F;&#x505A;&#x4E00;&#x4E9B;&#x6295;&#x7968;&#x52D5;&#x4F5C;&#xFF0C;&#x8B93;&#x8CC7;&#x6599;&#x6709;&#x4E9B;&#x6578;&#x64DA;&#x65B9;&#x4FBF;&#x8A2D;&#x8A08;&#x6AA2;&#x67E5;&#x7D50;&#x679C;&#x756B;&#x9762;&#x3002;&#x91CD;&#x9EDE;&#x5728;&#x767E;&#x5206;&#x6BD4;&#x7684;&#x8A2D;&#x8A08;&#x3002;</p>
+<p>&#x898F;&#x5283;&#x4E00;&#x500B;div&#x3002;&#x9AD8;&#x5EA6;&#x70BA;1em&#xFF0C;&#x5BEC;&#x5EA6;&#x70BA;$pse&#xFF0C;&#x4EE5;&#x53CA;&#x505A;inline-block&#x3002;table&#x7A0D;&#x5FAE;&#x6392;&#x7248;&#x4E00;&#x4E0B;&#x8DDF;&#x793A;&#x610F;&#x5716;&#x76F8;&#x8FD1;</p>
+<p>$pse&#x70BA;&#x767E;&#x5206;&#x6BD4;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x7576;total&#x70BA;0&#x6703;&#x7121;&#x6CD5;&#x7576;&#x5206;&#x6BCD;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x52A0;&#x500B;&#x5224;&#x65B7;&#x5F0F;&#x3002;&#x6578;&#x5B78;&#x7B97;&#x6CD5;&#x70BA;$row[&apos;num&apos;]&#x9664;$_GET[&apos;total&apos;]&#x4E58;100</p>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        <span class="hljs-meta">?&gt;</span>
+        &lt;fieldset&gt;
+        &lt;legend&gt;&#x76EE;&#x524D;&#x4F4D;&#x7F6E;:&#x9996;&#x9801;&#xFF1E;&#x554F;&#x5377;&#x8ABF;&#x67E5;&#xFF1E;<span class="hljs-meta">&lt;?</span>=$_GET[<span class="hljs-string">&apos;title&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/legend&gt;
+        &lt;h3&gt;<span class="hljs-meta">&lt;?</span>=$_GET[<span class="hljs-string">&apos;title&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/h3&gt;
+        &lt;ol&gt;
+        &lt;table cellpadding=<span class="hljs-number">10</span>&gt;
+        <span class="hljs-meta">&lt;?php</span>
+        $result=select(<span class="hljs-string">&quot;t13_vote&quot;</span>,<span class="hljs-string">&quot;parent=&quot;</span>.$_GET[<span class="hljs-string">&apos;show&apos;</span>]);
+        <span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row) {
+            $pse=($_GET[<span class="hljs-string">&apos;total&apos;</span>]!=<span class="hljs-number">0</span>)?($row[<span class="hljs-string">&apos;num&apos;</span>]/$_GET[<span class="hljs-string">&apos;total&apos;</span>]*<span class="hljs-number">100</span>):<span class="hljs-number">0</span>;
+        <span class="hljs-meta">?&gt;</span>
             &lt;tr&gt;
-                &lt;td width=30%&gt;&lt;?=$i?&gt;. &lt;?=$row[&apos;text&apos;]?&gt;&lt;/td&gt;
-                &lt;td&gt;&lt;div style=&quot;width:&lt;?=$pse?&gt;px;height:1em;background:#222;display:inline-block;&quot;&gt;&lt;/div&gt;&lt;?=$row[&apos;num&apos;]?&gt;&#x7968;(&lt;?=$pse?&gt;)%&lt;/td&gt;
+                &lt;td width=<span class="hljs-number">400</span>&gt;&lt;li&gt;<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;text&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/li&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;div style=<span class="hljs-string">&quot;width:&lt;?=$pse?&gt;px;height:1em;background:#222;display:inline-block;&quot;</span>&gt;&lt;/div&gt;<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;num&apos;</span>]<span class="hljs-meta">?&gt;</span>&#x7968; (<span class="hljs-meta">&lt;?</span>=$pse<span class="hljs-meta">?&gt;</span>%)&lt;/td&gt;
             &lt;/tr&gt;
-&lt;?php
-        $i++;
-    }
-?&gt;
-            &lt;tr class=&quot;ct&quot;&gt;
-                &lt;td colspan=2&gt;&lt;a href=&quot;?do=que&quot;&gt;&lt;button&gt;&#x8FD4;&#x56DE;&lt;/button&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;/tr&gt;
+        <span class="hljs-meta">&lt;?php</span>
+        }
+        <span class="hljs-meta">?&gt;</span>
         &lt;/table&gt;
-&lt;?php
-    break;
+        &lt;/ol&gt;
+        &lt;/fieldset&gt;
+        <span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">break</span>;
 </code></pre>
-<p>&#x4E8B;&#x5BE6;&#x4E0A;&#x5982;&#x679C;&#x65B0;&#x7684;&#x6295;&#x7968;&#x4F5C;&#x6295;&#x7968;&#x7D50;&#x679C;&#x6642;&#xFF0C;&#x56E0;&#x70BA;total=0&#x4E0D;&#x80FD;&#x7576;&#x5206;&#x6BCD;&#xFF0C;&#x6703;&#x986F;&#x793A;&#x8B66;&#x544A;&#x8A0A;&#x606F;&#x3002;&#x70BA;&#x4E86;&#x6C42;&#x5B8C;&#x6574;&#x3002;&#x53EF;&#x4EE5;&#x4E0B;&#x500B;&#x904B;&#x7B97;&#x5B50;</p>
-<p>&#x4FEE;&#x6539;</p>
-<pre><code>$pse=($row[&apos;num&apos;]/$_GET[&apos;total&apos;]*100);
-</code></pre><p>&#x6539;&#x70BA;</p>
-<pre><code>$pse=($_GET[&apos;total&apos;]!=0)?($row[&apos;num&apos;]/$_GET[&apos;total&apos;]*100):0;
-</code></pre>
+
                                 
                                 </section>
                             
@@ -1160,7 +1148,7 @@ case 1&#xFF1A;&#x9700;&#x8981;case 0&#x7684;&#x4E3B;&#x984C;id&#x505A;&#x641C;&#
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"13. 問卷調查 (25%)","level":"1.3.12","depth":2,"next":{"title":"14. 後台管理 (10%)","level":"1.3.13","depth":2,"path":"web02/14.md","ref":"web02/14.md","articles":[]},"previous":{"title":"12. 人氣文章 (25%)","level":"1.3.11","depth":2,"path":"web02/12.md","ref":"web02/12.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web02/13.md","mtime":"2019-02-15T07:07:02.948Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"13. 問卷調查 (25%)","level":"1.3.12","depth":2,"next":{"title":"14. 後台管理 (10%)","level":"1.3.13","depth":2,"path":"web02/14.md","ref":"web02/14.md","articles":[]},"previous":{"title":"12. 人氣文章 (25%)","level":"1.3.11","depth":2,"path":"web02/12.md","ref":"web02/12.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web02/13.md","mtime":"2019-03-02T14:38:26.669Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-02T16:16:15.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

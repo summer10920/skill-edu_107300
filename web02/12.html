@@ -989,71 +989,61 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x7B2C;12&#x984C;-&#x4EBA;&#x6C23;&#x6587;&#x7AE0;">&#x7B2C;12&#x984C;. &#x4EBA;&#x6C23;&#x6587;&#x7AE0;</h1>
+<p>&#x7248;&#x578B;&#x8DDF;&#x7B2C;11&#x984C;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x4E3B;&#x8981;&#x8A2D;&#x8A08;&#x6709;&#x4EE5;&#x4E0B;&#x5E7E;&#x9EDE;&#xFF1A;</p>
+<ol>
+<li>&#x4E00;&#x6A23;&#x6709;&#x5206;&#x9801;&#x529F;&#x80FD;&#xFF08;limit&#x4E00;&#x6B21;5&#x7B46;&#xFF09;&#xFF0C;&#x5305;&#x542B;&#x5206;&#x9801;&#x5C0E;&#x89BD;&#x3002;</li>
+<li>&#x5DE6;&#x908A;&#x70BA;&#x6A19;&#x984C;&#x5340;&#xFF0C;&#x53F3;&#x908A;&#x70BA;&#x7E2E;&#x6587;&#x5340;&#x3002;&#x5168;&#x6587;&#x4F7F;&#x7528;&#x6D6E;&#x52D5;&#x8996;&#x7A97;&#x986F;&#x793A;&#xFF08;&#x5077;&#x7B2C;&#x4E00;&#x984C;&#x7684;JS&#x4F86;&#x7528;)</li>
+<li>&#x986F;&#x793A;&#x8B9A;&#x7D71;&#x8A08;</li>
+<li>&#x767B;&#x5165;&#x8005;&#x63D0;&#x4F9B;&#x8B9A;&#x529F;&#x80FD;</li>
+</ol>
 <p>&#x9019;&#x984C;&#x7A0D;&#x5FAE;&#x8907;&#x96DC;&#x4E9B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x9700;&#x8981;select&#x5F8C;&#x8DD1;foreach&#x7684;&#x4F4D;&#x7F6E;&#x5728;&#x7248;&#x578B;&#x5167;&#x90E8;&#x3002;&#x4EE5;&#x53CA;foreach&#x5167;&#x9700;&#x8981;&#x6DF7;&#x548C;&#x4E0D;&#x5C11;&#x984C;&#x76EE;&#x52D5;&#x4F5C;&#x3002;&#x96E3;&#x5EA6;&#x9084;&#x53EF;&#x4EE5;&#x4E14;&#x4EE3;&#x78BC;&#x4E5F;&#x4E0D;&#x7B97;&#x591A;&#xFF0C;&#x5C31;&#x6BD4;&#x8F03;&#x9700;&#x8981;&#x7406;&#x89E3;&#x6BCF;&#x4E00;&#x5C0F;&#x6BB5;&#x7684;&#x7528;&#x9014;&#x3002;&#x50CF;&#x662F;limit&#x7684;&#x5217;&#x8868;&#x3001;&#x8B9A;&#x529F;&#x80FD;&#x8207;&#x767B;&#x5165;&#x8005;&#x3001;&#x5206;&#x9801;&#x3001;&#x5206;&#x9801;&#x5C0E;&#x89BD;&#x3002;&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x7D30;&#x7BC0;&#x4E0A;&#x7684;&#x986F;&#x793A;&#x8ABF;&#x6574;&#x3002;</p>
 <hr>
-<h1 id="&#x5EFA;&#x7ACB;popphp-&#x5F9E;-newsphp&#x8907;&#x88FD;&#x4E26;&#x958B;&#x59CB;&#x4FEE;&#x6539;">&#x5EFA;&#x7ACB;pop.php &#x5F9E; news.php&#x8907;&#x88FD;&#x4E26;&#x958B;&#x59CB;&#x4FEE;&#x6539;</h1>
-<h3 id="1-&#x8A2D;&#x8A08;&#x5217;&#x8868;5&#x7B46;">1. &#x8A2D;&#x8A08;&#x5217;&#x8868;5&#x7B46;</h3>
-<p>&#x9019;&#x5169;&#x500B;&#x7248;&#x578B;&#x8207;&#x529F;&#x80FD;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x5C07;news.php&#x7DE8;&#x6210;pop.ph&#x7684;&#x7248;&#x578B;&#x3002;&#x62FF;&#x6389;&#x6C92;&#x6709;&#x6216;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5148;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x8A72;&#x4FDD;&#x7559;&#x7684;&#x7248;&#x578B;</p>
+<h1 id="&#x65B0;&#x589E;popphp&#x53C3;&#x8003;newsphp">&#x65B0;&#x589E;pop.php(&#x53C3;&#x8003;news.php)</h1>
+<h3 id="1-&#x5217;&#x8868;5&#x7B46;--&#x5206;&#x9801;&#x5C0E;&#x89BD;--&#x8B9A;&#x529F;&#x80FD;">1. &#x5217;&#x8868;5&#x7B46; + &#x5206;&#x9801;&#x5C0E;&#x89BD; + &#x8B9A;&#x529F;&#x80FD;</h3>
+<p>&#x9664;&#x4E86;&#x7E2E;&#x6587;&#x8207;&#x5168;&#x6587;&#x7684;&#x8868;&#x73FE;&#x65B9;&#x5F0F;&#x6703;&#x7279;&#x5225;&#x89E3;&#x91CB;&#xFF0C;&#x5176;&#x4ED6;&#x9019;&#x88E1;&#x4E0D;&#x518D;&#x7D30;&#x90E8;&#x89E3;&#x6790;&#x4E09;&#x6BB5;&#x4EE3;&#x78BC;&#xFF0C;&#x76F4;&#x63A5;&#x8ABF;&#x6574;&#x5230;&#x9069;&#x5408;&#x7684;&#x7248;&#x578B;&#x3002;</p>
 <p>&#x53E6;&#x5916;&#x8ABF;&#x6574;&#x4E00;&#x4E0B;&#x73FE;&#x6709;&#x7684;&#x8CC7;&#x6599;&#xFF1A;</p>
 <ol>
-<li>&#x8ABF;&#x6574;select&#x7684;&#x9806;&#x5E8F;&#x4F9D;num&#x505A;desc</li>
-<li>&#x52A0;&#x4E0A;&#x6587;&#x7AE0;&#x7684;&#x503C;$row[&apos;num&apos;]</li>
-<li>&#x8ABF;&#x6574;&#x8B9A;&#x529F;&#x80FD;&#x7684;href&#x4F4D;&#x7F6E;&#xFF0C;&#x56E0;&#x70BA;api&#x90A3;&#x88CF;&#x56DE;&#x4F86;&#x7684;&#x8DEF;&#x5F91;&#x4E0D;&#x4E00;&#x6A23;</li>
-<li>&#x8ABF;&#x6574;&#x5206;&#x9801;&#x5C0E;&#x89BD;&#x7684;href&#x4F4D;&#x7F6E;</li>
+<li>&#x8ABF;&#x6574;select&#x7684;order by num desc</li>
+<li>&#x5148;&#x8ABF;&#x6574;&#x6210;$newstext=$row[&apos;text&apos;]&#xFF0C;&#x6211;&#x5011;&#x4E4B;&#x5F8C;&#x518D;&#x4F86;&#x8655;&#x7406;&#x9019;&#x9EDE;</li>
+<li>$goodbtn&#x9019;&#x500B;&#x8B8A;&#x6578;&#x79FB;&#x52D5;&#x5230;&#x984C;&#x76EE;&#x6307;&#x5B9A;&#x589C;</li>
+<li>&#x591A;&#x4E86;$row[&apos;num&apos;]&#x986F;&#x793A;&#x7D71;&#x8A08;&#x503C;&#xFF0C;&#x8A18;&#x5F97;&#x653E;&#x5165;&#x5716;&#x7247;02B03.jpg</li>
 </ol>
 <pre><code class="lang-php">&lt;fieldset&gt;
-    &lt;legend&gt;&#x76EE;&#x524D;&#x4F4D;&#x7F6E; : &#x9996;&#x9801; &gt; &#x4EBA;&#x6C23;&#x6587;&#x7AE0;&#x5340;&lt;/legend&gt;
+&lt;legend&gt;&#x76EE;&#x524D;&#x4F4D;&#x7F6E;:&#x9996;&#x9801;&#xFF1E;&#x4EBA;&#x6C23;&#x6587;&#x7AE0;&#x5340;&lt;/legend&gt;
+&lt;table width=<span class="hljs-number">100</span>% bgcolor=<span class="hljs-comment">#fff cellpadding=10&gt;</span>
+    &lt;tr&gt;&lt;td width=<span class="hljs-string">&quot;25%&quot;</span>&gt;&#x6A19;&#x984C;&lt;/td&gt;&lt;td width=<span class="hljs-string">&quot;50%&quot;</span>&gt;&#x5167;&#x5BB9;&lt;/td&gt;&lt;td&gt;&#x4EBA;&#x6C23;&lt;/td&gt;&lt;/tr&gt;
 <span class="hljs-meta">&lt;?php</span>
-$page=(<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;page&apos;</span>]))?<span class="hljs-number">1</span>:$_GET[<span class="hljs-string">&apos;page&apos;</span>];<span class="hljs-comment">// page=?,then show list&apos;count=?</span>
-$start=$page*<span class="hljs-number">5</span><span class="hljs-number">-5</span>;
-$result=select(<span class="hljs-string">&quot;blog_t7&quot;</span>,<span class="hljs-string">&quot;1 order by num desc limit &quot;</span>.$start.<span class="hljs-string">&quot;,5&quot;</span>);
-<span class="hljs-meta">?&gt;</span>
-    &lt;table width=<span class="hljs-number">100</span>% cellpadding=<span class="hljs-number">5</span>&gt;
-        &lt;tr&gt;
-            &lt;td width=<span class="hljs-string">&quot;25%&quot;</span> bgcolor=<span class="hljs-comment">#eee&gt;&#x6A19;&#x984C;&lt;/td&gt;</span>
-            &lt;td&gt;&#x5167;&#x5BB9;&lt;/td&gt;
-            &lt;td width=<span class="hljs-string">&quot;25%&quot;</span>&gt;&#x4EBA;&#x6C23;&lt;/td&gt;
-        &lt;/tr&gt;
-<span class="hljs-meta">&lt;?php</span>   
-$show=(<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;id&apos;</span>]))?<span class="hljs-number">0</span>:$_GET[<span class="hljs-string">&apos;id&apos;</span>];<span class="hljs-comment">//&#x8981;&#x986F;&#x793A;&#x7684;&#x6587;&#x7AE0;id</span>
+$nowpage=(<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;page&apos;</span>]))?<span class="hljs-number">1</span>:$_GET[<span class="hljs-string">&apos;page&apos;</span>];
+$begin=($nowpage<span class="hljs-number">-1</span>)*<span class="hljs-number">5</span>;
+$result=select(<span class="hljs-string">&quot;t7_blog&quot;</span>,<span class="hljs-string">&quot;dpy=1 order by num desc limit &quot;</span>.$begin.<span class="hljs-string">&quot;,5&quot;</span>);
 <span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row){
-    $pop_content=mb_substr($row[<span class="hljs-string">&apos;text&apos;</span>],<span class="hljs-number">0</span>,<span class="hljs-number">30</span>).<span class="hljs-string">&quot;...&quot;</span>;
-
-    $good_btn=<span class="hljs-string">&quot;&quot;</span>;
-    <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($_SESSION[<span class="hljs-string">&apos;acc&apos;</span>])){ <span class="hljs-comment">//&#x6709;&#x767B;&#x5165;&#x8005;&#xFF0C;&#x53D6;&#x5F97;&#x8B9A;&#x72C0;&#x614B;</span>
-        $result=select(<span class="hljs-string">&quot;good_t11&quot;</span>,<span class="hljs-string">&quot;user=&apos;&quot;</span>.$_SESSION[<span class="hljs-string">&apos;acc&apos;</span>].<span class="hljs-string">&quot;&apos; and blog=&apos;&quot;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&quot;&apos;&quot;</span>);
-        <span class="hljs-keyword">if</span>($result==<span class="hljs-keyword">null</span>) $good_btn=<span class="hljs-string">&quot; - &lt;a href=&apos;api.php?do=popadd&amp;id=&quot;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&quot;&apos;&gt;&#x8B9A;&lt;/a&gt;&quot;</span>;
+    $newstext=$row[<span class="hljs-string">&apos;text&apos;</span>];
+    $goodbtn=<span class="hljs-string">&quot;&quot;</span>;
+    <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($_SESSION[<span class="hljs-string">&apos;user&apos;</span>])){
+        $check=select(<span class="hljs-string">&quot;t11_good&quot;</span>,<span class="hljs-string">&quot;user=&apos;&quot;</span>.$_SESSION[<span class="hljs-string">&apos;user&apos;</span>].<span class="hljs-string">&quot;&apos; and blog=&quot;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>]);
+        <span class="hljs-keyword">if</span>($check!=<span class="hljs-keyword">null</span>) $goodbtn=<span class="hljs-string">&apos; | &lt;a href=&quot;api.php?do=subgood&amp;id=&apos;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&apos;&quot;&gt;&#x6536;&#x56DE;&#x8B9A;&lt;/a&gt;&apos;</span>;
+        <span class="hljs-keyword">else</span> $goodbtn=<span class="hljs-string">&apos; | &lt;a href=&quot;api.php?do=addgood&amp;id=&apos;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&apos;&quot;&gt;&#x8B9A;&lt;/a&gt;&apos;</span>;
     }
-<span class="hljs-meta">?&gt;</span>
-        &lt;tr&gt;
-            &lt;td bgcolor=<span class="hljs-comment">#eee&gt;&lt;?=$row[&apos;title&apos;]?&gt;&lt;/td&gt;</span>
-            &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$pop_content<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
-            &lt;td&gt;
-                <span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;num&apos;</span>]<span class="hljs-meta">?&gt;</span>&#x500B;&#x4EBA;&#x8AAA;&lt;img src=<span class="hljs-string">&quot;img/02B03.jpg&quot;</span> height=<span class="hljs-number">20</span>px&gt;
-                <span class="hljs-meta">&lt;?</span>=$good_btn<span class="hljs-meta">?&gt;</span>
-            &lt;/td&gt;
-        &lt;/tr&gt;
+<span class="hljs-meta">?&gt;</span> 
+    &lt;tr&gt;
+        &lt;td bgcolor=<span class="hljs-string">&quot;#ffc&quot;</span>&gt;<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;title&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
+        &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$newstext<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
+        &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;num&apos;</span>]<span class="hljs-meta">?&gt;</span>&#x500B;&#x4EBA;&#x8AAA;&lt;img src=<span class="hljs-string">&quot;img/02B03.jpg&quot;</span> width=<span class="hljs-number">20</span>&gt;<span class="hljs-meta">&lt;?</span>=$goodbtn<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
+    &lt;/tr&gt;
 <span class="hljs-meta">&lt;?php</span>
 }
 <span class="hljs-meta">?&gt;</span>
-    &lt;/table&gt;
+&lt;/table&gt;
 <span class="hljs-meta">&lt;?php</span>
-$pagelink=page_link(<span class="hljs-string">&quot;blog_t7&quot;</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,$page);<span class="hljs-comment">// (table,where,items in page,now page)</span>
-<span class="hljs-keyword">foreach</span>($pagelink <span class="hljs-keyword">as</span> $name=&gt;$data){
-    <span class="hljs-keyword">if</span>($name==<span class="hljs-string">&quot;num&quot;</span>)
-        <span class="hljs-keyword">foreach</span>($data <span class="hljs-keyword">as</span> $value){
-            $size=($value==$page)?<span class="hljs-string">&quot;style=&apos;font-size:2em&apos;&quot;</span>:<span class="hljs-string">&quot;&quot;</span>;
-            <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;a &quot;</span>.$size.<span class="hljs-string">&quot;href=&apos;?do=pop&amp;page=&quot;</span>.$value.<span class="hljs-string">&quot;&apos;&gt;&quot;</span>.$value.<span class="hljs-string">&quot;&lt;/a&gt; &quot;</span>;
-        }
-    <span class="hljs-keyword">else</span>
-            <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;a href=&apos;?do=pop&amp;page=&quot;</span>.$data.<span class="hljs-string">&quot;&apos;&gt;&quot;</span>.$name.<span class="hljs-string">&quot;&lt;/a&gt; &quot;</span>;
-}
+$result=page_link(<span class="hljs-string">&quot;t7_blog&quot;</span>,<span class="hljs-string">&quot;dpy=1&quot;</span>,<span class="hljs-number">5</span>,$nowpage);
+<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $name=&gt;$data)
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;&lt;a href=&quot;?do=pop&amp;page=&apos;</span>.$data.<span class="hljs-string">&apos;&quot;&gt;&apos;</span>.$name.<span class="hljs-string">&apos;&lt;/a&gt;&apos;</span>;
 <span class="hljs-meta">?&gt;</span>
 &lt;/fieldset&gt;
 </code></pre>
 <p>&#x4EE5;&#x4E0A;&#x4F60;&#x5DF2;&#x7D93;&#x5B8C;&#x6210;80%&#x8981;&#x6C42;</p>
 <hr>
-<h3 id="2-&#x5F48;&#x51FA;&#x8996;&#x7A97;">2. &#x5F48;&#x51FA;&#x8996;&#x7A97;</h3>
+<h3 id="2-&#x6D6E;&#x52D5;&#x8996;&#x7A97;">2. &#x6D6E;&#x52D5;&#x8996;&#x7A97;</h3>
 <p>&#x53BB;&#x5077;&#x7B2C;&#x4E00;&#x984C;&#x7684;JS&#xFF0C;&#x5C31;&#x653E;&#x5728;01P02.htm(&#x9996;&#x9801;)&#x7684;&#x6700;&#x65B0;&#x6D88;&#x606F;&#x90A3;&#x88CF;&#x5305;&#x542B;JS&#xFF0C;&#x6574;&#x7406;&#x4E00;&#x4E0B;&#x6BB5;&#x843D;&#x5F8C;&#x653E;&#x7F6E;&#x5230;&#x4F60;&#x672C;&#x9801;&#x7684;&#x6700;&#x5F8C;&#x5148;&#x5206;&#x6790;&#x9700;&#x8981;&#x7684;code&#x5728;&#x54EA;&#x88E1;</p>
 <pre><code class="lang-php">&lt;div style=&quot;width:95%; padding:2px; height:190px; margin-top:10px; padding:5px 10px 5px 10px; border:#0C3 dashed 3px; position:relative;&quot;&gt;
     &lt;span class=&quot;t botli&quot;&gt;&#x6700;&#x65B0;&#x6D88;&#x606F;&#x5340;&lt;/span&gt;
@@ -1070,48 +1060,70 @@ $pagelink=page_link(<span class="hljs-string">&quot;blog_t7&quot;</span>,<span c
     &lt;/script&gt;
 &lt;/div&gt;
 </code></pre>
-<p>&#x984C;&#x5916;&#x8A71;&#x7684;&#x53BB;&#x89E3;&#x91CB;&#x4E00;&#x4E0B;&#x9019;&#x6BB5;&#x3002;&#x5927;&#x81F4;&#x91CD;&#x9EDE;&#x70BA;&#xFF1A;&#x53EA;&#x8981;&#x662F;&#x5728;ssaa.li&#x7684;&#x7BC4;&#x570D;&#x53BB;&#x6ED1;&#x52D5;&#x6703;&#x5C0D;#altt&#x7684;&#x7269;&#x4EF6;&#x986F;&#x73FE;&#x3002;</p>
-<p>&#x6240;&#x4EE5;&#x8981;&#x6539;&#x4E00;&#x4E0B;&#x6211;&#x5011;&#x60F3;&#x8981;&#x7684;&#x5167;&#x5BB9;&#x3002;&#x62BD;&#x53D6;&#x51FA;JS&#x653E;&#x7F6E;&#x5728;&#x9801;&#x9762;&#x6700;&#x4E0B;&#x65B9;&#x5373;&#x53EF;&#x3002;&#x6539;&#x4E00;&#x4E0B;class&#x5C0D;&#x8C61;&#x70BA;popzone</p>
-<pre><code class="lang-java">&lt;script&gt;
-$(&quot;.popzone&quot;).hover(function (){
-    $(&quot;#altt&quot;).html(&quot;&lt;pre&gt;&quot;+$(this).children(&quot;.all&quot;).html()+&quot;&lt;/pre&gt;&quot;);
-    $(&quot;#altt&quot;).show();
-});
-$(&quot;.popzone&quot;).mouseout(function(){
-    $(&quot;#altt&quot;).hide();
-});
+<p>&#x984C;&#x5916;&#x8A71;&#x7684;&#x53BB;&#x89E3;&#x91CB;&#x9019;&#x6BB5;&#x3002;&#x5927;&#x81F4;&#x91CD;&#x9EDE;&#x70BA;&#xFF1A;&#x6ED1;&#x5230;&#x89F8;&#x767C;&#x5C0D;&#x8C61;&#x6642;(class=ssaa li)&#xFF0C;div#altt&#x6703;&#x986F;&#x793A;&#x51FA;&#x4F86;&#xFF0C;&#x4E26;&#x540C;&#x6642;&#x6293;&#x53D6;&#x89F8;&#x767C;&#x5C0D;&#x8C61;&#x7684;&#x5167;&#x90E8;class=all&#x4E4B;&#x5167;&#x5BB9;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x6539;&#x4E00;&#x4E0B;HTMLL&#x8DDF;JS&#xFF1A;</p>
+<p>&#x5728;&#x6BCF;&#x500B;&#x8FF4;&#x5708;&#x88E1;&#x9762;&#x7684;&#x6587;&#x5B57;&#x90E8;&#x5206;&#xFF1A;</p>
+<pre><code class="lang-php">$newstext=<span class="hljs-string">&apos;
+    &lt;div class=&quot;ssaa&quot;&gt;
+        &apos;</span>.mb_substr($row[<span class="hljs-string">&apos;text&apos;</span>],<span class="hljs-number">0</span>,<span class="hljs-number">30</span>).<span class="hljs-string">&apos;...
+        &lt;div class=&quot;all&quot; style=&quot;display:none&quot;&gt;&apos;</span>.$row[<span class="hljs-string">&apos;text&apos;</span>].<span class="hljs-string">&apos;&lt;/div&gt;
+    &lt;/div&gt;
+&apos;</span>;
+</code></pre>
+<p>&#x6D6E;&#x52D5;&#x8996;&#x7A97;&#x8207;JS&#x653E;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x50CF;&#x662F;&#x9801;&#x5C3E;&#x8655;&#xFF0C;&#x8ABF;&#x6574;&#x5F8C;&#x7684;&#x7279;&#x6548;DIV+JS&#x70BA;</p>
+<pre><code class="lang-java">&lt;div id=&quot;altt&quot; style=&quot;position: absolute; width: 350px; min-height: 100px; background-color: rgb(255, 255, 204); top: 50px; left: 130px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+$(&quot;.ssaa&quot;).hover(function (){
+    $(&quot;#altt&quot;).html(&quot;&lt;pre&gt;&quot;+$(this).children(&quot;.all&quot;).html()+&quot;&lt;/pre&gt;&quot;)
+    $(&quot;#altt&quot;).show()
+})
+$(&quot;.ssaa&quot;).mouseout(function(){
+    $(&quot;#altt&quot;).hide()
+})
 &lt;/script&gt;
 </code></pre>
-<p>&#x5C07;div#altt&#x653E;&#x7F6E;&#x5728;table&#x5F8C;&#x9762;&#x8207;&#x5206;&#x9801;&#x5C0E;&#x89BD;&#x4E4B;&#x524D;</p>
-<pre><code class="lang-php">&lt;/table&gt;
-&lt;div id=<span class="hljs-string">&quot;altt&quot;</span> style=<span class="hljs-string">&quot;position: absolute; width: 350px; min-height: 100px; background-color: rgb(255, 255, 204); top: 50px; left: 130px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;&quot;</span>&gt;&lt;/div&gt;
-</code></pre>
-<p>&#x63A5;&#x8457;&#x8ABF;&#x6574;&#x4E00;&#x4E0B;table&#x5167;&#x5BB9; (&#x91CD;&#x9EDE;&#x5728;tr&#x90E8;&#x5206;&#xFF0C;&#x6709;span.popzone&#x8207;span.all&#x505A;&#x5B50;&#x96C6;&#x5408;(children)</p>
-<pre><code class="lang-php">&lt;?php   
-$show=(empty($_GET[&apos;id&apos;]))?0:$_GET[&apos;id&apos;];//&#x8981;&#x986F;&#x793A;&#x7684;&#x6587;&#x7AE0;id
-foreach($result as $row){
-    $pop_content=mb_substr($row[&apos;text&apos;],0,30).&quot;...&quot;;
-
-    $good_btn=&quot;&quot;;
-    if(!empty($_SESSION[&apos;acc&apos;])){ //&#x6709;&#x767B;&#x5165;&#x8005;&#xFF0C;&#x53D6;&#x5F97;&#x8B9A;&#x72C0;&#x614B;
-        $result=select(&quot;good_t11&quot;,&quot;user=&apos;&quot;.$_SESSION[&apos;acc&apos;].&quot;&apos; and blog=&apos;&quot;.$row[&apos;id&apos;].&quot;&apos;&quot;);
-        if($result==null) $good_btn=&quot; - &lt;a href=&apos;api.php?do=popadd&amp;id=&quot;.$row[&apos;id&apos;].&quot;&apos;&gt;&#x8B9A;&lt;/a&gt;&quot;;
-        else $good_btn=&quot; - &lt;a href=&apos;api.php?do=popsub&amp;id=&quot;.$row[&apos;id&apos;].&quot;&apos;&gt;&#x6536;&#x56DE;&#x8B9A;&lt;/a&gt;&quot;;
+<p>&#x7E3D;&#x7D50;&#x6574;&#x6B65;&#x9A5F;&#x5B8C;&#x6574;&#x4EE3;&#x78BC;&#x70BA;&#xFF1A;</p>
+<pre><code class="lang-php">&lt;fieldset&gt;
+&lt;legend&gt;&#x76EE;&#x524D;&#x4F4D;&#x7F6E;:&#x9996;&#x9801;&#xFF1E;&#x4EBA;&#x6C23;&#x6587;&#x7AE0;&#x5340;&lt;/legend&gt;
+&lt;table width=<span class="hljs-number">100</span>% bgcolor=<span class="hljs-comment">#fff cellpadding=10&gt;</span>
+    &lt;tr&gt;&lt;td width=<span class="hljs-string">&quot;25%&quot;</span>&gt;&#x6A19;&#x984C;&lt;/td&gt;&lt;td width=<span class="hljs-string">&quot;50%&quot;</span>&gt;&#x5167;&#x5BB9;&lt;/td&gt;&lt;td&gt;&#x4EBA;&#x6C23;&lt;/td&gt;&lt;/tr&gt;
+<span class="hljs-meta">&lt;?php</span>
+$nowpage=(<span class="hljs-keyword">empty</span>($_GET[<span class="hljs-string">&apos;page&apos;</span>]))?<span class="hljs-number">1</span>:$_GET[<span class="hljs-string">&apos;page&apos;</span>];
+$begin=($nowpage<span class="hljs-number">-1</span>)*<span class="hljs-number">5</span>;
+$result=select(<span class="hljs-string">&quot;t7_blog&quot;</span>,<span class="hljs-string">&quot;dpy=1 order by num desc limit &quot;</span>.$begin.<span class="hljs-string">&quot;,5&quot;</span>);
+<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row){
+    $newstext=<span class="hljs-string">&apos;&lt;div class=&quot;ssaa&quot;&gt;&apos;</span>.mb_substr($row[<span class="hljs-string">&apos;text&apos;</span>],<span class="hljs-number">0</span>,<span class="hljs-number">30</span>).<span class="hljs-string">&apos;...&lt;div class=&quot;all&quot; style=&quot;display:none&quot;&gt;&apos;</span>.$row[<span class="hljs-string">&apos;text&apos;</span>].<span class="hljs-string">&apos;&lt;/div&gt;&lt;/div&gt;&apos;</span>;
+    $goodbtn=<span class="hljs-string">&quot;&quot;</span>;
+    <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">empty</span>($_SESSION[<span class="hljs-string">&apos;user&apos;</span>])){
+        $check=select(<span class="hljs-string">&quot;t11_good&quot;</span>,<span class="hljs-string">&quot;user=&apos;&quot;</span>.$_SESSION[<span class="hljs-string">&apos;user&apos;</span>].<span class="hljs-string">&quot;&apos; and blog=&quot;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>]);
+        <span class="hljs-keyword">if</span>($check!=<span class="hljs-keyword">null</span>) $goodbtn=<span class="hljs-string">&apos; | &lt;a href=&quot;api.php?do=subgood&amp;id=&apos;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&apos;&quot;&gt;&#x6536;&#x56DE;&#x8B9A;&lt;/a&gt;&apos;</span>;
+        <span class="hljs-keyword">else</span> $goodbtn=<span class="hljs-string">&apos; | &lt;a href=&quot;api.php?do=addgood&amp;id=&apos;</span>.$row[<span class="hljs-string">&apos;id&apos;</span>].<span class="hljs-string">&apos;&quot;&gt;&#x8B9A;&lt;/a&gt;&apos;</span>;
     }
-?&gt;
-        &lt;tr&gt;
-            &lt;td bgcolor=#eee&gt;&lt;?=$row[&apos;title&apos;]?&gt;&lt;/td&gt;
-            &lt;td&gt;
-                &lt;span class=&quot;popzone&quot;&gt;&lt;?=$pop_content?&gt;
-                    &lt;span class=&quot;all&quot; style=&quot;display:none&quot;&gt;&lt;?=$row[&apos;text&apos;]?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-            &lt;td&gt;
-                &lt;?=$row[&apos;num&apos;]?&gt;&#x500B;&#x4EBA;&#x8AAA;&lt;img src=&quot;img/02B03.jpg&quot; height=20px&gt;
-                &lt;?=$good_btn?&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-&lt;?php
+<span class="hljs-meta">?&gt;</span> 
+    &lt;tr&gt;
+        &lt;td bgcolor=<span class="hljs-string">&quot;#ffc&quot;</span>&gt;<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;title&apos;</span>]<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
+        &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$newstext<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
+        &lt;td&gt;<span class="hljs-meta">&lt;?</span>=$row[<span class="hljs-string">&apos;num&apos;</span>]<span class="hljs-meta">?&gt;</span>&#x500B;&#x4EBA;&#x8AAA;&lt;img src=<span class="hljs-string">&quot;img/02B03.jpg&quot;</span> width=<span class="hljs-number">20</span>&gt;<span class="hljs-meta">&lt;?</span>=$goodbtn<span class="hljs-meta">?&gt;</span>&lt;/td&gt;
+    &lt;/tr&gt;
+<span class="hljs-meta">&lt;?php</span>
 }
-?&gt;
+<span class="hljs-meta">?&gt;</span>
+&lt;/table&gt;
+<span class="hljs-meta">&lt;?php</span>
+$result=page_link(<span class="hljs-string">&quot;t7_blog&quot;</span>,<span class="hljs-string">&quot;dpy=1&quot;</span>,<span class="hljs-number">5</span>,$nowpage);
+<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $name=&gt;$data)
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;&lt;a href=&quot;?do=pop&amp;page=&apos;</span>.$data.<span class="hljs-string">&apos;&quot;&gt;&apos;</span>.$name.<span class="hljs-string">&apos;&lt;/a&gt;&apos;</span>;
+<span class="hljs-meta">?&gt;</span>
+&lt;/fieldset&gt;
+&lt;div id=<span class="hljs-string">&quot;altt&quot;</span> style=<span class="hljs-string">&quot;position: absolute; width: 350px; min-height: 100px; background-color: rgb(255, 255, 204); top: 50px; left: 130px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;&quot;</span>&gt;&lt;/div&gt;
+&lt;script&gt;
+$(<span class="hljs-string">&quot;.ssaa&quot;</span>).hover(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span></span>{
+    $(<span class="hljs-string">&quot;#altt&quot;</span>).html(<span class="hljs-string">&quot;&lt;pre&gt;&quot;</span>+$(this).children(<span class="hljs-string">&quot;.all&quot;</span>).html()+<span class="hljs-string">&quot;&lt;/pre&gt;&quot;</span>)
+    $(<span class="hljs-string">&quot;#altt&quot;</span>).show()
+})
+$(<span class="hljs-string">&quot;.ssaa&quot;</span>).mouseout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    $(<span class="hljs-string">&quot;#altt&quot;</span>).hide()
+})
+&lt;/script&gt;
 </code></pre>
 
                                 
@@ -1156,7 +1168,7 @@ foreach($result as $row){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"12. 人氣文章 (25%)","level":"1.3.11","depth":2,"next":{"title":"13. 問卷調查 (25%)","level":"1.3.12","depth":2,"path":"web02/13.md","ref":"web02/13.md","articles":[]},"previous":{"title":"11. 最新文章 (25%)","level":"1.3.10","depth":2,"path":"web02/11.md","ref":"web02/11.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web02/12.md","mtime":"2019-02-13T13:12:10.828Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"12. 人氣文章 (25%)","level":"1.3.11","depth":2,"next":{"title":"13. 問卷調查 (25%)","level":"1.3.12","depth":2,"path":"web02/13.md","ref":"web02/13.md","articles":[]},"previous":{"title":"11. 最新文章 (25%)","level":"1.3.10","depth":2,"path":"web02/11.md","ref":"web02/11.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web02/12.md","mtime":"2019-03-02T13:13:56.415Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-02T16:16:15.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1056,7 +1056,8 @@
     &lt;tr&gt;
         &lt;td&gt;&lt;img src=&quot;upload/&lt;?=$row[&apos;img&apos;]?&gt;&quot; width=300 height=30&gt;&lt;/td&gt;
         &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;title[&lt;?=$row[&apos;id&apos;]?&gt;]&quot; value=&quot;&lt;?=$row[&apos;title&apos;]?&gt;&quot;&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type=&quot;radio&quot; name=&quot;dpy&quot; &lt;?=($row[&apos;dpy&apos;]==1)?&quot;checked&quot;:&quot;&quot;?&gt; value=&lt;?=$row[&apos;id&apos;]?&gt;&gt;&lt;/td&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;dpy[&lt;?=$row[&apos;id&apos;]?&gt;]&quot; value=0&gt;
+        &lt;td&gt;&lt;input type=&quot;radio&quot; name=&quot;radio&quot; &lt;?=($row[&apos;dpy&apos;]==1)?&quot;checked&quot;:&quot;&quot;?&gt; value=&lt;?=$row[&apos;id&apos;]?&gt;&gt;&lt;/td&gt;
         &lt;td&gt;&lt;input type=&quot;checkbox&quot; name=&quot;del[]&quot; value=&quot;&lt;?=$row[&apos;id&apos;]?&gt;&quot;&gt;&lt;/td&gt;
         &lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;&#x66F4;&#x65B0;&#x5716;&#x7247;&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=chgtitle&amp;id=&lt;?=$row[&apos;id&apos;]?&gt;&amp;#39;)&quot;&gt;&lt;/td&gt;
     &lt;/tr&gt;
@@ -1064,12 +1065,13 @@
 }
 ?&gt;
 &lt;/table&gt;
-           &lt;table style=&quot;margin-top:40px; width:70%;&quot;&gt;
+&lt;table style=&quot;margin-top:40px; width:70%;&quot;&gt;
      &lt;tbody&gt;&lt;tr&gt;
-      &lt;td width=&quot;200px&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=addtitle&amp;#39;)&quot; value=&quot;&#x65B0;&#x589E;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x5716;&#x7247;&quot;&gt;&lt;/td&gt;&lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
+      &lt;td width=&quot;200px&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;op(&amp;#39;#cover&amp;#39;,&amp;#39;#cvr&amp;#39;,&amp;#39;view.php?do=addtitle&amp;#39;)&quot; value=&quot;&#x65B0;&#x589E;&#x7DB2;&#x7AD9;&#x6A19;&#x984C;&#x5716;&#x7247;&quot;&gt;&lt;/td&gt;
+      &lt;td class=&quot;cent&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;&#x4FEE;&#x6539;&#x78BA;&#x5B9A;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;&#x91CD;&#x7F6E;&quot;&gt;&lt;/td&gt;
      &lt;/tr&gt;
-    &lt;/tbody&gt;&lt;/table&gt;    
-    &lt;/form&gt;
+&lt;/tbody&gt;&lt;/table&gt;    
+&lt;/form&gt;
 </code></pre>
 <p><strong>&#x91CD;&#x9EDE;1&#xFF1A;</strong></p>
 <p>function update&#x8A2D;&#x8A08;&#x6210;&#x53EF;&#x4EE5;&#x591A;&#x7B46;&#x8CC7;&#x6599;&#x4E00;&#x8D77;&#x66F4;&#x65B0;&#xFF0C;&#x539F;&#x7406;&#x70BA;&#x4E00;&#x6B21;&#x6293;&#x4E00;&#x7B46;&#x8B8A;&#x6578;&#x505A;update sql&#x3002;&#x6240;&#x4EE5;&#x4E00;&#x500B;&#x8B8A;&#x6578;&#x5C31;&#x8981;&#x6709;id&#x7D22;&#x5F15;&#x3001;name&#x6B04;&#x4F4D;&#x540D;&#x7A31;&#x3001;value&#x5167;&#x5BB9;&#x503C;&#x3002;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5229;&#x7528;&#x4E8C;&#x7DAD;&#x9663;&#x5217;&#x5132;&#x5B58;&#x3002;&#x8209;&#x4F8B;&#x4F86;&#x8AAA;&#x8981;&#x66F4;&#x65B0;&#x67D0;&#x6B04;&#x4F4D;&#x540D;&#x7A31;(title)&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x6574;&#x5408;ID(8)&#x8DDF;&#x65B0;title&#x5167;&#x5BB9;(&#x65B0;&#x6A19;&#x984C;)&#x3002;&#x90A3;input&#x6703;&#x50CF;&#x662F;</p>
@@ -1078,6 +1080,7 @@
 <p>&#x9019;&#x6A23;&#x5728;sql.php&#x624D;&#x6703;&#x63A5;&#x53D7;&#x8655;&#x7406;&#x6210;&#xFF1A;(&#x7531;api.php&#x544A;&#x77E5;table&#x5C0D;&#x8C61;)</p>
 <pre><code class="lang-php">sql=<span class="hljs-string">&quot;UPDATE table SET title=&apos;&#x65B0;&#x6A19;&#x984C;&apos; where id=8&quot;</span>;
 </code></pre>
+<p>&#x53E6;&#x5916;&#xFF0C;dpy[$id]&#x9019;&#x88E1;&#x9700;&#x8981;&#x8A18;&#x9304;&#x6240;&#x6709;&#x7684;ID&#x8DDF;value=0&#xFF0C;&#x518D;&#x7528;&#x4E00;&#x500B;&#x8B8A;&#x6578;radio=1&#x3002;&#x4E4B;&#x5F8C;&#x5728;API&#x90A3;&#x88CF;&#x6574;&#x5408;&#x70BA;&#x5B8C;&#x6574;&#x7684;dpy[$id]</p>
 <p><strong>&#x91CD;&#x9EDE;2&#xFF1A;</strong></p>
 <p>function delete&#x4E5F;&#x662F;&#x591A;&#x7B46;&#x4E00;&#x8D77;&#x522A;&#x9664;&#xFF0C;&#x539F;&#x7406;&#x4E5F;&#x662F;&#x4E00;&#x6B21;&#x6293;&#x4E00;&#x7B46;&#x8B8A;&#x6578;&#x505A;delete sql&#xFF0C;&#x4F46;&#x53EA;&#x9700;&#x8981;del&#x52D5;&#x4F5C;&#x8207;id&#x5C0D;&#x8C61;&#x3002;&#x4E00;&#x7DAD;&#x9663;&#x5217;&#x5373;&#x53EF;&#x3002;input&#x6703;&#x50CF;&#x662F;</p>
 <pre><code class="lang-php">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> name=<span class="hljs-string">&quot;del[]&quot;</span> value=<span class="hljs-string">&quot;8&quot;</span>&gt;
@@ -1120,9 +1123,12 @@ switch($_GET[&apos;do&apos;]){
 </code></pre>
 <hr>
 <h3 id="4-&#x4FEE;&#x6539;&#x591A;&#x7B46;--&#x522A;&#x9664;&#x591A;&#x7B46;">4. &#x4FEE;&#x6539;&#x591A;&#x7B46; + &#x522A;&#x9664;&#x591A;&#x7B46;</h3>
-<p>&#x5F9E;&#x524D;&#x53F0;&#x8A66;&#x8457;&#x64CD;&#x4F5C;&#x591A;&#x7B46;&#x4FEE;&#x6539;&#x8DDF;&#x522A;&#x9664;&#x6309;&#x4E0B;&#x9001;&#x51FA;&#x3002;&#x7DB2;&#x9801;&#x6703;&#x5230;api.php?do=mdytitle&#x3002;&#x6240;&#x4EE5;&#x7E7C;&#x7E8C;&#x6B64;&#x52D5;&#x4F5C;&#x8655;&#x7406;&#xFF0C;&#x5B8C;&#x6210;&#x5F8C;&#x56DE;&#x5230;&#x5F8C;&#x53F0;&#x9801;&#x9762;admin.php</p>
+<p>&#x5F9E;&#x524D;&#x53F0;&#x8A66;&#x8457;&#x64CD;&#x4F5C;&#x591A;&#x7B46;&#x4FEE;&#x6539;&#x8DDF;&#x522A;&#x9664;&#x6309;&#x4E0B;&#x9001;&#x51FA;&#x3002;&#x7DB2;&#x9801;&#x6703;&#x5230;api.php?do=mdytitle&#xFF0C;&#x7E7C;&#x7E8C;&#x6B64;&#x52D5;&#x4F5C;&#x8655;&#x7406;&#x3002;</p>
+<p>&#x540C;&#x6642;&#x5C07;radio&#x8207;dpy[]&#x6574;&#x5408;&#x70BA;&#x5B8C;&#x6574;&#x7684;dpy[]&#xFF0C;&#x5B8C;&#x6210;&#x5F8C;&#x56DE;&#x5230;&#x5F8C;&#x53F0;&#x9801;&#x9762;admin.php</p>
 <p>&#x6C92;&#x628A;&#x63E1;&#x4F60;&#x53EF;&#x4EE5;&#x5728;case&#x5167;&#x5148;&#x4E0B;print_r($_POST)&#xFF0C;&#x78BA;&#x8A8D;&#x756B;&#x9762;&#x7684;&#x8CC7;&#x6599;&#x6B63;&#x4E0D;&#x6B63;&#x5E38;&#x8DDF;&#x6709;&#x54EA;&#x4E9B;&#x8CC7;&#x6599;</p>
 <pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;mdytitle&apos;</span>:
+    $_POST[<span class="hljs-string">&apos;dpy&apos;</span>][$_POST[<span class="hljs-string">&apos;radio&apos;</span>]]=<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">unset</span>($_POST[<span class="hljs-string">&apos;radio&apos;</span>]);
     update($_POST,<span class="hljs-string">&quot;t3_title&quot;</span>);
     delete($_POST,<span class="hljs-string">&quot;t3_title&quot;</span>);
     plo(<span class="hljs-string">&quot;admin.php&quot;</span>);
@@ -1217,7 +1223,7 @@ $t3title=$result[<span class="hljs-number">0</span>][<span class="hljs-string">&
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3. 網站標題 (35%)","level":"1.2.3","depth":2,"next":{"title":"4. 動態文字廣告 (30%)","level":"1.2.4","depth":2,"path":"web01/4.md","ref":"web01/4.md","articles":[]},"previous":{"title":"10. 管理登入按鈕 (20%)","level":"1.2.2","depth":2,"path":"web01/10.md","ref":"web01/10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/3.md","mtime":"2019-03-01T06:55:54.308Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-01T11:57:50.479Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. 網站標題 (35%)","level":"1.2.3","depth":2,"next":{"title":"4. 動態文字廣告 (30%)","level":"1.2.4","depth":2,"path":"web01/4.md","ref":"web01/4.md","articles":[]},"previous":{"title":"10. 管理登入按鈕 (20%)","level":"1.2.2","depth":2,"path":"web01/10.md","ref":"web01/10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web01/3.md","mtime":"2019-03-02T16:04:34.347Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-02T16:16:15.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

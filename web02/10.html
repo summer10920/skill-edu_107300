@@ -989,68 +989,48 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x7B2C;10&#x984C;-&#x8A3B;&#x518A;&#x6703;&#x54E1;">&#x7B2C;10&#x984C;. &#x8A3B;&#x518A;&#x6703;&#x54E1;</h1>
-<p>&#x5EF6;&#x7E8C;&#x7B2C;&#x516D;&#x984C;&#x7684;&#x55AE;&#x5143;&#xFF0C;&#x5728;?do=register&#x9019;&#x500B;&#x7DB2;&#x9801;&#x4F4D;&#x7F6E;&#x3002;&#x505A;&#x500B;form&#x8868;&#x55AE;&#x65B0;&#x589E;&#x3002;&#x6BD4;&#x8F03;&#x4E0D;&#x4E00;&#x6A23;&#x7684;&#x662F;&#x5728;&#x9001;&#x51FA;form&#x4E4B;&#x524D;&#x9700;&#x8981;&#x505A;&#x5224;&#x65B7;&#x6AA2;&#x67E5;&#x3002;&#x6240;&#x4EE5;&#x9019;&#x88E1;&#x4E0D;&#x80FD;&#x7528;from submit&#x3002;&#x53EA;&#x80FD;&#x4F9D;&#x8CF4;JS&#x505A;&#x6AA2;&#x67E5;&#xFF0C;&#x7136;&#x5F8C;AJAX&#x9001;&#x51FA;</p>
+<p>&#x5EF6;&#x7E8C;&#x7B2C;&#x516D;&#x984C;&#x7684;&#x55AE;&#x5143;&#xFF0C;&#x5728;index.php?do=reg&#x9019;&#x500B;&#x7DB2;&#x9801;&#x4F4D;&#x7F6E;&#x3002;&#x505A;&#x500B;form&#x8868;&#x55AE;&#x65B0;&#x589E;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x7528;JQ+AJAX&#x6216;&#x662F;PHP&#xFF0C;&#x9019;&#x88E1;&#x70BA;&#x4E86;&#x6548;&#x7387;&#x4E0D;&#x6C42;&#x7F8E;&#x89C0;&#xFF0C;&#x76F4;&#x63A5;PHP&#x4F86;&#x505A;&#x8F03;&#x5FEB;</p>
 <hr>
-<h1 id="&#x5EFA;&#x7ACB;registerphp">&#x5EFA;&#x7ACB;register.php</h1>
-<h3 id="&#x7248;&#x9762;&#x8A2D;&#x8A08;">. &#x7248;&#x9762;&#x8A2D;&#x8A08;</h3>
+<h1 id="&#x65B0;&#x589E;regphp&#x53C3;&#x8003;loginphp">&#x65B0;&#x589E;reg.php(&#x53C3;&#x8003;login.php)</h1>
+<h3 id="1-&#x7248;&#x9762;&#x8A2D;&#x8A08;">1. &#x7248;&#x9762;&#x8A2D;&#x8A08;</h3>
 <p>&#x5148;&#x8A2D;&#x8A08;&#x597D;&#x7248;&#x9762;&#xFF0C;&#x5584;&#x7528;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x578B;&#x51FA;&#x73FE;&#x904E;&#x7684;&lt;fieldset&gt;</p>
 <pre><code class="lang-php">&lt;fieldset&gt;
 &lt;legend&gt;&#x6703;&#x54E1;&#x8A3B;&#x518A;&lt;/legend&gt;
-*&#x8ACB;&#x8A2D;&#x5B9A;&#x60A8;&#x8981;&#x8A3B;&#x518A;&#x7684;&#x5E33;&#x865F;&#x53CA;&#x5BC6;&#x78BC;(&#x6700;&#x9577;<span class="hljs-number">12</span>&#x500B;&#x5B57;&#x5143;)
-&lt;form method=post&gt;
+&lt;form action=<span class="hljs-string">&quot;api.php?do=reg&quot;</span> method=<span class="hljs-string">&quot;post&quot;</span>&gt;
 &lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Step1:&#x767B;&#x5165;&#x5E33;&#x865F;&lt;/td&gt;
-        &lt;td&gt;&lt;input name=acc&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Step2:&#x767B;&#x5165;&#x5BC6;&#x78BC;&lt;/td&gt;
-        &lt;td&gt;&lt;input name=pwd&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Step3:&#x518D;&#x6B21;&#x78BA;&#x8A8D;&#x5BC6;&#x78BC;&lt;/td&gt;
-        &lt;td&gt;&lt;input name=rpwd&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Step4:&#x4FE1;&#x7BB1;(&#x5FD8;&#x8A18;&#x5BC6;&#x78BC;&#x6642;&#x4F7F;&#x7528;)&lt;/td&gt;
-        &lt;td&gt;&lt;input name=mail&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td colspan=<span class="hljs-number">2</span>&gt;&lt;input type=button value=&#x8A3B;&#x518A; onclick=<span class="hljs-string">&quot;check_new()&quot;</span>&gt;&lt;input type=reset value=&#x6E05;&#x9664;&gt;&lt;/td&gt;
-    &lt;/tr&gt;
+    &lt;tr align=right&gt;&lt;td&gt;*&#x8ACB;&#x8A2D;&#x5B9A;&#x60A8;&#x8981;&#x8A3B;&#x518A;&#x7684;&#x5E33;&#x865F;&#x53CA;&#x5BC6;&#x78BC;(&#x6700;&#x9577;<span class="hljs-number">12</span>&#x500B;&#x5B57;&#x5143;)&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr align=right&gt;&lt;td&gt;Step1:&#x767B;&#x5165;&#x5E33;&#x865F;&lt;input type=<span class="hljs-string">&quot;text&quot;</span> name=<span class="hljs-string">&quot;acc&quot;</span>&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr align=right&gt;&lt;td&gt;Step2:&#x767B;&#x5165;&#x5BC6;&#x78BC;&lt;input type=<span class="hljs-string">&quot;password&quot;</span> name=<span class="hljs-string">&quot;pwd&quot;</span>&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr align=right&gt;&lt;td&gt;Step3:&#x518D;&#x6B21;&#x78BA;&#x8A8D;&#x5BC6;&#x78BC;&lt;input type=<span class="hljs-string">&quot;password&quot;</span> name=<span class="hljs-string">&quot;pwd2&quot;</span>&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr align=right&gt;&lt;td&gt;Step4:&#x4FE1;&#x7BB1;(&#x5FD8;&#x8A18;&#x5BC6;&#x78BC;&#x6642;&#x4F7F;&#x7528;)&lt;input type=<span class="hljs-string">&quot;password&quot;</span> name=<span class="hljs-string">&quot;mail&quot;</span>&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;
+        &lt;input type=<span class="hljs-string">&quot;submit&quot;</span> value=<span class="hljs-string">&quot;&#x8A3B;&#x518A;&quot;</span>&gt;
+        &lt;input type=<span class="hljs-string">&quot;reset&quot;</span> value=<span class="hljs-string">&quot;&#x6E05;&#x9664;&quot;</span>&gt;
+    &lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 &lt;/form&gt;
 &lt;/fieldset&gt;
 </code></pre>
-<h1 id="&#x4FEE;&#x6539;indexphp--newsphp--loginphp">&#x4FEE;&#x6539;index.php &amp; news.php &amp; login.php</h1>
-<h3 id="2-jq&#x8655;&#x7406;&#x9A57;&#x8B49;">2. JQ&#x8655;&#x7406;&#x9A57;&#x8B49;</h3>
-<p>&#x63A5;&#x8457;&#x4E0B;&#x65B9;&#x63D2;&#x5165;&#x9A57;&#x8B49;&#x8207;ajax&#x8655;&#x7406;</p>
-<pre><code class="lang-java">&lt;script&gt;
-function check_new(){
-    var acc=$(&quot;input[name=acc]&quot;).val();
-    var pwd=$(&quot;input[name=pwd]&quot;).val();
-    var rpwd=$(&quot;input[name=rpwd]&quot;).val();
-    var mail=$(&quot;input[name=mail]&quot;).val();
-    if(acc==&quot;&quot;||pwd==&quot;&quot;||rpwd==&quot;&quot;||mail==&quot;&quot;) alert(&quot;&#x4E0D;&#x53EF;&#x7A7A;&#x767D;&quot;);
-    else if(pwd!=rpwd) alert(&quot;&#x5BC6;&#x78BC;&#x4E0D;&#x4E00;&#x81F4;&quot;);
-    else
-        $.post(&quot;api.php?do=reg&quot;,{acc,pwd,mail},function(check){
-            alert(check);
-        });
-}
-&lt;/script&gt;
-</code></pre>
-<hr>
 <h1 id="&#x589E;&#x6DFB;apiphp">&#x589E;&#x6DFB;api.php</h1>
-<h3 id="3-&#x8868;&#x55AE;&#x8655;&#x7406;">3. &#x8868;&#x55AE;&#x8655;&#x7406;</h3>
-<p>&#x8868;&#x55AE;&#x505A;SQL&#x8655;&#x7406;&#xFF0C;&#x505A;&#x5E33;&#x865F;&#x91CD;&#x8907;&#x9A57;&#x8B49;&#x8207;&#x65B0;&#x589E;</p>
-<pre><code class="lang-php">    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;reg&apos;</span>:
-        $check=select(<span class="hljs-string">&quot;user_t6&quot;</span>,<span class="hljs-string">&quot;acc=&apos;&quot;</span>.$_POST[<span class="hljs-string">&apos;acc&apos;</span>].<span class="hljs-string">&quot;&apos;&quot;</span>);
-        <span class="hljs-keyword">if</span>($check!=<span class="hljs-keyword">null</span>) <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&#x5E33;&#x865F;&#x91CD;&#x8907;&quot;</span>;
+<p>&#x8868;&#x55AE;&#x505A;&#x65B0;&#x589E;SQL&#x8655;&#x7406;&#xFF0C;&#x9023;&#x540C;&#x628A;&#x9A57;&#x8B49;&#x4E5F;&#x5728;&#x9019;&#x88E1;&#xFF0C;&#x5982;&#x679C;&#x932F;&#x8AA4;&#x5C31;&#x7528;window.history.bac&#x8E22;&#x56DE;&#x4E0A;&#x4E00;&#x9801;</p>
+<ol>
+<li>&#x5982;&#x679C;&#x56DB;&#x500B;&#x6B04;&#x4F4D;&#x6709;&#x7A7A;&#x767D;&#xFF0C;alert&#x8B66;&#x544A;&#x4E26;&#x8E22;&#x56DE;&#x4E0A;&#x9801;&#xFF0C;&#x5426;&#x5247;&#x4E0B;&#x4E00;&#x6B65;&#x9A5F;</li>
+<li>&#x5982;&#x679C;&#x6AA2;&#x67E5;&#x5230;&#x91CD;&#x8986;&#x5E33;&#x865F;&#xFF0C;alert&#x8B66;&#x544A;&#x4E26;&#x8E22;&#x56DE;&#x4E0A;&#x9801;
+&#x5982;&#x679C;&#x6C92;&#x6709;&#xFF0C;&#x5C31;&#x65B0;&#x589E;&#x5E33;&#x865F;&#x5BC6;&#x78BC;&#xFF0C;alert&#x6210;&#x529F;&#x8F49;&#x56DE;&#x9996;&#x9801;&#x3002;($_POST[&apos;pwd2&apos;]&#x7528;&#x4E0D;&#x5230;&#xFF0C;&#x9700;unset)</li>
+</ol>
+<pre><code class="lang-php"><span class="hljs-keyword">case</span> <span class="hljs-string">&apos;reg&apos;</span>:
+    <span class="hljs-keyword">if</span>($_POST[<span class="hljs-string">&apos;acc&apos;</span>]==<span class="hljs-string">&quot;&quot;</span>||$_POST[<span class="hljs-string">&apos;pwd&apos;</span>]==<span class="hljs-string">&quot;&quot;</span>||$_POST[<span class="hljs-string">&apos;pwd2&apos;</span>]==<span class="hljs-string">&quot;&quot;</span>||$_POST[<span class="hljs-string">&apos;mail&apos;</span>]==<span class="hljs-string">&quot;&quot;</span>)
+        <span class="hljs-keyword">echo</span><span class="hljs-string">&quot;&lt;script&gt;alert(&apos;&#x4E0D;&#x53EF;&#x7A7A;&#x767D;&apos;);window.history.back();&lt;/script&gt;&quot;</span>;
+    <span class="hljs-keyword">else</span>{
+        $result=select(<span class="hljs-string">&quot;t6_user&quot;</span>,<span class="hljs-string">&quot;acc=&apos;&quot;</span>.$_POST[<span class="hljs-string">&apos;acc&apos;</span>].<span class="hljs-string">&quot;&apos;&quot;</span>);
+        <span class="hljs-keyword">if</span>($result!=<span class="hljs-keyword">null</span>) <span class="hljs-keyword">echo</span><span class="hljs-string">&quot;&lt;script&gt;alert(&apos;&#x5E33;&#x865F;&#x91CD;&#x8907;&apos;);window.history.back();&lt;/script&gt;&quot;</span>;
         <span class="hljs-keyword">else</span>{
-            insert($_POST,<span class="hljs-string">&quot;user_t6&quot;</span>);
-            <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&#x5E33;&#x865F;&#x8A3B;&#x518A;&#x6210;&#x529F;&quot;</span>;
+            <span class="hljs-keyword">unset</span>($_POST[<span class="hljs-string">&apos;pwd2&apos;</span>]);
+            insert($_POST,<span class="hljs-string">&quot;t6_user&quot;</span>);
+            <span class="hljs-keyword">echo</span><span class="hljs-string">&quot;&lt;script&gt;alert(&apos;&#x8A3B;&#x518A;&#x5B8C;&#x6210;&#xFF0C;&#x6B61;&#x8FCE;&#x52A0;&#x5165;&apos;);&quot;</span>.jlo(<span class="hljs-string">&quot;index.php&quot;</span>).<span class="hljs-string">&quot;;&lt;/script&gt;&quot;</span>;
         }
+    }
+<span class="hljs-keyword">break</span>;
 </code></pre>
 
                                 
@@ -1095,7 +1075,7 @@ function check_new(){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"10. 註冊會員頁面 (15%)","level":"1.3.9","depth":2,"next":{"title":"11. 最新文章 (25%)","level":"1.3.10","depth":2,"path":"web02/11.md","ref":"web02/11.md","articles":[]},"previous":{"title":"9. 忘記密碼頁面 (10%)","level":"1.3.8","depth":2,"path":"web02/9.md","ref":"web02/9.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web02/10.md","mtime":"2019-02-13T13:07:08.030Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10. 註冊會員頁面 (15%)","level":"1.3.9","depth":2,"next":{"title":"11. 最新文章 (25%)","level":"1.3.10","depth":2,"path":"web02/11.md","ref":"web02/11.md","articles":[]},"previous":{"title":"9. 忘記密碼頁面 (10%)","level":"1.3.8","depth":2,"path":"web02/9.md","ref":"web02/9.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web02/10.md","mtime":"2019-03-02T11:35:23.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-02T16:16:15.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

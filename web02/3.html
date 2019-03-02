@@ -989,18 +989,18 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x7B2C;3&#x984C;-&#x7DB2;&#x7AD9;&#x6A19;&#x984C;">&#x7B2C;3&#x984C;. &#x7DB2;&#x7AD9;&#x6A19;&#x984C;</h1>
-<p>&#x9019;&#x984C;&#x6709;&#x7C21;&#x55AE;&#x7684;HTL&#x7DE8;&#x8F2F;&#x52D5;&#x4F5C;&#xFF0C;&#x4EE5;&#x53CA;&#x898F;&#x5283;&#x767B;&#x5165;&#x700F;&#x89BD;&#x6578;sql&#x7684;&#x8A2D;&#x8A08;&#x8981;&#x6C42;&#x3002;</p>
+<p>&#x9019;&#x984C;&#x53EA;&#x9700;&#x8981;HTML&#x7DE8;&#x8F2F;&#x52D5;&#x4F5C;&#xFF0C;&#x4EE5;&#x53CA;&#x898F;&#x5283;&#x767B;&#x5165;&#x700F;&#x89BD;&#x7684;SQL&#x8A2D;&#x8A08;&#x8981;&#x6C42;&#x3002;</p>
 <hr>
 <h1 id="&#x4FEE;&#x6539;indexphp">&#x4FEE;&#x6539;index.php</h1>
 <h3 id="1-&#x6A19;&#x984C;&#x5716;&#x7247;">1. &#x6A19;&#x984C;&#x5716;&#x7247;</h3>
-<p>&#x5148;&#x8ABF;&#x6574;&#x7BA1;&#x7406;&#x9078;&#x55AE;&#x6B63;&#x5E38;&#x7684;href&#x9023;&#x63A5;&#x3002;&#x6307;&#x5411;&#x5230;admin.php&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;&#x53EA;&#x662F;&#x8981;&#x6CE8;&#x610F;&#x66FF;&#x4EE3;&#x6587;&#x5B57;&#x53EF;&#x80FD;&#x662F;title&#x6216;&#x662F;alt&#x3002;&#x5EFA;&#x8B70;&#x90FD;&#x505A;&#x3002;</p>
+<p>&#x8ABF;&#x6574;&#x7DB2;&#x7AD9;&#x7684;&#x6A19;&#x984C;&#x5716;&#x7247;&#xFF0C;href&#x9023;&#x63A5;&#x6307;&#x5411;&#x5230;index.php&#x3002;&#x66FF;&#x4EE3;&#x6587;&#x5B57;&#x53EF;&#x80FD;&#x662F;title&#x6216;&#x662F;alt&#x3002;&#x5EFA;&#x8B70;&#x90FD;&#x505A;&#x3002;</p>
 <p>&#x627E;&#x5230;#title2&#x90E8;&#x5206;</p>
 <pre><code class="lang-php">&lt;div id=<span class="hljs-string">&quot;title2&quot;</span>&gt;
 &lt;/div&gt;
 </code></pre>
 <p>&#x4FEE;&#x6539;&#x70BA;</p>
 <pre><code class="lang-php">&lt;div id=<span class="hljs-string">&quot;title2&quot;</span>&gt;
-    &lt;a href=<span class="hljs-string">&quot;index.php&quot;</span>&gt;&lt;img width=<span class="hljs-string">&quot;100%&quot;</span> src=img/<span class="hljs-number">02</span>B01.jpg alt=<span class="hljs-string">&quot;&#x5065;&#x5EB7;&#x4FC3;&#x9032;&#x7DB2;-&#x56DE;&#x9996;&#x9801;&quot;</span> title=<span class="hljs-string">&quot;&#x5065;&#x5EB7;&#x4FC3;&#x9032;&#x7DB2;-&#x56DE;&#x9996;&#x9801;&quot;</span>/&gt;&lt;/a&gt;
+&lt;a href=<span class="hljs-string">&quot;index.php&quot;</span>&gt;&lt;img src=<span class="hljs-string">&quot;img/02B01.jpg&quot;</span> alt=<span class="hljs-string">&quot;&#x5065;&#x5EB7;&#x4FC3;&#x9032;&#x7DB2;-&#x56DE;&#x9996;&#x9801;&quot;</span> title=<span class="hljs-string">&quot;&#x5065;&#x5EB7;&#x4FC3;&#x9032;&#x7DB2;-&#x56DE;&#x9996;&#x9801;&quot;</span>&gt;&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
 <hr>
@@ -1009,53 +1009,46 @@
 <p>&#x5148;&#x958B;&#x59CB;&#x898F;&#x5283;&#x5982;&#x4F55;&#x53D6;&#x5F97;&#x9019;&#x4E09;&#x500B;&#x8B8A;&#x6578;&#xFF0C;&#x63D0;&#x4F9B;&#x524D;&#x7AEF;&#x4F7F;&#x7528;&#x3002;</p>
 <ol>
 <li>&#x4ECA;&#x5929;&#x65E5;&#x671F;&#xFF1A;&#x7528;date()&#x53BB;&#x505A;&#x51FA;&#x984C;&#x76EE;&#x8981;&#x6C42;&#x7684;&#x683C;&#x5F0F;</li>
-<li>&#x4ECA;&#x65E5;&#x700F;&#x89BD;&#x4EBA;&#x6B21;&#xFF1A;&#x628A;&#x6BCF;&#x5929;&#x7684;&#x65E5;&#x671F;&#x8A18;&#x9304;&#x8D77;&#x4F86;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5C31;&#x65B0;&#x589E;&#x3002;&#x7136;&#x5F8C;&#x7528;session&#x53BB;&#x89E3;&#x8B80;&#x662F;&#x5426;&#x8981;+1</li>
+<li>&#x4ECA;&#x65E5;&#x700F;&#x89BD;&#x4EBA;&#x6B21;&#xFF1A;&#x628A;&#x6BCF;&#x5929;&#x7684;&#x65E5;&#x671F;&#x8A18;&#x9304;&#x8D77;&#x4F86;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5C31;&#x65B0;&#x589E;&#x3002;&#x6709;&#x65B0;&#x8A2A;&#x5BA2;&#x5C31;&#x52A0;1&#x3002;</li>
 <li>&#x7D2F;&#x8A08;&#x700F;&#x89BD;&#x4EBA;&#x6B21;&#xFF1A;&#x8DD1;&#x500B;&#x8FF4;&#x5708;&#x628A;&#x8CC7;&#x6599;&#x8868;&#x5167;&#x6240;&#x6709;&#x6578;&#x5B57;&#x52A0;&#x8D77;&#x4F86;</li>
 </ol>
-<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
-<span class="hljs-comment">/*********************&#x5F8C;&#x70BA;Q1&#x4F7F;&#x7528;*************************/</span>
-<span class="hljs-comment">//&#x4F7F;&#x7528;session</span>
-session_start();
-
-<span class="hljs-comment">//for t3</span>
-$today= date(<span class="hljs-string">&quot;m &#x6708; d &#x865F; l&quot;</span>); <span class="hljs-comment">//for include t3.first</span>
-$check=select(<span class="hljs-string">&quot;visit_t3&quot;</span>,<span class="hljs-string">&quot;date=&apos;&quot;</span>.$today.<span class="hljs-string">&quot;&apos;&quot;</span>);
-<span class="hljs-keyword">if</span>($check==<span class="hljs-keyword">null</span>) {  <span class="hljs-comment">//&#x627E;&#x4E0D;&#x5230;&#x4ECA;&#x5929;&#x7D00;&#x9304;&#xFF0C;&#x90A3;&#x5C31;&#x65B0;&#x589E;&#x4ECA;&#x5929;&#x4E14;&#x521D;&#x59CB;0</span>
-    $ary[<span class="hljs-string">&quot;date&quot;</span>]=$today;
-    $ary[<span class="hljs-string">&quot;num&quot;</span>]=<span class="hljs-number">0</span>;
-    insert($ary,<span class="hljs-string">&quot;visit_t3&quot;</span>);    
-}
-<span class="hljs-keyword">foreach</span> ($check <span class="hljs-keyword">as</span> $row){
-    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>($_SESSION[<span class="hljs-string">&apos;visit&apos;</span>])){          <span class="hljs-comment">//&#x65B0;&#x8A2A;&#x5BA2;&#x5247;&#x7D66;&#x503C;&#x4E26;table visit.num+1</span>
-        $_SESSION[<span class="hljs-string">&apos;visit&apos;</span>]=<span class="hljs-string">&quot;new user&quot;</span>;  
-        $ary[<span class="hljs-string">&apos;num&apos;</span>][$row[<span class="hljs-string">&apos;id&apos;</span>]]=<span class="hljs-string">&quot;num+1&quot;</span>;    <span class="hljs-comment">//array[&apos;name&apos;][&apos;id&apos;]=value;</span>
-        update($ary,<span class="hljs-string">&quot;visit_t3&quot;</span>);            <span class="hljs-comment">//update function&#x53EA;&#x80FD;&#x4F9D;id&#x505A;&#x8655;&#x7406;</span>
-        $today_visit=$row[<span class="hljs-string">&apos;num&apos;</span>]+<span class="hljs-number">1</span>;
+<pre><code class="lang-php"><span class="hljs-comment">//t3</span>
+$t3today=date(<span class="hljs-string">&quot;m&#x6708;d&#x865F; l&quot;</span>);    <span class="hljs-comment">//&#x4ECA;&#x65E5;&#x65E5;&#x671F;</span>
+<span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>($_SESSION[<span class="hljs-string">&apos;visit&apos;</span>])){    <span class="hljs-comment">//&#x65B0;&#x8A2A;&#x5BA2;&#x6642;</span>
+    $_SESSION[<span class="hljs-string">&apos;visit&apos;</span>]=<span class="hljs-number">123</span>;
+    $result=select(<span class="hljs-string">&quot;t3_visit&quot;</span>,<span class="hljs-string">&quot;date=&apos;&quot;</span>.date(<span class="hljs-string">&quot;Y-m-d&quot;</span>).<span class="hljs-string">&quot;&apos;&quot;</span>);
+    <span class="hljs-keyword">if</span>($result==<span class="hljs-keyword">null</span>){    <span class="hljs-comment">//&#x5982;&#x679C;&#x627E;&#x4E0D;&#x5230;&#x4ECA;&#x5929;&#x8CC7;&#x6599;&#x5247;&#x65B0;&#x589E;&#x4E00;&#x7B46;&#x4ECA;&#x65E5;&#xFF0C;&#x540C;&#x6642;&#x5BA3;&#x544A;&#x62DC;&#x8A2A;&#x6578;&#x70BA;1</span>
+        $ary[<span class="hljs-string">&apos;date&apos;</span>]=date(<span class="hljs-string">&quot;Y-m-d&quot;</span>);
+        $ary[<span class="hljs-string">&apos;num&apos;</span>]=<span class="hljs-number">1</span>;
+        insert($ary,<span class="hljs-string">&quot;t3_visit&quot;</span>);
+        $_SESSION[<span class="hljs-string">&apos;visit_num&apos;</span>]=<span class="hljs-number">1</span>;<span class="hljs-comment">//&#x62DC;&#x8A2A;&#x6578;&#x56DE;&#x5B58;</span>
     }
-    <span class="hljs-keyword">else</span> $today_visit=$row[<span class="hljs-string">&apos;num&apos;</span>];  <span class="hljs-comment">//for include t3.second</span>
+    <span class="hljs-keyword">else</span>{
+        $ary[<span class="hljs-string">&apos;num+1&apos;</span>]=$result[<span class="hljs-number">0</span>][<span class="hljs-string">&apos;id&apos;</span>];<span class="hljs-comment">//&#x66F4;&#x65B0;&#x62DC;&#x8A2A;&#x6578;+1</span>
+        update($ary,<span class="hljs-string">&quot;t3_visit&quot;</span>);
+        $_SESSION[<span class="hljs-string">&apos;visit_num&apos;</span>]=$result[<span class="hljs-number">0</span>][<span class="hljs-string">&apos;num&apos;</span>]+<span class="hljs-number">1</span>;<span class="hljs-comment">//&#x525B;&#x53D6;&#x5F97;&#x7684;&#x62DC;&#x8A2A;&#x6578;+1&#x56DE;&#x5B58;</span>
+    }
 }
-$get_check=select(<span class="hljs-string">&quot;visit_t3&quot;</span>,<span class="hljs-string">&quot;&quot;</span>);
-$all_visit=<span class="hljs-number">0</span>;
-<span class="hljs-keyword">foreach</span>($get_check <span class="hljs-keyword">as</span> $row) $all_visit+=$row[<span class="hljs-string">&apos;num&apos;</span>];  <span class="hljs-comment">//for include t3.third</span>
+$result=select(<span class="hljs-string">&quot;t3_visit&quot;</span>,<span class="hljs-number">1</span>);
+$t3total=<span class="hljs-number">0</span>;
+<span class="hljs-keyword">foreach</span>($result <span class="hljs-keyword">as</span> $row) $t3total+=$row[<span class="hljs-string">&apos;num&apos;</span>];<span class="hljs-comment">//&#x8A08;&#x7B97;&#x6240;&#x6709;&#x62DC;&#x8A2A;&#x6578;&#x7E3D;&#x503C;</span>
+</code></pre>
+<h1 id="&#x4FEE;&#x6539;indexphp">&#x4FEE;&#x6539;index.php</h1>
+<p>&#x56DE;&#x5230;&#x524D;&#x53F0;&#x958B;&#x59CB;&#x986F;&#x73FE;(&#x8A18;&#x5F97;include &#x9019;&#x500B;sql.php)</p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-comment">//&#x585E;&#x5165;HTML&#x958B;&#x982D;</span>
+    <span class="hljs-keyword">include</span> <span class="hljs-string">&quot;sql.php&quot;</span>;
 <span class="hljs-meta">?&gt;</span>
 </code></pre>
-<p>&#x505A;&#x597D;&#x8B8A;&#x6578;&#x5C31;&#x56DE;&#x5230;&#x524D;&#x53F0;&#x958B;&#x59CB;&#x986F;&#x73FE;(&#x8A18;&#x5F97;include &#x9019;&#x500B;sql.php)</p>
-<h1 id="&#x4FEE;&#x6539;indexphp">&#x4FEE;&#x6539;index.php</h1>
-<pre><code>&lt;?php //&#x585E;&#x5165;HTML&#x958B;&#x982D;
-    include &quot;sql.php&quot;;
-?&gt;
-</code></pre><p>&#x4FEE;&#x6539;</p>
-<pre><code class="lang-php">&lt;div id=<span class="hljs-string">&quot;title&quot;</span>&gt;
-        <span class="hljs-number">00</span> &#x6708; <span class="hljs-number">00</span> &#x865F; Tuesday | &#x4ECA;&#x65E5;&#x700F;&#x89BD;: <span class="hljs-number">1</span> | &#x7D2F;&#x7A4D;&#x700F;&#x89BD;: <span class="hljs-number">36</span>        &lt;/div&gt;
+<p>&#x4FEE;&#x6539;</p>
+<pre><code class="lang-php"> <span class="hljs-number">00</span> &#x6708; <span class="hljs-number">00</span> &#x865F; Tuesday | &#x4ECA;&#x65E5;&#x700F;&#x89BD;: <span class="hljs-number">1</span> | &#x7D2F;&#x7A4D;&#x700F;&#x89BD;: <span class="hljs-number">36</span>
 </code></pre>
 <p>&#x70BA;</p>
-<pre><code>&lt;div id=&quot;title&quot;&gt;
-    &lt;?=$today?&gt; | &#x4ECA;&#x65E5;&#x700F;&#x89BD;: &lt;?=$today_visit?&gt; | &#x7D2F;&#x7A4D;&#x700F;&#x89BD;: &lt;?=$all_visit?&gt;
-&lt;/div&gt;
-</code></pre><h3 id="3-&#x53F3;&#x908A;&#x7684;&#x56DE;&#x9996;&#x9801;">3. &#x53F3;&#x908A;&#x7684;&#x56DE;&#x9996;&#x9801;</h3>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?</span>=$t3today<span class="hljs-meta">?&gt;</span> | &#x4ECA;&#x65E5;&#x700F;&#x89BD;: <span class="hljs-meta">&lt;?</span>=$_SESSION[<span class="hljs-string">&apos;visit_num&apos;</span>]<span class="hljs-meta">?&gt;</span> | &#x7D2F;&#x7A4D;&#x700F;&#x89BD;: <span class="hljs-meta">&lt;?</span>=$t3total<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<h3 id="3-&#x53F3;&#x908A;&#x7684;&#x56DE;&#x9996;&#x9801;&#x6309;&#x9215;">3. &#x53F3;&#x908A;&#x7684;&#x56DE;&#x9996;&#x9801;&#x6309;&#x9215;</h3>
 <p>&#x8981;&#x5728;&#x53F3;&#x908A;&#x52A0;&#x5165;&lt;a href=&quot;index.php&quot; style=&quot;float:right&quot;&gt;&#x56DE;&#x9996;&#x9801;&lt;/a&gt;&#xFF0C;&#x8DDF;&#x4E0A;&#x9762;&#x540C;&#x6A23;&#x4F4D;&#x7F6E;&#xFF0C;&#x5982;&#x4E0B;</p>
 <pre><code class="lang-php">&lt;div id=<span class="hljs-string">&quot;title&quot;</span>&gt;
-    <span class="hljs-meta">&lt;?</span>=$today<span class="hljs-meta">?&gt;</span> | &#x4ECA;&#x65E5;&#x700F;&#x89BD;: <span class="hljs-meta">&lt;?</span>=$today_visit<span class="hljs-meta">?&gt;</span> | &#x7D2F;&#x7A4D;&#x700F;&#x89BD;: <span class="hljs-meta">&lt;?</span>=$all_visit<span class="hljs-meta">?&gt;</span>
+    <span class="hljs-meta">&lt;?</span>=$t3today<span class="hljs-meta">?&gt;</span> | &#x4ECA;&#x65E5;&#x700F;&#x89BD;: <span class="hljs-meta">&lt;?</span>=$_SESSION[<span class="hljs-string">&apos;visit_num&apos;</span>]<span class="hljs-meta">?&gt;</span> | &#x7D2F;&#x7A4D;&#x700F;&#x89BD;: <span class="hljs-meta">&lt;?</span>=$t3total<span class="hljs-meta">?&gt;</span>
     &lt;a href=<span class="hljs-string">&quot;index.php&quot;</span> style=<span class="hljs-string">&quot;float:right&quot;</span>&gt;&#x56DE;&#x9996;&#x9801;&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
@@ -1102,7 +1095,7 @@ $all_visit=<span class="hljs-number">0</span>;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3. 網站標題 (20%)","level":"1.3.2","depth":2,"next":{"title":"4. 主選單 (15%)","level":"1.3.3","depth":2,"path":"web02/4.md","ref":"web02/4.md","articles":[]},"previous":{"title":"C. 資料庫整理","level":"1.3.1.3","depth":3,"path":"web02/03.md","ref":"web02/03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web02/3.md","mtime":"2019-02-13T13:08:12.225Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-24T10:45:50.929Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. 網站標題 (20%)","level":"1.3.2","depth":2,"next":{"title":"4. 主選單 (15%)","level":"1.3.3","depth":2,"path":"web02/4.md","ref":"web02/4.md","articles":[]},"previous":{"title":"C. 資料庫整理","level":"1.3.1.3","depth":3,"path":"web02/03.md","ref":"web02/03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web02/3.md","mtime":"2019-03-02T09:32:49.449Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-02T16:16:15.076Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
